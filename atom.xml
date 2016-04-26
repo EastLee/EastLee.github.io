@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-26T17:28:59.929Z</updated>
+  <updated>2016-04-26T17:31:47.741Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2016/04/25/viewport/"/>
     <id>http://yoursite.com/2016/04/25/viewport/</id>
     <published>2016-04-25T13:48:12.219Z</published>
-    <updated>2016-04-26T17:28:59.929Z</updated>
+    <updated>2016-04-26T17:31:47.741Z</updated>
     
-    <content type="html">&lt;h4 id=&quot;一、viewport的概念&quot;&gt;&lt;a href=&quot;#一、viewport的概念&quot; class=&quot;headerlink&quot; title=&quot;一、viewport的概念&quot;&gt;&lt;/a&gt;一、viewport的概念&lt;/h4&gt;&lt;h4 id=&quot;1、layout-viewport&quot;&gt;&lt;a href=&quot;#1、layout-viewport&quot; class=&quot;headerlink&quot; title=&quot;1、layout viewport&quot;&gt;&lt;/a&gt;1、layout viewport&lt;/h4&gt;&lt;p&gt;通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，在具体一点，就是浏览器上(也可能是一个app中的webview)用来显示网页的那部分区域，但viewport又不局限于浏览器可视区域的大小，它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。在默认情况下，一般来讲，移动设备上的viewport都是要大于浏览器可视区域的，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。下图是一些设备上浏览器的默认viewport的宽度。&lt;img src=&quot;/2016/04/25/viewport/icon1.png&quot; alt=&quot;icon1.png&quot; title=&quot;&quot;&gt;这个layout viewport的宽度可以通过 document.documentElement.clientWidth 来获取。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;h4 id=&quot;一、viewport的概念&quot;&gt;&lt;a href=&quot;#一、viewport的概念&quot; class=&quot;headerlink&quot; title=&quot;一、viewport的概念&quot;&gt;&lt;/a&gt;一、viewport的概念&lt;/h4&gt;&lt;h4 id=&quot;1、layout-viewport&quot;&gt;&lt;a href=&quot;#1、layout-viewport&quot; class=&quot;headerlink&quot; title=&quot;1、layout viewport&quot;&gt;&lt;/a&gt;1、layout viewport&lt;/h4&gt;&lt;p&gt;通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，在具体一点，就是浏览器上(也可能是一个app中的webview)用来显示网页的那部分区域，但viewport又不局限于浏览器可视区域的大小，它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。在默认情况下，一般来讲，移动设备上的viewport都是要大于浏览器可视区域的，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。下图是一些设备上浏览器的默认viewport的宽度。&lt;img src=&quot;/2016/04/25/viewport/icon1.png&quot; alt=&quot;icon1.png&quot; title=&quot;&quot;&gt;这个layout viewport的宽度可以通过 document.documentElement.clientWidth 来获取。&lt;br&gt; &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;2、visual-viewport&quot;&gt;&lt;a href=&quot;#2、visual-viewport&quot; class=&quot;headerlink&quot; title=&quot;2、visual viewport&quot;&gt;&lt;/a&gt;2、visual viewport&lt;/h4&gt;&lt;p&gt;它是在不同的缩放（initial-scale）情况下浏览器可视区域的大小（需要多少css像素填充），visual viewport的宽度可以通过window.innerWidth 来获取，但在Android 2, Oprea mini 和 UC 8中无法正确获取。&lt;/p&gt;
 &lt;h4 id=&quot;3、ideal-viewport&quot;&gt;&lt;a href=&quot;#3、ideal-viewport&quot; class=&quot;headerlink&quot; title=&quot;3、ideal viewport&quot;&gt;&lt;/a&gt;3、ideal viewport&lt;/h4&gt;&lt;p&gt;这个viewport可以理解为最适合当前机型的viewport。不同的手机的可能拥有不同的ideal viewport,一般iphone手机都是320px，但是安卓设备就比较复杂了，有320px的，有360px的，有384px的等等，关于不同的设备ideal viewport的宽度都为多少，可以到&lt;a href=&quot;http://viewportsizes.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://viewportsizes.com&lt;/a&gt;去查看一下，里面收集了众多设备的理想宽度。&lt;/p&gt;
 &lt;h4 id=&quot;二、像素的理解&quot;&gt;&lt;a href=&quot;#二、像素的理解&quot; class=&quot;headerlink&quot; title=&quot;二、像素的理解&quot;&gt;&lt;/a&gt;二、像素的理解&lt;/h4&gt;&lt;h4 id=&quot;1、物理像素-physical-pixel&quot;&gt;&lt;a href=&quot;#1、物理像素-physical-pixel&quot; class=&quot;headerlink&quot; title=&quot;1、物理像素(physical pixel)&quot;&gt;&lt;/a&gt;1、物理像素(physical pixel)&lt;/h4&gt;&lt;p&gt;一个物理像素是显示器(手机屏幕)上最小的物理显示单元，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。&lt;/p&gt;
