@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-27T13:45:20.199Z</updated>
+  <updated>2016-04-27T13:48:13.656Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://yoursite.com/2016/04/27/image-to-webp/"/>
     <id>http://yoursite.com/2016/04/27/image-to-webp/</id>
     <published>2016-04-27T13:38:17.000Z</published>
-    <updated>2016-04-27T13:45:20.199Z</updated>
+    <updated>2016-04-27T13:48:13.656Z</updated>
     
     <content type="html">&lt;h4 id=&quot;1、webp是什么？&quot;&gt;&lt;a href=&quot;#1、webp是什么？&quot; class=&quot;headerlink&quot; title=&quot;1、webp是什么？&quot;&gt;&lt;/a&gt;1、&lt;a href=&quot;http://baike.baidu.com/link?url=tL9ztrug4h__GQfPznbD0O4-6iDZ5eLEsXdHZ-3crUE0GTcwmwXPtZi4Yvu4P4H2iGq4ru9XNBPG21zYm9FHqa&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;webp是什么？&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;WebP格式，谷歌（google）开发的一种旨在加快图片加载速度的图片格式。图片压缩体积大约只有JPEG的2/3，并能节省大量的服务器带宽资源和数据空间。Facebook Ebay等知名网站已经开始测试并使用WebP格式。但WebP是一种有损压缩。相较编码JPEG文件，编码同样质量的WebP文件需要占用更多的计算资源。&lt;/p&gt;
-&lt;h4 id=&quot;2、目前使用情况&quot;&gt;&lt;a href=&quot;#2、目前使用情况&quot; class=&quot;headerlink&quot; title=&quot;2、目前使用情况&quot;&gt;&lt;/a&gt;2、目前使用情况&lt;/h4&gt;&lt;p&gt;国外的网站：Youtube、Facebook.etc&lt;br&gt;国内的网站：腾讯、淘宝、美团等&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2、目前使用情况&quot;&gt;&lt;a href=&quot;#2、目前使用情况&quot; class=&quot;headerlink&quot; title=&quot;2、目前使用情况&quot;&gt;&lt;/a&gt;2、目前使用情况&lt;/h4&gt;&lt;p&gt;国外的网站：Youtube、Facebook.etc&lt;br&gt;国内的网站：腾讯、淘宝、美团等&lt;br&gt; &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;3、webp兼容性&quot;&gt;&lt;a href=&quot;#3、webp兼容性&quot; class=&quot;headerlink&quot; title=&quot;3、webp兼容性&quot;&gt;&lt;/a&gt;3、webp兼容性&lt;/h4&gt;&lt;h4 id=&quot;支持&quot;&gt;&lt;a href=&quot;#支持&quot; class=&quot;headerlink&quot; title=&quot;支持&quot;&gt;&lt;/a&gt;支持&lt;/h4&gt;&lt;p&gt;chrome opera&lt;br&gt;4s uc&lt;br&gt;5 uc&lt;br&gt;5s uc&lt;br&gt;6 uc&lt;br&gt;6s uc&lt;br&gt;华为荣耀6 qq内置浏览器 微信 uc 自带浏览器&lt;br&gt;魅族 微信 uc 自带浏览器&lt;br&gt;三星（Galay S4） uc 自带浏览器 QQ浏览器&lt;br&gt;红米1s（andr4.3） uc QQ浏览器-v6.4.1 自带浏览器&lt;/p&gt;
 &lt;h4 id=&quot;不支持&quot;&gt;&lt;a href=&quot;#不支持&quot; class=&quot;headerlink&quot; title=&quot;不支持&quot;&gt;&lt;/a&gt;不支持&lt;/h4&gt;&lt;p&gt;58app-v6.5.7&lt;br&gt;4s safari&lt;br&gt;5 safari&lt;br&gt;5s safari&lt;br&gt;6 safari&lt;br&gt;6s safari&lt;br&gt;5s qq内置浏览器&lt;br&gt;6 qq内置浏览器&lt;br&gt;6s qq内置浏览器&lt;br&gt;QQ浏览器-v6.0&lt;br&gt;QQ浏览器-v6.4&lt;br&gt;5微信&lt;br&gt;5s微信&lt;br&gt;6微信&lt;br&gt;6s微信&lt;br&gt;5s 高速浏览器&lt;/p&gt;
 &lt;h4 id=&quot;4、如何转换&quot;&gt;&lt;a href=&quot;#4、如何转换&quot; class=&quot;headerlink&quot; title=&quot;4、如何转换&quot;&gt;&lt;/a&gt;4、如何转换&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://zhitu.isux.us/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;智图&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://isparta.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iSparta&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://storage.googleapis.com/downloads.webmproject.org/releases/webp/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;libwebp&lt;/a&gt;&lt;/p&gt;
