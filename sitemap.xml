@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/04/25/viewport/</loc>
+    <loc>http://yoursite.com/2016/04/27/image-to-webp/</loc>
     
-    <lastmod>2016-05-07T07:47:16.610Z</lastmod>
+    <lastmod>2016-05-07T08:26:29.953Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/04/27/image-to-webp/</loc>
+    <loc>http://yoursite.com/2016/04/25/viewport/</loc>
     
-    <lastmod>2016-05-07T07:37:42.914Z</lastmod>
+    <lastmod>2016-05-07T08:26:07.461Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2016-05-07T08:09:57.299Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2016-05-07T08:09:38.929Z</lastmod>
     
   </url>
   
