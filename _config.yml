@@ -76,3 +76,4 @@ archive_generator:
 deploy:
   type: git
   repo: https://github.com/EastLee/EastLee.github.io.git
+  branch: master
