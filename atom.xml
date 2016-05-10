@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-07T09:05:33.593Z</updated>
+  <updated>2016-05-10T07:20:12.114Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ESL模块处理过程</title>
+    <link href="http://yoursite.com/2016/05/10/esl-run-route/"/>
+    <id>http://yoursite.com/2016/05/10/esl-run-route/</id>
+    <published>2016-05-10T06:07:23.000Z</published>
+    <updated>2016-05-10T07:20:12.114Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;ESL是什么&quot;&gt;&lt;a href=&quot;#ESL是什么&quot; class=&quot;headerlink&quot; title=&quot;ESL是什么&quot;&gt;&lt;/a&gt;ESL是什么&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/EastLee/esl&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ESL&lt;/a&gt;是一个浏览器端、符合AMD的标准加载器，适合于现代web浏览器端应用的入口与模块管理。&lt;br&gt;相比于RequireJS拥有以下优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;体积更小&lt;/li&gt;
+&lt;li&gt;性能更高&lt;/li&gt;
+&lt;li&gt;更健壮&lt;/li&gt;
+&lt;li&gt;不支持非浏览器端使用&lt;/li&gt;
+&lt;li&gt;依赖模块用时定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;ESL模块加载详解&quot;&gt;&lt;a href=&quot;#ESL模块加载详解&quot; class=&quot;headerlink&quot; title=&quot;ESL模块加载详解&quot;&gt;&lt;/a&gt;ESL模块加载详解&lt;/h2&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;esl.js加载模块过程如下：&lt;br&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;ESL是什么&quot;&gt;&lt;a href=&quot;#ESL是什么&quot; class=&quot;headerlink&quot; title=&quot;ESL是什么&quot;&gt;&lt;/a&gt;ESL是什么&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/EastLee/esl&quot;&gt;ESL&lt;/a&gt;是一个浏览器端、符合AMD的标准加载器，适合于现代web浏览器端应用的入口与模块管理。&lt;br&gt;相比于RequireJS拥有以下优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;体积更小&lt;/li&gt;
+&lt;li&gt;性能更高&lt;/li&gt;
+&lt;li&gt;更健壮&lt;/li&gt;
+&lt;li&gt;不支持非浏览器端使用&lt;/li&gt;
+&lt;li&gt;依赖模块用时定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;ESL模块加载详解&quot;&gt;&lt;a href=&quot;#ESL模块加载详解&quot; class=&quot;headerlink&quot; title=&quot;ESL模块加载详解&quot;&gt;&lt;/a&gt;ESL模块加载详解&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="前端模块化" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    
+    
+      <category term="esl" scheme="http://yoursite.com/tags/esl/"/>
+    
+  </entry>
   
   <entry>
     <title>移动端之webp图片</title>
