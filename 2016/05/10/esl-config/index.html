@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/10/esl-config/index.html">
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="config默认配置var requireConf = &amp;#123;    baseUrl: &apos;./&apos;,    paths: &amp;#123;&amp;#125;,    config: &amp;#123;&amp;#125;,    map: &amp;#123;&amp;#125;,    packages: [],    waitSeconds: 0,    noRequests: &amp;#123;&amp;#125;,    urlArgs:">
-<meta property="og:updated_time" content="2016-05-10T10:11:13.340Z">
+<meta property="og:updated_time" content="2016-05-10T10:16:25.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ESL之config配置">
 <meta name="twitter:description" content="config默认配置var requireConf = &amp;#123;    baseUrl: &apos;./&apos;,    paths: &amp;#123;&amp;#125;,    config: &amp;#123;&amp;#125;,    map: &amp;#123;&amp;#125;,    packages: [],    waitSeconds: 0,    noRequests: &amp;#123;&amp;#125;,    urlArgs:">
@@ -359,7 +359,7 @@
 
       
         <h2 id="config默认配置"><a href="#config默认配置" class="headerlink" title="config默认配置"></a>config默认配置</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> requireConf = &#123;</span><br><span class="line">    baseUrl: <span class="string">'./'</span>,</span><br><span class="line">    paths: &#123;&#125;,</span><br><span class="line">    config: &#123;&#125;,</span><br><span class="line">    map: &#123;&#125;,</span><br><span class="line">    packages: [],</span><br><span class="line">    waitSeconds: <span class="number">0</span>,</span><br><span class="line">    noRequests: &#123;&#125;,</span><br><span class="line">    urlArgs: &#123;&#125;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<p>所有的配置初始化在createConfIndex函数中完成</p>
+<p>所有的配置初始化在createConfIndex函数中完成<br><a id="more"></a></p>
 <h2 id="baseUrl"><a href="#baseUrl" class="headerlink" title="baseUrl"></a>baseUrl</h2><p>在整个源码中只有以下两处出现过：<br>createConfIndex对baseUrl的处理<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//处理末尾有或者没有‘/’</span></span><br><span class="line">requireConf.baseUrl = requireConf.baseUrl.replace(<span class="regexp">/\/$/</span>, <span class="string">''</span>) + <span class="string">'/'</span>;</span><br></pre></td></tr></table></figure></p>
 <p>对于baseUrl，末尾可以有“/”也可以没有！</p>
 <p>在toUrl函数中拼接模块的url<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 相对路径时，附加baseUrl(url前面不能有"/")</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="regexp">/^([a-z]&#123;2,10&#125;:\/)?\//i</span>.test(url)) &#123;</span><br><span class="line">      url = requireConf.baseUrl + url;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
