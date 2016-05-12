@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-12T07:21:46.895Z</updated>
+  <updated>2016-05-12T07:24:10.421Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,18 +20,18 @@
     <link href="http://yoursite.com/2016/05/12/form-submit/"/>
     <id>http://yoursite.com/2016/05/12/form-submit/</id>
     <published>2016-05-12T06:47:44.000Z</published>
-    <updated>2016-05-12T07:21:46.895Z</updated>
+    <updated>2016-05-12T07:24:10.421Z</updated>
     
     <content type="html">&lt;h2 id=&quot;表单提交方式&quot;&gt;&lt;a href=&quot;#表单提交方式&quot; class=&quot;headerlink&quot; title=&quot;表单提交方式&quot;&gt;&lt;/a&gt;表单提交方式&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;input[type=submit]&lt;/li&gt;
 &lt;li&gt;button[type=submit]&lt;/li&gt;
 &lt;li&gt;input[type=image]&lt;/li&gt;
 &lt;li&gt;form对象调用submit()方法&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;submit事件&lt;/p&gt;
+&lt;li&gt;submit事件&lt;/li&gt;
+&lt;/ul&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;阻止表单提交&quot;&gt;&lt;a href=&quot;#阻止表单提交&quot; class=&quot;headerlink&quot; title=&quot;阻止表单提交&quot;&gt;&lt;/a&gt;阻止表单提交&lt;/h2&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;设置提交按钮disabled属性&lt;/p&gt;
-&lt;/li&gt;
+&lt;h2 id=&quot;阻止表单提交&quot;&gt;&lt;a href=&quot;#阻止表单提交&quot; class=&quot;headerlink&quot; title=&quot;阻止表单提交&quot;&gt;&lt;/a&gt;阻止表单提交&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;设置提交按钮disabled属性&lt;/li&gt;
 &lt;li&gt;调用submit事件&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
@@ -55,7 +55,8 @@
 &lt;li&gt;button[type=submit]&lt;/li&gt;
 &lt;li&gt;input[type=image]&lt;/li&gt;
 &lt;li&gt;form对象调用submit()方法&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;submit事件&lt;/p&gt;
+&lt;li&gt;submit事件&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
