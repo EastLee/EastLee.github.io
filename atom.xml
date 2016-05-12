@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-11T09:09:22.874Z</updated>
+  <updated>2016-05-12T07:21:46.895Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>表单提交问题</title>
+    <link href="http://yoursite.com/2016/05/12/form-submit/"/>
+    <id>http://yoursite.com/2016/05/12/form-submit/</id>
+    <published>2016-05-12T06:47:44.000Z</published>
+    <updated>2016-05-12T07:21:46.895Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;表单提交方式&quot;&gt;&lt;a href=&quot;#表单提交方式&quot; class=&quot;headerlink&quot; title=&quot;表单提交方式&quot;&gt;&lt;/a&gt;表单提交方式&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;input[type=submit]&lt;/li&gt;
+&lt;li&gt;button[type=submit]&lt;/li&gt;
+&lt;li&gt;input[type=image]&lt;/li&gt;
+&lt;li&gt;form对象调用submit()方法&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;submit事件&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;阻止表单提交&quot;&gt;&lt;a href=&quot;#阻止表单提交&quot; class=&quot;headerlink&quot; title=&quot;阻止表单提交&quot;&gt;&lt;/a&gt;阻止表单提交&lt;/h2&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;设置提交按钮disabled属性&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;调用submit事件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1、调用submit方法的时候不会触发submit事件，但是与之对应的有一个重置表单方法reset，调用后会触发reset事件。&lt;br&gt;2、在点击提交按钮的时候，先触发click事件，再触发submit事件&lt;br&gt;3、type=image的表单元素通过表单 elements 属性是获取不到的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;submit事件&quot;&gt;&lt;a href=&quot;#submit事件&quot; class=&quot;headerlink&quot; title=&quot;submit事件&quot;&gt;&lt;/a&gt;submit事件&lt;/h2&gt;&lt;h3 id=&quot;demo1绑定&quot;&gt;&lt;a href=&quot;#demo1绑定&quot; class=&quot;headerlink&quot; title=&quot;demo1绑定&quot;&gt;&lt;/a&gt;demo1绑定&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;myform.onsubmit = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这种方式直接返回false即可&lt;/p&gt;
+&lt;h3 id=&quot;demo2绑定&quot;&gt;&lt;a href=&quot;#demo2绑定&quot; class=&quot;headerlink&quot; title=&quot;demo2绑定&quot;&gt;&lt;/a&gt;demo2绑定&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;addListener&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;element, type, handler&lt;/span&gt;)&lt;/span&gt;&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!element) &amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (element.addEventListener) &amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        element.addEventListener(type, handler, &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;span class=&quot;comment&quot;&gt;//for ie  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        element.attachEvent(&lt;span class=&quot;string&quot;&gt;&quot;on&quot;&lt;/span&gt; + type, handler);  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;addListener(obj, &lt;span class=&quot;string&quot;&gt;&#39;submit&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;以上提交方式在ie下可以阻止表单提交，但是在ff或者chrome却不行，究其原因是addListener中的事件处理函数没有返回值，写了也白写！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The listener parameter is a EventListener object.Object EventListener：This is an ECMAScript function reference. This method has no return value. The parameter is a Event object.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解决方法：&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;addListener(obj, &lt;span class=&quot;string&quot;&gt;&#39;submit&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;e&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; e = e || &lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.event;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(e.preventDefault)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.preventDefault();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.returnValue = &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;脚本处理完自己的工作后由元素处理事件，元素可以通过事件对象判断是否执行默认操作！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;表单提交方式&quot;&gt;&lt;a href=&quot;#表单提交方式&quot; class=&quot;headerlink&quot; title=&quot;表单提交方式&quot;&gt;&lt;/a&gt;表单提交方式&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;input[type=submit]&lt;/li&gt;
+&lt;li&gt;button[type=submit]&lt;/li&gt;
+&lt;li&gt;input[type=image]&lt;/li&gt;
+&lt;li&gt;form对象调用submit()方法&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;submit事件&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="HTML" scheme="http://yoursite.com/categories/HTML/"/>
+    
+    
+      <category term="form" scheme="http://yoursite.com/tags/form/"/>
+    
+  </entry>
   
   <entry>
     <title>PS一键切图</title>
