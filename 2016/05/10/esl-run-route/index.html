@@ -74,8 +74,6 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml" />
-
 
 
 
@@ -109,7 +107,7 @@ ESL模块加载详解">
 
 ESL模块加载详解">
 <meta property="og:image" content="http://yoursite.com/2016/05/10/esl-run-route/esl-run-route.png">
-<meta property="og:updated_time" content="2016-05-10T13:29:33.227Z">
+<meta property="og:updated_time" content="2016-05-10T13:29:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ESL模块处理过程">
 <meta name="twitter:description" content="ESL是什么ESL是一个浏览器端、符合AMD的标准加载器，适合于现代web浏览器端应用的入口与模块管理。相比于RequireJS拥有以下优点：
@@ -399,13 +397,13 @@ ESL模块加载详解">
 <p>3、define函数生产出模块的id、依赖模块和callback；</p>
 <p>4、等到define文件执行完成，loadedListener会通过completePreDefine将模块数据加入到modModules中；</p>
 <p>5、最后通过modAnalyse分析依赖模块的属性以及处理url，其中会调用modAutoInvoke（核心函数）处理最后的结果，如果依赖的模块还存在没有加载的，再次统一放入nativeRequire中，循环上面的过程！</p>
-<h2 id="核心函数modAutoInvoke分析"><a href="#核心函数modAutoInvoke分析" class="headerlink" title="核心函数modAutoInvoke分析"></a>核心函数modAutoInvoke分析</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//核心函数 递归设置所有模块状态为3，递归执行所有invokeFactory</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">modAutoInvoke</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> id <span class="keyword">in</span> autoDefineModules) &#123;</span><br><span class="line">      modUpdatePreparedState(id); <span class="comment">//一次性设置有依赖关系的模块为状态3</span></span><br><span class="line">      modTryInvokeFactory(id);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="核心函数modAutoInvoke分析"><a href="#核心函数modAutoInvoke分析" class="headerlink" title="核心函数modAutoInvoke分析"></a>核心函数modAutoInvoke分析</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//核心函数 递归设置所有模块状态为3，递归执行所有invokeFactory</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">modAutoInvoke</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> id <span class="keyword">in</span> autoDefineModules) &#123;</div><div class="line">      modUpdatePreparedState(id); <span class="comment">//一次性设置有依赖关系的模块为状态3</span></div><div class="line">      modTryInvokeFactory(id);</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>autoDefineModules数组存放着作为入口的模块；</li>
 <li>modUpdatePreparedState的作用：采用递归遍历所有模块，检测依赖的模块是否都是状态3，如果是，autoDefineModules中对应的模块状态可以设置为3，如果不是，则不能设置为3；</li>
 <li>modTryInvokeFactory的作用是在autoDefineModules中模块状态达到3时，执行InvokeFactory；</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    <span class="comment">//invokeFactory中的两段代码</span></span><br><span class="line">    each(<span class="built_in">module</span>.factoryDeps, <span class="function"><span class="keyword">function</span>(<span class="params">dep</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> depId = dep.absId;</span><br><span class="line">        <span class="keyword">if</span> (!BUILDIN_MODULE[depId]) &#123;</span><br><span class="line">          modTryInvokeFactory(depId); <span class="comment">//递归执行依赖模块的invokeFactory</span></span><br><span class="line">          <span class="keyword">if</span> (!modIs(depId, MODULE_DEFINED)) &#123; <span class="comment">//所有依赖的模块必须达到MODULE_DEFINED</span></span><br><span class="line">            factoryReady = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        factoryDeps.push(depId); <span class="comment">//达到MODULE_DEFINED状态的模块被推入factoryDeps中</span></span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">//所有依赖的模块必须达到MODULE_DEFINED就可以执行下面的代码</span></span><br><span class="line">    <span class="keyword">if</span> (factoryReady) &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> args = modGetModulesExports( <span class="comment">//依赖模块的输出</span></span><br><span class="line">          factoryDeps, &#123;</span><br><span class="line">            <span class="built_in">require</span>: <span class="built_in">module</span>.require,</span><br><span class="line">            exports: <span class="built_in">module</span>.exports,</span><br><span class="line">            <span class="built_in">module</span>: <span class="built_in">module</span></span><br><span class="line">          &#125;</span><br><span class="line">        );</span><br><span class="line">        <span class="keyword">var</span> factory = <span class="built_in">module</span>.factory;</span><br><span class="line">        <span class="keyword">var</span> exports = <span class="keyword">typeof</span> factory === <span class="string">'function'</span> ? factory.apply(global, args) : factory;</span><br><span class="line">        <span class="keyword">if</span> (exports != <span class="literal">null</span>) &#123;</span><br><span class="line">          <span class="built_in">module</span>.exports = exports;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">module</span>.invokeFactory = <span class="literal">null</span>;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (ex) &#123;&#125;</span><br><span class="line">      modDefined(id); <span class="comment">//设置为状态4,执行监听函数</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">    <span class="comment">//invokeFactory中的两段代码</span></div><div class="line">    each(<span class="built_in">module</span>.factoryDeps, <span class="function"><span class="keyword">function</span>(<span class="params">dep</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> depId = dep.absId;</div><div class="line">        <span class="keyword">if</span> (!BUILDIN_MODULE[depId]) &#123;</div><div class="line">          modTryInvokeFactory(depId); <span class="comment">//递归执行依赖模块的invokeFactory</span></div><div class="line">          <span class="keyword">if</span> (!modIs(depId, MODULE_DEFINED)) &#123; <span class="comment">//所有依赖的模块必须达到MODULE_DEFINED</span></div><div class="line">            factoryReady = <span class="number">0</span>;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">        factoryDeps.push(depId); <span class="comment">//达到MODULE_DEFINED状态的模块被推入factoryDeps中</span></div><div class="line">      &#125;</div><div class="line">    );</div><div class="line"></div><div class="line">    <span class="comment">//所有依赖的模块必须达到MODULE_DEFINED就可以执行下面的代码</span></div><div class="line">    <span class="keyword">if</span> (factoryReady) &#123;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">        <span class="keyword">var</span> args = modGetModulesExports( <span class="comment">//依赖模块的输出</span></div><div class="line">          factoryDeps, &#123;</div><div class="line">            <span class="attr">require</span>: <span class="built_in">module</span>.require,</div><div class="line">            <span class="attr">exports</span>: <span class="built_in">module</span>.exports,</div><div class="line">            <span class="attr">module</span>: <span class="built_in">module</span></div><div class="line">          &#125;</div><div class="line">        );</div><div class="line">        <span class="keyword">var</span> factory = <span class="built_in">module</span>.factory;</div><div class="line">        <span class="keyword">var</span> exports = <span class="keyword">typeof</span> factory === <span class="string">'function'</span> ? factory.apply(global, args) : factory;</div><div class="line">        <span class="keyword">if</span> (exports != <span class="literal">null</span>) &#123;</div><div class="line">          <span class="built_in">module</span>.exports = exports;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">module</span>.invokeFactory = <span class="literal">null</span>;</div><div class="line">      &#125; <span class="keyword">catch</span> (ex) &#123;&#125;</div><div class="line">      modDefined(id); <span class="comment">//设置为状态4,执行监听函数</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>以上是invokeFactory中的两段代码，这个函数的作用就是输出模块的执行结果，但是在输出自身之前必须通过modTryInvokeFactory递归所有依赖的模块，这些依赖的模块也都必须输出执行结果，赋值在exports中，供父模块调用！</p>
 <h2 id="核心函数modAutoInvoke调用"><a href="#核心函数modAutoInvoke调用" class="headerlink" title="核心函数modAutoInvoke调用"></a>核心函数modAutoInvoke调用</h2><p>在整个源文件中，调用modAutoInvoke主要有两处，一个是modAnalyse最后执行，在当前模块分析完毕，状态达到2时调用，另外一处是nativeRequire中！核心思想就是在每处理一个模块，都要从入口模块递归依赖的所有模块，以达到一旦所有模块准备就绪，就可以执行require的callback函数！</p>
 <blockquote>
@@ -441,8 +439,8 @@ ESL模块加载详解">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/27/image-to-webp/" rel="next" title="移动端之webp图片">
-                <i class="fa fa-chevron-left"></i> 移动端之webp图片
+              <a href="/2016/05/07/viewport/" rel="next" title="viewport">
+                <i class="fa fa-chevron-left"></i> viewport
               </a>
             
           </div>
@@ -542,7 +540,7 @@ ESL模块加载详解">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -550,7 +548,7 @@ ESL模块加载详解">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -559,7 +557,7 @@ ESL模块加载详解">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -567,13 +565,6 @@ ESL模块加载详解">
 
         </nav>
 
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
         
 
         <div class="links-of-author motion-element">
