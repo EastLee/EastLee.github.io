@@ -361,9 +361,12 @@
 
       
         
-          
-            
-          
+          <h2 id="bell-on-bundler-error-plugin"><a href="#bell-on-bundler-error-plugin" class="headerlink" title="bell-on-bundler-error-plugin"></a>bell-on-bundler-error-plugin</h2><p>bell-on-bundler-error-plugin会通知您在打包构建过程中的错误<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">BellOnBundlerErrorPlugin</span> (<span class="params"></span>) </span>&#123; &#125;</div><div class="line"></div><div class="line">BellOnBundlerErrorPlugin.prototype.apply = <span class="function"><span class="keyword">function</span>(<span class="params">compiler</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span>(process) !== <span class="string">'undefined'</span>)&#123;</div><div class="line">        compiler.plugin(<span class="string">'done'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">stats</span>) </span>&#123; <span class="keyword">if</span> (stats.hasErrors()) process.stderr.write(<span class="string">'\x07'</span>) &#125;)</div><div class="line">        compiler.plugin(<span class="string">'failed'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123; process.stderr.write(<span class="string">'\x07'</span>) &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = BellOnBundlerErrorPlugin</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/18/webpack-plugin/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
