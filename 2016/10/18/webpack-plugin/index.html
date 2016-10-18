@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="bell-on-bundler-error-pluginbell-on-bundler-error-plugin会通知您在打包构建过程中的错误function BellOnBundlerErrorPlugin () &amp;#123; &amp;#125;BellOnBundlerErrorPlugin.prototype.apply = function(compiler) &amp;#123;    if (typ">
 <meta property="og:image" content="http://yoursite.com/2016/10/18/webpack-plugin/CommonsChunkPlugin1.png">
-<meta property="og:updated_time" content="2016-10-18T11:49:45.000Z">
+<meta property="og:updated_time" content="2016-10-18T12:27:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack.plugin">
 <meta name="twitter:description" content="bell-on-bundler-error-pluginbell-on-bundler-error-plugin会通知您在打包构建过程中的错误function BellOnBundlerErrorPlugin () &amp;#123; &amp;#125;BellOnBundlerErrorPlugin.prototype.apply = function(compiler) &amp;#123;    if (typ">
@@ -360,7 +360,14 @@
       
         <h2 id="bell-on-bundler-error-plugin"><a href="#bell-on-bundler-error-plugin" class="headerlink" title="bell-on-bundler-error-plugin"></a>bell-on-bundler-error-plugin</h2><p>bell-on-bundler-error-plugin会通知您在打包构建过程中的错误<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">BellOnBundlerErrorPlugin</span> (<span class="params"></span>) </span>&#123; &#125;</div><div class="line"></div><div class="line">BellOnBundlerErrorPlugin.prototype.apply = <span class="function"><span class="keyword">function</span>(<span class="params">compiler</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span>(process) !== <span class="string">'undefined'</span>)&#123;</div><div class="line">        compiler.plugin(<span class="string">'done'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">stats</span>) </span>&#123; <span class="keyword">if</span> (stats.hasErrors()) process.stderr.write(<span class="string">'\x07'</span>) &#125;)</div><div class="line">        compiler.plugin(<span class="string">'failed'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123; process.stderr.write(<span class="string">'\x07'</span>) &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = BellOnBundlerErrorPlugin</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h2 id="CommonsChunkPlugin"><a href="#CommonsChunkPlugin" class="headerlink" title="CommonsChunkPlugin"></a>CommonsChunkPlugin</h2><p>Webpack中将打包后的文件都称之为“Chunk”。这个插件可以将多个打包后的资源中的公共部分打包成单独的文件。智能提取公共部分来方便多页面之间进行复用!先看一个简单的<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example4.webpack" target="_blank" rel="external">例子</a>,运行一下，<br><img src="/2016/10/18/webpack-plugin/CommonsChunkPlugin1.png" alt="CommonsChunkPlugin1.png" title=""></p>
+<h2 id="CommonsChunkPlugin"><a href="#CommonsChunkPlugin" class="headerlink" title="CommonsChunkPlugin"></a>CommonsChunkPlugin</h2><p>Webpack中将打包后的文件都称之为“Chunk”。这个插件可以将多个打包后的资源中的公共部分打包成单独的文件。智能提取公共部分来方便多页面之间进行复用!先看一个简单的<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example4.webpack" target="_blank" rel="external">例子</a>，运行一下，从下图可知，公共部分已经被独立出来，在html必须先被加载！<br><img src="/2016/10/18/webpack-plugin/CommonsChunkPlugin1.png" alt="CommonsChunkPlugin1.png" title=""><br>提取的公共部分的common，还可以再和其他文件继续提取common，来看一个稍微复杂的<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example5.webpack" target="_blank" rel="external">例子</a>,在index.html中改变js的引用文件，就可以看见效果！</p>
+<ul>
+<li>page5.html: commons.js, ap1.js</li>
+<li>page4.html: commons.js, ap2.js</li>
+<li>page3.html: p3.js</li>
+<li>page2.html: commons.js, admin-commons.js, p1.js</li>
+<li>page1.html: commons.js, admin-commons.js, p2.js</li>
+</ul>
 
       
     </div>
