@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
 全局安装webpack$ npm install webpack -g">
-<meta property="og:updated_time" content="2016-10-17T16:09:22.000Z">
+<meta property="og:updated_time" content="2016-10-18T10:00:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack.learning">
 <meta name="twitter:description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
@@ -365,7 +365,7 @@
 <h2 id="运行例子"><a href="#运行例子" class="headerlink" title="运行例子"></a>运行例子</h2><p>进入<a href="https://github.com/EastLee/webpack-gulp-react" target="_blank" rel="external">文件</a>，首先运行 npm install，安装所需要的依赖，然后可以打开<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example1.webpack" target="_blank" rel="external">example1.webpack</a>文件夹，运行下面的命令：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack src/index.js dist/index.js</div></pre></td></tr></table></figure></p>
 <p>之后打开index.html就可以看见运行效果！</p>
 <h2 id="生成配置文件webpack-config-js"><a href="#生成配置文件webpack-config-js" class="headerlink" title="生成配置文件webpack.config.js"></a>生成配置文件webpack.config.js</h2><p>查看第二个<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example2.webpack" target="_blank" rel="external">例子</a>,进入文件，只要运行如下命令即可，<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack</div></pre></td></tr></table></figure></p>
-<p>此时webpack就会自动运行这个配置文件</p>
+<p>此时webpack就会自动运行这个配置文件,如果想配置多个config文件，用如下命令：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack --config webpack.config.prod.js</div></pre></td></tr></table></figure></p>
 <h2 id="编译React"><a href="#编译React" class="headerlink" title="编译React"></a>编译React</h2><p>安装一下插件<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ npm install babel-loader babel-core babel-preset-es2015 babel-preset-stage<span class="number">-0</span> babel-preset-react babel-polyfill --save-dev</div><div class="line"></div><div class="line">$ npm install react react-dom --save</div></pre></td></tr></table></figure></p>
 <p>babel-core是babel6的基础模块,babel-loader和babel-preset-es2015用于编译ES6语法的js，babel-preset-stage-0主要是应对ES7语法标准的插件，babel-preset-react用于编译react。先看一个<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example3.webpack" target="_blank" rel="external">栗子</a></p>
 <h2 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="babel-polyfill"></a>babel-polyfill</h2><p>Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。<br>举例来说，ES6在Array对象上新增了Array.from方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用babel-polyfill，为当前环境提供一个垫片。</p>
