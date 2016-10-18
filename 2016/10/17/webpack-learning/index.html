@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
 全局安装webpack$ npm install webpack -g">
-<meta property="og:updated_time" content="2016-10-18T10:00:30.000Z">
+<meta property="og:updated_time" content="2016-10-18T10:08:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack.learning">
 <meta name="twitter:description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
@@ -370,6 +370,12 @@
 <p>babel-core是babel6的基础模块,babel-loader和babel-preset-es2015用于编译ES6语法的js，babel-preset-stage-0主要是应对ES7语法标准的插件，babel-preset-react用于编译react。先看一个<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example3.webpack" target="_blank" rel="external">栗子</a></p>
 <h2 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="babel-polyfill"></a>babel-polyfill</h2><p>Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。<br>举例来说，ES6在Array对象上新增了Array.from方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用babel-polyfill，为当前环境提供一个垫片。</p>
 <p>引入代码：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span>;</div><div class="line"><span class="comment">// 或者</span></div><div class="line"><span class="built_in">require</span>(<span class="string">'babel-polyfill'</span>);</div></pre></td></tr></table></figure></p>
+<h2 id="webpack打包css"><a href="#webpack打包css" class="headerlink" title="webpack打包css"></a>webpack打包css</h2><p>安装如下几个loader：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ npm install style-loader css-loader sass-loader --save-dev</div></pre></td></tr></table></figure></p>
+<ul>
+<li>style-loader 将css插入到页面的style标签</li>
+<li>css-loader 是处理css文件中的url()等</li>
+<li>sass-loader 是将sass文件编译成css</li>
+</ul>
 
       
     </div>
@@ -407,6 +413,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/18/webpack-plugin/" rel="prev" title="webpack.plugin">
+                webpack.plugin <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -497,7 +507,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -554,7 +564,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Node"><span class="nav-number">1.</span> <span class="nav-text">安装Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装webpack"><span class="nav-number">2.</span> <span class="nav-text">全局安装webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行例子"><span class="nav-number">3.</span> <span class="nav-text">运行例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成配置文件webpack-config-js"><span class="nav-number">4.</span> <span class="nav-text">生成配置文件webpack.config.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译React"><span class="nav-number">5.</span> <span class="nav-text">编译React</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#babel-polyfill"><span class="nav-number">6.</span> <span class="nav-text">babel-polyfill</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Node"><span class="nav-number">1.</span> <span class="nav-text">安装Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装webpack"><span class="nav-number">2.</span> <span class="nav-text">全局安装webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行例子"><span class="nav-number">3.</span> <span class="nav-text">运行例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成配置文件webpack-config-js"><span class="nav-number">4.</span> <span class="nav-text">生成配置文件webpack.config.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译React"><span class="nav-number">5.</span> <span class="nav-text">编译React</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#babel-polyfill"><span class="nav-number">6.</span> <span class="nav-text">babel-polyfill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack打包css"><span class="nav-number">7.</span> <span class="nav-text">webpack打包css</span></a></li></ol></div>
             
           </div>
         </section>
