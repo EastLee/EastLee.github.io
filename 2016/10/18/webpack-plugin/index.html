@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="bell-on-bundler-error-pluginbell-on-bundler-error-plugin会通知您在打包构建过程中的错误function BellOnBundlerErrorPlugin () &amp;#123; &amp;#125;BellOnBundlerErrorPlugin.prototype.apply = function(compiler) &amp;#123;    if (typ">
 <meta property="og:image" content="http://yoursite.com/2016/10/18/webpack-plugin/CommonsChunkPlugin1.png">
-<meta property="og:updated_time" content="2016-10-18T12:27:27.000Z">
+<meta property="og:updated_time" content="2016-10-22T02:30:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack.plugin">
 <meta name="twitter:description" content="bell-on-bundler-error-pluginbell-on-bundler-error-plugin会通知您在打包构建过程中的错误function BellOnBundlerErrorPlugin () &amp;#123; &amp;#125;BellOnBundlerErrorPlugin.prototype.apply = function(compiler) &amp;#123;    if (typ">
@@ -368,7 +368,11 @@
 <li>page2.html: commons.js, admin-commons.js, p1.js</li>
 <li>page1.html: commons.js, admin-commons.js, p2.js</li>
 </ul>
-
+<h2 id="extract-text-webpack-plugin"><a href="#extract-text-webpack-plugin" class="headerlink" title="extract-text-webpack-plugin"></a>extract-text-webpack-plugin</h2><p>独立出css样式，单独打包CSS，通过<link>引入样式而不是放在<style>标签内</p>
+<p>API</p>
+<p>ExtractTextPlugin.extract([notExtractLoader], loader, [options])</p>
+<p>noExtractLoader可选参数，未提取的css会被这个loader处理。<br>loader列表，将资源转换为导出的css module，必选<br>ExtractTextPlugin.extract会在这个loader列表前插入一个loader，并且最后会执行loader列表所返回的module,<br>本人尝试这个插件，无论同一个入口中引入多少css文件，都被打包成一个css，不同的入口会单独打包一个，看一个<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example6.webpack">例子</a></p>
+</style></p>
       
     </div>
 
@@ -552,7 +556,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bell-on-bundler-error-plugin"><span class="nav-number">1.</span> <span class="nav-text">bell-on-bundler-error-plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CommonsChunkPlugin"><span class="nav-number">2.</span> <span class="nav-text">CommonsChunkPlugin</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bell-on-bundler-error-plugin"><span class="nav-number">1.</span> <span class="nav-text">bell-on-bundler-error-plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CommonsChunkPlugin"><span class="nav-number">2.</span> <span class="nav-text">CommonsChunkPlugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extract-text-webpack-plugin"><span class="nav-number">3.</span> <span class="nav-text">extract-text-webpack-plugin</span></a></li></ol></div>
             
           </div>
         </section>
