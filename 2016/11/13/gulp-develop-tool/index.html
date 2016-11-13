@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="html," />
+  <meta name="keywords" content="gulp," />
 
 
 
@@ -84,24 +84,28 @@
 
 
 
-<meta name="description" content="viewport的概念layout viewport通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，在具体一点，就是浏览器上(也可能是一个app中的webview)用来显示网页的那部分区域，但viewport又不局限于浏览器可视区域的大小，它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。在默认情况下，一般来讲，移动设备上的viewport都是要大">
+<meta name="description" content="背景目前网上有众多的构建工具，比如webpack、gulp、grunt还有fis等等，除了grunt，小生都有尝试过。先前本司一众大神推广过fis，进行过很多期讲座培训，由于公司的小白比较多，显然效果不太好，原因如下：
+
+很多人仓促去听讲座，根本没看文档，所以听的云里雾里
+fis相对比较笨重，有一定的学习成本，配置眼花缭乱
+最最主要的是需求，习惯于用各种小工具搞定生产中的环节，还不容易出问题，而且">
 <meta property="og:type" content="article">
-<meta property="og:title" content="viewport">
-<meta property="og:url" content="http://yoursite.com/2016/05/07/viewport/index.html">
+<meta property="og:title" content="一个基于自身业务的前端简单生产工具">
+<meta property="og:url" content="http://yoursite.com/2016/11/13/gulp-develop-tool/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="viewport的概念layout viewport通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，在具体一点，就是浏览器上(也可能是一个app中的webview)用来显示网页的那部分区域，但viewport又不局限于浏览器可视区域的大小，它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。在默认情况下，一般来讲，移动设备上的viewport都是要大">
-<meta property="og:image" content="http://yoursite.com/2016/05/07/viewport/icon1.png">
-<meta property="og:image" content="http://yoursite.com/2016/05/07/viewport/icon2.gif">
-<meta property="og:image" content="http://yoursite.com/2016/05/07/viewport/icon3.png">
-<meta property="og:image" content="http://yoursite.com/2016/05/07/viewport/icon4.png">
-<meta property="og:image" content="http://yoursite.com/2016/05/07/viewport/icon5.png">
-<meta property="og:image" content="http://yoursite.com/2016/05/07/viewport/icon6.jpg">
-<meta property="og:image" content="http://yoursite.com/2016/05/07/viewport/icon7.jpg">
-<meta property="og:updated_time" content="2016-05-07T08:47:40.000Z">
+<meta property="og:description" content="背景目前网上有众多的构建工具，比如webpack、gulp、grunt还有fis等等，除了grunt，小生都有尝试过。先前本司一众大神推广过fis，进行过很多期讲座培训，由于公司的小白比较多，显然效果不太好，原因如下：
+
+很多人仓促去听讲座，根本没看文档，所以听的云里雾里
+fis相对比较笨重，有一定的学习成本，配置眼花缭乱
+最最主要的是需求，习惯于用各种小工具搞定生产中的环节，还不容易出问题，而且">
+<meta property="og:updated_time" content="2016-11-13T15:38:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="viewport">
-<meta name="twitter:description" content="viewport的概念layout viewport通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，在具体一点，就是浏览器上(也可能是一个app中的webview)用来显示网页的那部分区域，但viewport又不局限于浏览器可视区域的大小，它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。在默认情况下，一般来讲，移动设备上的viewport都是要大">
-<meta name="twitter:image" content="http://yoursite.com/2016/05/07/viewport/icon1.png">
+<meta name="twitter:title" content="一个基于自身业务的前端简单生产工具">
+<meta name="twitter:description" content="背景目前网上有众多的构建工具，比如webpack、gulp、grunt还有fis等等，除了grunt，小生都有尝试过。先前本司一众大神推广过fis，进行过很多期讲座培训，由于公司的小白比较多，显然效果不太好，原因如下：
+
+很多人仓促去听讲座，根本没看文档，所以听的云里雾里
+fis相对比较笨重，有一定的学习成本，配置眼花缭乱
+最最主要的是需求，习惯于用各种小工具搞定生产中的环节，还不容易出问题，而且">
 
 
 
@@ -119,7 +123,7 @@
   };
 </script>
 
-  <title> viewport | EastLee </title>
+  <title> 一个基于自身业务的前端简单生产工具 | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +286,7 @@
             
             
               
-                viewport
+                一个基于自身业务的前端简单生产工具
               
             
           </h1>
@@ -294,8 +298,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-07T16:47:40+08:00" content="2016-05-07">
-              2016-05-07
+            <time itemprop="dateCreated" datetime="2016-11-13T21:37:43+08:00" content="2016-11-13">
+              2016-11-13
             </time>
           </span>
 
@@ -308,8 +312,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
+                  <a href="/categories/构建工具/" itemprop="url" rel="index">
+                    <span itemprop="name">构建工具</span>
                   </a>
                 </span>
 
@@ -324,8 +328,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/07/viewport/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/viewport/" itemprop="commentsCount"></span>
+                <a href="/2016/11/13/gulp-develop-tool/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/13/gulp-develop-tool/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -335,7 +339,7 @@
              
           
           
-             <span id="/2016/05/07/viewport/" class="leancloud_visitors" data-flag-title="viewport">
+             <span id="/2016/11/13/gulp-develop-tool/" class="leancloud_visitors" data-flag-title="一个基于自身业务的前端简单生产工具">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -357,30 +361,63 @@
       
 
       
-        <h2 id="viewport的概念"><a href="#viewport的概念" class="headerlink" title="viewport的概念"></a>viewport的概念</h2><h3 id="layout-viewport"><a href="#layout-viewport" class="headerlink" title="layout viewport"></a>layout viewport</h3><p>通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，在具体一点，就是浏览器上(也可能是一个app中的webview)用来显示网页的那部分区域，但viewport又不局限于浏览器可视区域的大小，它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。在默认情况下，一般来讲，移动设备上的viewport都是要大于浏览器可视区域的，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。下图是一些设备上浏览器的默认viewport的宽度。<img src="/2016/05/07/viewport/icon1.png" alt="icon1.png" title="">这个layout viewport的宽度可以通过 document.documentElement.clientWidth 来获取。<br> <a id="more"></a></p>
-<h3 id="visual-viewport"><a href="#visual-viewport" class="headerlink" title="visual viewport"></a>visual viewport</h3><p>它是在不同的缩放（initial-scale）情况下浏览器可视区域的大小（需要多少css像素填充），visual viewport的宽度可以通过window.innerWidth 来获取，但在Android 2, Oprea mini 和 UC 8中无法正确获取。</p>
-<h3 id="ideal-viewport"><a href="#ideal-viewport" class="headerlink" title="ideal viewport"></a>ideal viewport</h3><p>这个viewport可以理解为最适合当前机型的viewport。不同的手机的可能拥有不同的ideal viewport,一般iphone手机都是320px，但是安卓设备就比较复杂了，有320px的，有360px的，有384px的等等，关于不同的设备ideal viewport的宽度都为多少，可以到<a href="http://viewportsizes.com" target="_blank" rel="external">http://viewportsizes.com</a>去查看一下，里面收集了众多设备的理想宽度。</p>
-<h2 id="像素的理解"><a href="#像素的理解" class="headerlink" title="像素的理解"></a>像素的理解</h2><h3 id="物理像素-physical-pixel"><a href="#物理像素-physical-pixel" class="headerlink" title="物理像素(physical pixel)"></a>物理像素(physical pixel)</h3><p>一个物理像素是显示器(手机屏幕)上最小的物理显示单元，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。</p>
-<h3 id="设备独立像素-density-independent-pixel"><a href="#设备独立像素-density-independent-pixel" class="headerlink" title="设备独立像素(density-independent pixel)"></a>设备独立像素(density-independent pixel)</h3><p>设备独立像素(也叫密度无关像素)，可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟像素(比如: css像素)，然后由相关系统转换为物理像素。</p>
-<h3 id="设备像素比-device-pixel-ratio"><a href="#设备像素比-device-pixel-ratio" class="headerlink" title="设备像素比(device pixel ratio )"></a>设备像素比(device pixel ratio )</h3><p>定义了物理像素和设备独立像素的对应关系，它的值可以按如下的公式的得到：</p>
-<p>设备像素比 = 物理像素 / 设备独立像素 // 在某一方向上，x方向或者y方向</p>
-<p>在js中，dpr = window.devicePixelRatio</p>
-<p>在css中，可以通过-webkit-device-pixel-ratio，-webkit-min-device-pixel-ratio和 -webkit-max-device-pixel-ratio进行媒体查询，对不同dpr的设备，做一些样式适配(这里只针对webkit内核的浏览器和webview)。</p>
-<p>综合上面几个概念，一起举例说明下：</p>
-<p>以iphone6为例：设备宽高为375×667，可以理解为设备独立像素(或css像素)。<br>dpr为2，根据上面的计算公式，其物理像素就应该×2，为750×1334。<img src="/2016/05/07/viewport/icon2.gif" alt="icon2.gif" title="">在css像素大小不变的情况下，普通屏幕下，1个css像素 对应 1个物理像素(1:1)，retina屏幕下，1个css像素对应 4个物理像素(1:4)。</p>
-<h2 id="meta-viewport详解"><a href="#meta-viewport详解" class="headerlink" title="meta.viewport详解"></a>meta.viewport详解</h2><h3 id="几个概念"><a href="#几个概念" class="headerlink" title="几个概念"></a>几个概念</h3><p>一般在做移动端页面时，会把<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">这行代码复制到页面中。该meta标签的作用是让当前viewport的宽度等于设备的宽度，同时不允许用户对其进行缩放。一般，width设置layout viewport 的宽度，为一个正整数，或字符串”width-device”；initial-scale 设置页面的初始缩放值，为一个数字，可以带小数；minimum-scale允许用户的最小缩放值，为一个数字，可以带小数；maximum-scale    允许用户的最大缩放值，为一个数字，可以带小数；user-scalable    是否允许用户进行缩放，值为”no”或”yes”, no 代表不允许，yes代表允许。当然还可以设置其他的值，用逗号隔开就可以。</p>
-<h3 id="width和initial-scale在移动端页面中的作用"><a href="#width和initial-scale在移动端页面中的作用" class="headerlink" title="width和initial-scale在移动端页面中的作用"></a>width和initial-scale在移动端页面中的作用</h3><p>（1）通过width=device-width，所有浏览器都能把当前的viewport宽度变成ideal viewport的宽度，但要注意的是，在iphone和ipad上，无论是竖屏还是横屏，宽度都是竖屏时ideal viewport的宽度。<br>（2）initial-scale的缩放是相对于ideal viewport来进行缩放的，当对ideal viewport进行100%的缩放，也就是缩放值为1的时候，得到的就是ideal viewport<br>（3）ideal viewport的值会取width和initial-scale两个中较大的那个值</p>
-<h3 id="关于initial-scale的缩放"><a href="#关于initial-scale的缩放" class="headerlink" title="关于initial-scale的缩放"></a>关于initial-scale的缩放</h3><p>initial-scale是对页面就行缩放（个人理解就是缩放单位css像素的大小），测试如下，在meta中去掉width这一项，visual viewport得出如下数据：<img src="/2016/05/07/viewport/icon3.png" alt="This is an example image" title="This is an example image">从上图可以看出，在屏幕宽度不变的情况下，当initial-scale变小，预示着css像素变小，导致填充整个屏幕需要的css像素就会变多。因此，我们可以得出一个公式：visual viewport宽度 = ideal viewport宽度 / 当前缩放值</p>
-<h3 id="关于width"><a href="#关于width" class="headerlink" title="关于width"></a>关于width</h3><p>去掉initial-scale，测试width。当width=160时，<img src="/2016/05/07/viewport/icon4.png" alt="This is an example image" title="This is an example image">这是因为有些元素把宽高都写死了，此时initial-scale=2，元素都变为原来的2倍，所以导致页面很挤。当width=1280时，<img src="/2016/05/07/viewport/icon5.png" alt="This is an example image" title="This is an example image">这是因为有些元素把宽高都写死了，此时initial-scale=2，元素都变为原来的0.25倍，所以导致页面的元素很小。</p>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>在iphone和ipad上，无论你给viewport设的宽的是多少，如果没有指定默认的缩放值，则iphone和ipad会自动计算这个缩放值，以达到当前页面不会出现横向滚动条(或者说viewport的宽度就是屏幕的宽度)的目的。安卓设备上的initial-scale默认值好像没有方法能够得到，或者就是干脆它就没有默认值，一定要你显示的写出来这个东西才会起作用！</p>
-<h2 id="利用meta-viewport对多屏适配布局"><a href="#利用meta-viewport对多屏适配布局" class="headerlink" title="利用meta.viewport对多屏适配布局"></a>利用meta.viewport对多屏适配布局</h2><h3 id="retina下，border-1px问题"><a href="#retina下，border-1px问题" class="headerlink" title="retina下，border: 1px问题"></a>retina下，border: 1px问题</h3><p>经常border：1px在不同手机上的宽度不一样，如下：<img src="/2016/05/07/viewport/icon6.jpg" alt="This is an example image" title="This is an example image">上图中，对于一条1px宽的直线，它们在屏幕上的物理尺寸(灰色区域)的确是相同的，不同的其实是屏幕上最小的物理显示单元，即物理像素，所以对于一条直线，iphone5它能显示的最小宽度其实是图中的红线圈出来的灰色区域，用css来表示，理论上说是0.5px。所以，设计师想要的retina下border:1px;，其实就是1物理像素宽，对于css而言，可以认为是border: 0.5px;，这是retina下(dpr=2)下能显示的最小单位。</p>
-<h3 id="多屏适配布局"><a href="#多屏适配布局" class="headerlink" title="多屏适配布局"></a>多屏适配布局</h3><p>移动端布局，为了适配各种大屏手机，目前最好用的方案莫过于使用相对单位rem。<br>rem = document.documentElement.clientWidth * dpr / 10 javascript方式，通过上面的公式，计算出基准值rem，然后写入样式。</p>
-<p>以下是淘宝的代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> docEl = doc.documentElement,</div><div class="line">    resizeEvt = <span class="string">'orientationchange'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</div><div class="line">    recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> clientWidth = docEl.clientWidth;</div><div class="line">      <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</div><div class="line">      docEl.style.fontSize = <span class="number">20</span> * (clientWidth / <span class="number">320</span>) + <span class="string">'px'</span>;</div><div class="line">    &#125;;</div><div class="line">  <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</div><div class="line">  win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</div><div class="line">  doc.addEventListener(<span class="string">'DOMContentLoaded'</span>, recalc, <span class="literal">false</span>);</div><div class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</div></pre></td></tr></table></figure>
-<p>可以看出，他们也仅仅按照手机屏幕的宽度在做适配，没有动用dpr和scale，个人认为这两个必须同时运用，页面才会在理想情况下展现！</p>
-<p>一般方法大概如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> dpr, rem, scale;</div><div class="line"><span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</div><div class="line"><span class="keyword">var</span> fontEl = <span class="built_in">document</span>.createElement(<span class="string">'style'</span>);</div><div class="line"><span class="keyword">var</span> metaEl = <span class="built_in">document</span>.querySelector(<span class="string">'meta[name="viewport"]'</span>);</div><div class="line">dpr = win.devicePixelRatio || <span class="number">1</span>;</div><div class="line">scale = <span class="number">1</span> / dpr;</div><div class="line">rem = docEl.clientWidth * dpr / <span class="number">10</span>;</div><div class="line"><span class="comment">// 设置viewport，进行缩放，达到高清效果</span></div><div class="line">metaEl.setAttribute(<span class="string">'content'</span>, <span class="string">'width='</span> + dpr * docEl.clientWidth + <span class="string">',initial-scale='</span> + scale + <span class="string">',maximum-scale='</span> + scale + <span class="string">', minimum-scale='</span> + scale + <span class="string">',user-scalable=no'</span>);</div><div class="line"><span class="comment">// 设置data-dpr属性，留作的css hack之用</span></div><div class="line">docEl.setAttribute(<span class="string">'data-dpr'</span>, dpr);</div><div class="line"><span class="comment">// 动态写入样式</span></div><div class="line">docEl.firstElementChild.appendChild(fontEl);</div><div class="line">fontEl.innerHTML = <span class="string">'html&#123;font-size:'</span> + rem + <span class="string">'px!important;&#125;'</span>;</div><div class="line"><span class="comment">// 给js调用的，某一dpr下rem和px之间的转换函数</span></div><div class="line"><span class="built_in">window</span>.rem2px = <span class="function"><span class="keyword">function</span>(<span class="params">v</span>) </span>&#123;</div><div class="line">    v = <span class="built_in">parseFloat</span>(v);</div><div class="line">    <span class="keyword">return</span> v * rem;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">window</span>.px2rem: <span class="function"><span class="keyword">function</span>(<span class="params">v</span>) </span>&#123;</div><div class="line">    v = <span class="built_in">parseFloat</span>(v);</div><div class="line">    <span class="keyword">return</span> v / rem;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">window</span>.dpr = dpr;</div><div class="line"><span class="built_in">window</span>.rem = rem;</div></pre></td></tr></table></figure>
-<p>以上设置是为了保证，1个css像素占据一个物理像素。如果有一个区块，在psd文件中量出：宽高750×300px的div，那么如何转换成rem单位呢？如果scale是1，对于iphone6来说就是取一半，如果scale是0.5，量出多少是多少，换句话说就是设计稿的宽度W=docEl.clientWidth * dpr，对于不符合的设计稿，计算公式如下：<img src="/2016/05/07/viewport/icon7.jpg" alt="This is an example image" title="This is an example image">我们现在写页面参考的机型一般是iphone4以上，dpr一般都是2，所以按照以上写法其实只有viewport的宽度在起作用，但是如果遇到宽度和dpr都不一样的时候，两者的倍数都会起作用，如果遇到iphone3这样的，宽度不变而dpr变化的，它上面的元素就会比iphone4要小，遇到这样的机型，如果不改变scale，样式有可能出问题！</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>目前网上有众多的构建工具，比如<code>webpack</code>、<code>gulp</code>、<code>grunt</code>还有<code>fis</code>等等，除了<code>grunt</code>，小生都有尝试过。先前本司一众大神推广过<code>fis</code>，进行过很多期讲座培训，由于公司的小白比较多，显然效果不太好，原因如下：</p>
+<ul>
+<li>很多人仓促去听讲座，根本没看文档，所以听的云里雾里</li>
+<li><code>fis</code>相对比较笨重，有一定的学习成本，配置眼花缭乱</li>
+<li>最最主要的是需求，习惯于用各种小工具搞定生产中的环节，还不容易出问题，而且效率还不错，<code>fis</code>要是出问题了，可能要调试半天，对于小白来说很头疼</li>
+<li>大神们陶醉于技术的钻研，却忽略了小白们的接收能力，所有的讲座都有一个特点，就是太泛，无法深入每个细节点。大神们所有的配置都是一路畅通，但是到了小白这里各种报错，大神们认为小白应该自己看，那小白们很有可能就不看了！<a id="more"></a>
+</li>
+</ul>
+<hr>
+<p>那么作者选择<code>gulp</code>作为构建化工具有以下几点原因：</p>
+<ul>
+<li><code>gulp</code>文档很少，语法简单，对于我们小白来说，或多或少都会点，不见得会写，至少都能看得懂</li>
+<li><code>gulp</code>很轻巧，开源插件众多，小白们瞜一眼<code>gulp</code>文件，基本就知道各种task是干什么的，加以配置注释，那么自己配置应该就没什么问题了，再熟悉一点自己都可以去拓展</li>
+</ul>
+<h2 id="配置gulpfile-js"><a href="#配置gulpfile-js" class="headerlink" title="配置gulpfile.js"></a>配置gulpfile.js</h2><h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><p>搬砖首先要有文件夹，所以这里就按照小生的业务来建立文件夹目录，如下：</p>
+<ul>
+<li>html</li>
+<li>src<ul>
+<li>css</li>
+<li>js</li>
+<li>img</li>
+</ul>
+</li>
+<li>dist<ul>
+<li>css</li>
+<li>js</li>
+<li>img</li>
+</ul>
+</li>
+<li>mock</li>
+<li>tool</li>
+<li>doc</li>
+</ul>
+<ol>
+<li><code>html</code>文件夹存放html文件，<code>src</code>为开发目录，包括<code>css</code>、<code>js</code>和<code>img</code>，因为这三者都需要经过处理，所以处理后会放入<code>dist</code>目录；</li>
+<li><code>mock</code>是模拟数据存放的目录，一般开发，fe需要后端提供一些接口，但是往往因为开发速度不一样，rd不能及时提供，所以fe可以起一个服务，把模拟数据放在此处；</li>
+<li><code>tool</code>可以存放自己的一些小工具用于其他的开发功能</li>
+<li><code>doc</code>存放需求文档等文档类的文件<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//创建开发目录</span></div><div class="line">gulp.task(<span class="string">'g-init'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> dirs = [dirPaths.html, dirPaths.css.src, dirPaths.js.src, dirPaths.doc, dirPaths.img.src, dirPaths.tool];</div><div class="line">    dirs.forEach(<span class="function"><span class="params">dir</span> =&gt;</span> &#123;</div><div class="line">        mkdirp.sync(dir);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>创建目录采用了<code>mkdirp</code>这个插件，路径都写在了<code>dirs</code>这个数组内，运行命令：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">gulp g-init</div></pre></td></tr></table></figure></p>
+<p>就可以完成以上目录结构的创建，task的名字可以自己随意起！</p>
+<h3 id="处理css"><a href="#处理css" class="headerlink" title="处理css"></a>处理css</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//处理sass文件</span></div><div class="line">gulp.task(<span class="string">'g-css'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(dirPaths.css.src + <span class="string">'/**/*.scss'</span>)</div><div class="line">        .pipe(sourcemaps.init())<span class="comment">//生成map</span></div><div class="line">        .pipe(sass(&#123;<span class="comment">//编译sass文件</span></div><div class="line">            outputStyle: <span class="string">'compressed'</span><span class="comment">//压缩</span></div><div class="line">        &#125;).on(<span class="string">'error'</span>, sass.logError))</div><div class="line">        .pipe(autoprefixer())<span class="comment">//添加前缀</span></div><div class="line">        .pipe(sourcemaps.write())</div><div class="line">        .pipe(rename(&#123;&#125;))<span class="comment">//重命名</span></div><div class="line">        .pipe(gulp.dest(dirPaths.css.dist));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>看见以上代码的注释就应该知道他们是做什么的，也有一些人可能没有使用sass，那么只要自己稍微改动一下应该就没问题了</p>
+<h3 id="处理img"><a href="#处理img" class="headerlink" title="处理img"></a>处理img</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//处理图片</span></div><div class="line">gulp.task(<span class="string">'g-image'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(dirPaths.img.src + <span class="string">'/**/*'</span>)</div><div class="line">        .pipe(imagemin())<span class="comment">//压缩</span></div><div class="line">        .pipe(gulp.dest(dirPaths.img.dist))</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这个命令只是对图片做了压缩，采用了<code>gulp-imagemin</code>插件，效果还行，如果不满意压缩效果，自己可以再试试其他的插件</p>
+<h3 id="处理整个style"><a href="#处理整个style" class="headerlink" title="处理整个style"></a>处理整个style</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//处理css和img</span></div><div class="line">gulp.task(<span class="string">'g-style'</span>, [<span class="string">'g-css'</span>, <span class="string">'g-image'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.src(dirPaths.css.dist + <span class="string">'/**/*.css'</span>)</div><div class="line">        .pipe(spriter(spriteConfig))</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>我这里把<code>css</code>和<code>img</code>都归为<code>style</code>，这个任务的功能就是生成和替换雪碧图，前提是先运行<code>g-css</code>和<code>g-image</code>，在把处理好的<code>css</code>和<code>img</code>文件放入<code>dist</code>目录下，再对他们做雪碧图的处理。<code>spriter</code>是我自己改装的插件<a href="https://www.npmjs.com/package/gulp-cross-spriter" target="_blank" rel="external">gulp-cross-spriter</a>的引用，具体功能和配置都很详细的说明，可以点进去凑凑。多说一句，此插件readme全文都是中文，主要是为方便自己书写，也方便同胞查阅，如果要说我英语不好，我也承认，我确实对英文文档的某些语句理解挠头，不过对于英语过六级，经过研究生生涯洗礼的我来说搞一篇英文的说明文档，问题应该不大。</p>
+<h3 id="处理js"><a href="#处理js" class="headerlink" title="处理js"></a>处理js</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//处理js文件</span></div><div class="line">gulp.task(<span class="string">'g-js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.src(dirPaths.js.src + <span class="string">'/**/*.js'</span>)</div><div class="line">        .pipe(jshint())<span class="comment">//语法检查</span></div><div class="line">        .pipe(jshint.reporter(stylish))<span class="comment">//控制台报错输出的样式</span></div><div class="line">        .pipe(uglify()) <span class="comment">//压缩，有一定的语法检测能力，如果语法错的太离谱，这里可能会报错</span></div><div class="line">        .pipe(gulp.dest(dirPaths.js.dist));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这里对<code>js</code>做了语法检查和压缩，当前目录需要配置<code>.jshintrc</code>文件，具体相关配置请查阅<a href="http://jshint.com/docs/options/" target="_blank" rel="external">文档</a></p>
+<h3 id="实时刷新"><a href="#实时刷新" class="headerlink" title="实时刷新"></a>实时刷新</h3><p><code>gulp</code>自带的监听功能单一，这里借助<code>gulp-connect</code>起一个本地的服务，可以做到<code>html</code>文件的试试刷新（仅仅<code>html</code>文件）<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//启动服务器</span></div><div class="line">gulp.task(<span class="string">'g-connect'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    connect.server(&#123;</div><div class="line">        <span class="attr">root</span>: serverConfig.root, <span class="comment">//设置根目录</span></div><div class="line">        livereload: serverConfig.livereload, <span class="comment">//启动实施监控</span></div><div class="line">        port: serverConfig.port, <span class="comment">//设置端口</span></div><div class="line">        name: serverConfig.name <span class="comment">//设置服务器名字</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//重新加载</span></div><div class="line">gulp.task(<span class="string">'g-reload'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.src(dirPaths.devPath + <span class="string">'/**/*.*'</span>)</div><div class="line">        .pipe(connect.reload())</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//监听</span></div><div class="line">gulp.task(<span class="string">'g-watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//watch 只能监听现存的文件对于新建文件 无法监听</span></div><div class="line">    gulp.watch(dirPaths.html + <span class="string">'/**/*.html'</span>, [<span class="string">'g-reload'</span>]);</div><div class="line">    gulp.watch(dirPaths.js.src + <span class="string">'/**/*.js'</span>, [<span class="string">'g-reload'</span>, <span class="string">'g-js'</span>]);</div><div class="line">    gulp.watch(dirPaths.css.src + <span class="string">'/**/*.scss'</span>, [<span class="string">'g-reload'</span>, <span class="string">'g-style'</span>]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>那么本地服务配合<code>watch</code>监听，就可以在代码保存后试试刷新页面，但是监听只能监听存在的文件，对于后来新建的文件必须重新启动才行！</p>
+<h3 id="默认task"><a href="#默认task" class="headerlink" title="默认task"></a>默认task</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'g-connect'</span>, <span class="string">'g-watch'</span>, <span class="string">'g-openbrowser'</span>]);</div></pre></td></tr></table></figure>
+<p>这样只要一个<code>gulp</code>命令就可以建立本地服务，启动监听，并且帮你打开页面！</p>
+<h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>其实开发就两条命令：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">gulp g-init</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">gulp</div></pre></td></tr></table></figure>
+<p>一个是建立文件夹，一个是监听！<br>这里有个完整的<a href="https://github.com/EastLee/gulp.plugin/tree/master/simple-define-file" target="_blank" rel="external">栗子</a>，可以凑凑，我把配置都放在了一个文件里面，因为代码量并不是很多，我只想让开发者拷贝更少的文件，如果想要把配置都放在另外的文件下，也是莫问题滴！我这个<a href="https://github.com/EastLee/gulp.plugin" target="_blank" rel="external">目录</a>下写了很多<code>gulp</code>插件的栗子，方便小白查阅！</p>
 
       
     </div>
@@ -407,7 +444,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/html/" rel="tag">#html</a>
+            <a href="/tags/gulp/" rel="tag">#gulp</a>
           
         </div>
       
@@ -416,17 +453,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/27/image-to-webp/" rel="next" title="移动端之webp图片">
-                <i class="fa fa-chevron-left"></i> 移动端之webp图片
+              <a href="/2016/10/18/webpack-plugin/" rel="next" title="webpack.plugin">
+                <i class="fa fa-chevron-left"></i> webpack.plugin
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/10/esl-run-route/" rel="prev" title="ESL模块处理过程">
-                ESL模块处理过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,10 +474,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/05/07/viewport/"
-     data-title="viewport"
+        <div class="ds-share flat" data-thread-key="2016/11/13/gulp-develop-tool/"
+     data-title="一个基于自身业务的前端简单生产工具"
      data-content=""
-     data-url="http://yoursite.com/2016/05/07/viewport/">
+     data-url="http://yoursite.com/2016/11/13/gulp-develop-tool/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -471,8 +504,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/07/viewport/"
-           data-title="viewport" data-url="http://yoursite.com/2016/05/07/viewport/">
+      <div class="ds-thread" data-thread-key="2016/11/13/gulp-develop-tool/"
+           data-title="一个基于自身业务的前端简单生产工具" data-url="http://yoursite.com/2016/11/13/gulp-develop-tool/">
       </div>
     
   </div>
@@ -574,7 +607,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#viewport的概念"><span class="nav-number">1.</span> <span class="nav-text">viewport的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#layout-viewport"><span class="nav-number">1.1.</span> <span class="nav-text">layout viewport</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#visual-viewport"><span class="nav-number">1.2.</span> <span class="nav-text">visual viewport</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ideal-viewport"><span class="nav-number">1.3.</span> <span class="nav-text">ideal viewport</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#像素的理解"><span class="nav-number">2.</span> <span class="nav-text">像素的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物理像素-physical-pixel"><span class="nav-number">2.1.</span> <span class="nav-text">物理像素(physical pixel)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备独立像素-density-independent-pixel"><span class="nav-number">2.2.</span> <span class="nav-text">设备独立像素(density-independent pixel)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备像素比-device-pixel-ratio"><span class="nav-number">2.3.</span> <span class="nav-text">设备像素比(device pixel ratio )</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#meta-viewport详解"><span class="nav-number">3.</span> <span class="nav-text">meta.viewport详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#几个概念"><span class="nav-number">3.1.</span> <span class="nav-text">几个概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#width和initial-scale在移动端页面中的作用"><span class="nav-number">3.2.</span> <span class="nav-text">width和initial-scale在移动端页面中的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于initial-scale的缩放"><span class="nav-number">3.3.</span> <span class="nav-text">关于initial-scale的缩放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于width"><span class="nav-number">3.4.</span> <span class="nav-text">关于width</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">3.5.</span> <span class="nav-text">结论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用meta-viewport对多屏适配布局"><span class="nav-number">4.</span> <span class="nav-text">利用meta.viewport对多屏适配布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#retina下，border-1px问题"><span class="nav-number">4.1.</span> <span class="nav-text">retina下，border: 1px问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多屏适配布局"><span class="nav-number">4.2.</span> <span class="nav-text">多屏适配布局</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置gulpfile-js"><span class="nav-number">2.</span> <span class="nav-text">配置gulpfile.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建目录"><span class="nav-number">2.1.</span> <span class="nav-text">创建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理css"><span class="nav-number">2.2.</span> <span class="nav-text">处理css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理img"><span class="nav-number">2.3.</span> <span class="nav-text">处理img</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理整个style"><span class="nav-number">2.4.</span> <span class="nav-text">处理整个style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理js"><span class="nav-number">2.5.</span> <span class="nav-text">处理js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实时刷新"><span class="nav-number">2.6.</span> <span class="nav-text">实时刷新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认task"><span class="nav-number">2.7.</span> <span class="nav-text">默认task</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">3.</span> <span class="nav-text">综述</span></a></li></ol></div>
             
           </div>
         </section>
