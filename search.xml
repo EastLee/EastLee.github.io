@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[Promise实现逻辑]]></title>
+      <url>http://yoursite.com/2016/11/27/Promise-logic/</url>
+      <content type="text"><![CDATA[我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下es6-promise源码，那么下面简单介绍一下实现思想！ PromisePromise处理流程如下：一般的用法都会new一个promise对象：new Promise(function(resolve,reject)&#123; if(ok)&#123; resolve(value) &#125;else&#123; reject(reason) &#125;&#125;) Promise构造函数只有一个参数，类型为function，而此函数有两个参数也是函数类型即resolve和reject，他们两个是源码中定义的。拒绝时的状态为reject就不说了，resolve是成功时的处理函数，他会根据value进行处理 value是普通的值，他就会挂在到Promise对象的_result属性上 value是Promise对象，那么他就会把value的_result值赋值给外层的Promise对象的_result属性 value是对象且带有then函数属性，那么value就会被当做一个类似Promise的对象，运行此对象then的结果赋值给Promise对象的_result属性上 挂在Promise对象的_result属性上的值是为了传入后续的then函数中 ThenThen处理流程如下：Then有两个函数参数，使用哪一个完全依据上个Promise运行的状态。Then并不是在主线程开始运行的，在源码中专门有一个数组用于收集Then的处理。 每个Then的处理都会单独new一个新的Promise对象 第一个Then会传入数组，并启动异步执行开关 其余的Then处理会挂载到上一个Promise对象的属性上 通过遍历，当一个Then处理完成，下一个Then的处理和上一个Then处理的值就会存入数组中并且开始遍历执行，直到处理完所有的Then 在处理Then过程中value也会按照Promise方式处理 Promise.allall的处理思想和以上一致，唯一的区别是会遍历传入的数组，对每一个进行处理，在处理完全后，把值传入Then中，只不过此时的value是数组罢了 polyfill其作用是检测当前环境存不存在Promise，如果不存在就会引入源码中的Promise。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[next主题vendors报错404]]></title>
       <url>http://yoursite.com/2016/11/14/nextThemeProblemRepair/</url>
       <content type="text"><![CDATA[本地预览没问题，deploy后主页显示大面积空白最近小伙伴上传博客，发现主页显示大面积空白，打开控制台后发现vendors目录下面的js各种404，但是在github上文件是存在的，究其原因可能是GitHub Pages过滤掉了source/vendors目录的访问。 解决办法首先修改source/vendors为source/lib，然后修改_config.yml，将_internal:vendors修改为_internal:lib然后修改next底下所有引用source/vendors路径为source/lib。这些地方可以通过文件查找找出来。主要集中在这几个文件中。1. Hexo\themes\next.bowerrc 2. Hexo\themes\next.gitignore 3. Hexo\themes\next.javascript_ignore 4. Hexo\themes\next\bower.json 。修改完毕后，刷新重新g一遍就ok啦。]]></content>
