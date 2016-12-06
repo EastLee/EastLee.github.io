@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[react-redux详解]]></title>
+      <url>http://yoursite.com/2016/12/06/react-redux%E8%AF%A6%E8%A7%A3/</url>
+      <content type="text"><![CDATA[connect 拥有三个参数mapStateToProps， mapDispatchToProps， mergeProps， options mapStateToProps 外部的数据即state对象转换为UI组件的参数 mapStateToProps是一个函数，执行后应该返回一个对象，这个对象会与组件的props合并。 mapStateToProps会订阅Store，每当state更新的时候，就会自动执行，重新计算UI组件的参数，从而触发UI组件的重新渲染。 mapStateToProps的第一个参数总是state对象，还可以使用第二个参数ownProps，代表UI组件的props对象。 connect方法可以省略mapStateToProps参数，那样的话，UI组件就不会订阅Store，就是说Store的更新不会引起UI组件的更新。 mapDispatchToProps 用户发出的动作变为Action对象，从UI组件传出去 如果作为函数会得到dispatch和ownProps两个参数，mapDispatchToProps执行后应该返回一个对象，这个对象会与组件的props合并。 如果mapDispatchToProps是一个对象，会先用bindActionCreators处理，之后合并到props中。 如果你省略这个mapDispatchToProps参数，默认情况下，dispatch会注入到你的组件props中。 mergeProps 拥有三个参数stateProps，dispatchProps，ownProps 如果指定了这个参数，mapStateToProps与mapDispatchToProps的执行结果和组件自身的props将传入到这个回调函数中。该回调函数返回的对象将作为props传递到被包装的组件中。 options pure = true: 如果为true，connector将执行shouldComponentUpdate并且浅对比mergeProps的结果，避免不必要的更新，前提是当前组件是一个“纯”组件，它不依赖于任何的输入或state而只依赖于props和Redux store的state。默认值为true。 withRef = false: 如果为true，connector会保存一个对被包装组件实例的引用，该引用通过 getWrappedInstance()方法获得。默认值为false。 组件Provider在根组件外面包了一层，这样一来，App的所有子组件就默认都可以拿到state了。它的原理是React组件的context属性，请看源码:class Provider extends Component &#123; getChildContext() &#123; return &#123; store: this.props.store &#125;; &#125; render() &#123; return this.props.children; &#125;&#125;Provider.childContextTypes = &#123; store: React.PropTypes.object&#125; 组件可以获取store如下：const &#123; store &#125; = this.context;this.unsubscribe = store.subscribe(() =&gt;&#123; //todo something&#125;);组件名.contextTypes = &#123;//必须加，否则context为空 store: React.PropTypes.object&#125;;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[redux中间件]]></title>
       <url>http://yoursite.com/2016/12/05/redux%E4%B8%AD%E9%97%B4%E4%BB%B6/</url>
       <content type="text"><![CDATA[redux-thunkreturn function (next) &#123; return function (action) &#123; if (typeof action === 'function') &#123; return action(dispatch, getState, extraArgument); &#125; return next(action); &#125;;&#125;; 加了一个对action是函数的特殊处理！ redux-logger打印各种信息]]></content>
