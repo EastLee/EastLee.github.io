@@ -491,8 +491,7 @@
 
       
         
-          
-            <h2 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h2><blockquote>
+          <h2 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h2><blockquote>
 <p>拥有三个参数<code>mapStateToProps</code>， <code>mapDispatchToProps</code>， <code>mergeProps</code>， <code>options</code></p>
 </blockquote>
 <h3 id="mapStateToProps"><a href="#mapStateToProps" class="headerlink" title="mapStateToProps"></a>mapStateToProps</h3><blockquote>
@@ -502,28 +501,12 @@
 <li><code>mapStateToProps</code>是一个函数，执行后应该返回一个对象，这个对象会与组件的props合并。</li>
 <li><code>mapStateToProps</code>会订阅Store，每当state更新的时候，就会自动执行，重新计算UI组件的参数，从而触发UI组件的重新渲染。</li>
 <li><code>mapStateToProps</code>的第一个参数总是state对象，还可以使用第二个参数ownProps，代表UI组件的props对象。</li>
-<li><code>connect</code>方法可以省略<code>mapStateToProps</code>参数，那样的话，UI组件就不会订阅Store，就是说Store的更新不会引起UI组件的更新。</li>
-</ul>
-<h3 id="mapDispatchToProps"><a href="#mapDispatchToProps" class="headerlink" title="mapDispatchToProps"></a>mapDispatchToProps</h3><blockquote>
-<p>用户发出的动作变为Action对象，从UI组件传出去</p>
-</blockquote>
-<ul>
-<li>如果作为函数会得到dispatch和ownProps两个参数，<code>mapDispatchToProps</code>执行后应该返回一个对象，这个对象会与组件的props合并。</li>
-<li>如果<code>mapDispatchToProps</code>是一个对象，会先用<code>bindActionCreators</code>处理，之后合并到props中。</li>
-<li>如果你省略这个<code>mapDispatchToProps</code>参数，默认情况下，dispatch会注入到你的组件props中。</li>
-</ul>
-<h3 id="mergeProps"><a href="#mergeProps" class="headerlink" title="mergeProps"></a>mergeProps</h3><ul>
-<li>拥有三个参数stateProps，dispatchProps，ownProps</li>
-<li>如果指定了这个参数，<code>mapStateToProps</code>与<code>mapDispatchToProps</code>的执行结果和组件自身的props将传入到这个回调函数中。该回调函数返回的对象将作为props传递到被包装的组件中。</li>
-</ul>
-<h3 id="options"><a href="#options" class="headerlink" title="options"></a>options</h3><ul>
-<li><a href="Boolean">pure = true</a>: 如果为true，connector将执行shouldComponentUpdate并且浅对比mergeProps的结果，避免不必要的更新，前提是当前组件是一个“纯”组件，它不依赖于任何的输入或state而只依赖于props和Redux store的state。默认值为true。</li>
-<li><a href="Boolean">withRef = false</a>: 如果为true，connector会保存一个对被包装组件实例的引用，该引用通过 getWrappedInstance()方法获得。默认值为false。</li>
-</ul>
-<h2 id="组件"><a href="#组件" class="headerlink" title=" 组件"></a><provider> 组件</provider></h2><p><code>Provider</code>在根组件外面包了一层，这样一来，App的所有子组件就默认都可以拿到state了。它的原理是React组件的<code>context</code>属性，请看源码:<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Provider</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    getChildContext() &#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">          <span class="attr">store</span>: <span class="keyword">this</span>.props.store</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.props.children;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Provider.childContextTypes = &#123;</div><div class="line">    <span class="attr">store</span>: React.PropTypes.object</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>组件可以获取<code>store</code>如下：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> &#123; store &#125; = <span class="keyword">this</span>.context;</div><div class="line"><span class="keyword">this</span>.unsubscribe = store.subscribe(<span class="function"><span class="params">()</span> =&gt;</span>&#123;</div><div class="line">    <span class="comment">//todo something</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">组件名.contextTypes = &#123;<span class="comment">//必须加，否则context为空</span></div><div class="line">  store: React.PropTypes.object</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-
-          
+<li><code>connect</code>方法可以省略<code>mapStateToProps</code>参数，那样的话，UI组件就不会订阅Store，就是说Store的更新不会引起UI组件的更新。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/06/react-redux详解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

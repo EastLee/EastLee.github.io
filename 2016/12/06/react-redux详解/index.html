@@ -106,7 +106,7 @@ mapStateToProps
 
 mapStateToProps是一个函数，执行后应该返回一个对象，这个对象会与组件的props合并。
 mapStateToProps会订阅Store，每当state更新的时">
-<meta property="og:updated_time" content="2016-12-06T06:58:39.000Z">
+<meta property="og:updated_time" content="2016-12-14T16:00:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-redux详解">
 <meta name="twitter:description" content="connect
@@ -383,7 +383,8 @@ mapStateToProps会订阅Store，每当state更新的时">
 <li><code>mapStateToProps</code>是一个函数，执行后应该返回一个对象，这个对象会与组件的props合并。</li>
 <li><code>mapStateToProps</code>会订阅Store，每当state更新的时候，就会自动执行，重新计算UI组件的参数，从而触发UI组件的重新渲染。</li>
 <li><code>mapStateToProps</code>的第一个参数总是state对象，还可以使用第二个参数ownProps，代表UI组件的props对象。</li>
-<li><code>connect</code>方法可以省略<code>mapStateToProps</code>参数，那样的话，UI组件就不会订阅Store，就是说Store的更新不会引起UI组件的更新。</li>
+<li><code>connect</code>方法可以省略<code>mapStateToProps</code>参数，那样的话，UI组件就不会订阅Store，就是说Store的更新不会引起UI组件的更新。<a id="more"></a>
+</li>
 </ul>
 <h3 id="mapDispatchToProps"><a href="#mapDispatchToProps" class="headerlink" title="mapDispatchToProps"></a>mapDispatchToProps</h3><blockquote>
 <p>用户发出的动作变为Action对象，从UI组件传出去</p>
