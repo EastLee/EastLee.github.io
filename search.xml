@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[Chrome-debug]]></title>
+      <url>http://yoursite.com/2016/12/14/Chrome-debug/</url>
+      <content type="text"><![CDATA[面试经常有人问你，你熟悉chrome调试工具吗？那么小生来总结一下！ Sources 我们知道js打断点，可是还有两种断点不常用 DOM Breakpoints Subtree Modifications：对dom节点的child做添加，删除或者修改，就会触发 Attributes Modifications：对dom节点的属性做添加，删除或者修改，就会触发 Node Removal：对dom节点进行删除，就会触发 XHR Breakpoints 当右侧的url和请求的url匹配时就会出现断点！ Call Stack调用栈当断点执行到某一程序块处停下来后，右侧调试区的 Call Stack 会显示当前断点所处的方法调用栈，从上到下由最新调用处依次往下排列，Call Stack 列表的下方是Scope Variables列表可以查看此时局部变量和全局变量的值。图中可以看出，我们最先走了toggleTab这个方法，然后走到了一个更新对象的方法上，当前调用在哪里，箭头会帮你指向哪里，同时我们可以点击，调用栈列表上的任意一处，即可回头再去看看代码但是若你想从新从某个调用方法出执行，可以右键Restart Frame， 断点就会跳到此处开头重新执行，Scope 中的变量值也会依据代码从新更改，这样就可以回退来从新调试，错过的调试也可以回过头来反复查看]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[react-redux详解]]></title>
       <url>http://yoursite.com/2016/12/06/react-redux%E8%AF%A6%E8%A7%A3/</url>
       <content type="text"><![CDATA[connect 拥有三个参数mapStateToProps， mapDispatchToProps， mergeProps， options mapStateToProps 外部的数据即state对象转换为UI组件的参数 mapStateToProps是一个函数，执行后应该返回一个对象，这个对象会与组件的props合并。 mapStateToProps会订阅Store，每当state更新的时候，就会自动执行，重新计算UI组件的参数，从而触发UI组件的重新渲染。 mapStateToProps的第一个参数总是state对象，还可以使用第二个参数ownProps，代表UI组件的props对象。 connect方法可以省略mapStateToProps参数，那样的话，UI组件就不会订阅Store，就是说Store的更新不会引起UI组件的更新。 mapDispatchToProps 用户发出的动作变为Action对象，从UI组件传出去 如果作为函数会得到dispatch和ownProps两个参数，mapDispatchToProps执行后应该返回一个对象，这个对象会与组件的props合并。 如果mapDispatchToProps是一个对象，会先用bindActionCreators处理，之后合并到props中。 如果你省略这个mapDispatchToProps参数，默认情况下，dispatch会注入到你的组件props中。 mergeProps 拥有三个参数stateProps，dispatchProps，ownProps 如果指定了这个参数，mapStateToProps与mapDispatchToProps的执行结果和组件自身的props将传入到这个回调函数中。该回调函数返回的对象将作为props传递到被包装的组件中。 options pure = true: 如果为true，connector将执行shouldComponentUpdate并且浅对比mergeProps的结果，避免不必要的更新，前提是当前组件是一个“纯”组件，它不依赖于任何的输入或state而只依赖于props和Redux store的state。默认值为true。 withRef = false: 如果为true，connector会保存一个对被包装组件实例的引用，该引用通过 getWrappedInstance()方法获得。默认值为false。 组件Provider在根组件外面包了一层，这样一来，App的所有子组件就默认都可以拿到state了。它的原理是React组件的context属性，请看源码:class Provider extends Component &#123; getChildContext() &#123; return &#123; store: this.props.store &#125;; &#125; render() &#123; return this.props.children; &#125;&#125;Provider.childContextTypes = &#123; store: React.PropTypes.object&#125; 组件可以获取store如下：const &#123; store &#125; = this.context;this.unsubscribe = store.subscribe(() =&gt;&#123; //todo something&#125;);组件名.contextTypes = &#123;//必须加，否则context为空 store: React.PropTypes.object&#125;;]]></content>
