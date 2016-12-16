@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="redux," />
+  <meta name="keywords" content="MVC," />
 
 
 
@@ -84,18 +84,19 @@
 
 
 
-<meta name="description" content="redux-thunkreturn function (next) &amp;#123;  return function (action) &amp;#123;    if (typeof action === &apos;function&apos;) &amp;#123;      return action(dispatch, getState, extraArgument);    &amp;#125;    return next(ac">
+<meta name="description" content="一直理解不了MVC的架构模式，不过最近在看发布的业务代码，仿佛有了新的突破，所以写篇博客记录一下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redux中间件">
-<meta property="og:url" content="http://yoursite.com/2016/12/05/redux中间件/index.html">
+<meta property="og:title" content="MVC/MVP/MVVM">
+<meta property="og:url" content="http://yoursite.com/2016/12/16/MVC/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="redux-thunkreturn function (next) &amp;#123;  return function (action) &amp;#123;    if (typeof action === &apos;function&apos;) &amp;#123;      return action(dispatch, getState, extraArgument);    &amp;#125;    return next(ac">
-<meta property="og:image" content="http://yoursite.com/2016/12/05/redux中间件/redux-logger.png">
-<meta property="og:updated_time" content="2016-12-05T10:13:30.000Z">
+<meta property="og:description" content="一直理解不了MVC的架构模式，不过最近在看发布的业务代码，仿佛有了新的突破，所以写篇博客记录一下">
+<meta property="og:image" content="http://yoursite.com/2016/12/16/MVC/mvc1.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/16/MVC/mvp.png">
+<meta property="og:updated_time" content="2016-12-16T04:05:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redux中间件">
-<meta name="twitter:description" content="redux-thunkreturn function (next) &amp;#123;  return function (action) &amp;#123;    if (typeof action === &apos;function&apos;) &amp;#123;      return action(dispatch, getState, extraArgument);    &amp;#125;    return next(ac">
-<meta name="twitter:image" content="http://yoursite.com/2016/12/05/redux中间件/redux-logger.png">
+<meta name="twitter:title" content="MVC/MVP/MVVM">
+<meta name="twitter:description" content="一直理解不了MVC的架构模式，不过最近在看发布的业务代码，仿佛有了新的突破，所以写篇博客记录一下">
+<meta name="twitter:image" content="http://yoursite.com/2016/12/16/MVC/mvc1.png">
 
 
 
@@ -113,7 +114,7 @@
   };
 </script>
 
-  <title> redux中间件 | EastLee </title>
+  <title> MVC/MVP/MVVM | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +277,7 @@
             
             
               
-                redux中间件
+                MVC/MVP/MVVM
               
             
           </h1>
@@ -288,8 +289,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-05T18:08:03+08:00" content="2016-12-05">
-              2016-12-05
+            <time itemprop="dateCreated" datetime="2016-12-16T00:07:38+08:00" content="2016-12-16">
+              2016-12-16
             </time>
           </span>
 
@@ -302,8 +303,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/React/" itemprop="url" rel="index">
-                    <span itemprop="name">React</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -318,8 +319,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/05/redux中间件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/05/redux中间件/" itemprop="commentsCount"></span>
+                <a href="/2016/12/16/MVC/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/MVC/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -329,7 +330,7 @@
              
           
           
-             <span id="/2016/12/05/redux中间件/" class="leancloud_visitors" data-flag-title="redux中间件">
+             <span id="/2016/12/16/MVC/" class="leancloud_visitors" data-flag-title="MVC/MVP/MVVM">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -351,10 +352,14 @@
       
 
       
-        <h2 id="redux-thunk"><a href="#redux-thunk" class="headerlink" title="redux-thunk"></a>redux-thunk</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">next</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">action</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> action === <span class="string">'function'</span>) &#123;</div><div class="line">      <span class="keyword">return</span> action(dispatch, getState, extraArgument);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> next(action);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>加了一个对<code>action</code>是函数的特殊处理！</p>
-<h2 id="redux-logger"><a href="#redux-logger" class="headerlink" title="redux-logger"></a>redux-logger</h2><p>打印各种信息<br><img src="/2016/12/05/redux中间件/redux-logger.png" alt="redux-logger.png" title=""></p>
-
+        <blockquote>
+<p>一直理解不了MVC的架构模式，不过最近在看发布的业务代码，仿佛有了新的突破，所以写篇博客记录一下</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><figure class="highlight"><table><tr><td class="code"><pre><div class="line">&lt;select id="selAnimal"&gt;</div><div class="line">     &lt;option value="cat"&gt;cat&lt;/option&gt;</div><div class="line">     &lt;option value="fish"&gt;fish&lt;/option&gt;</div><div class="line">     &lt;option value="bird"&gt;bird&lt;/option&gt;</div><div class="line"> &lt;/select&gt;</div><div class="line"> &lt;p id="whatDoesThisAnimalDo"&gt;&lt;/p&gt;</div><div class="line"></div><div class="line"> &lt;script type="text/javascript"&gt;</div><div class="line"> // whatDoesAnimalDo 就是一个controller</div><div class="line">var whatDoesAnimalDo = &#123;</div><div class="line">    // 选择视图</div><div class="line">    start: function() &#123;</div><div class="line">        this.view.start();</div><div class="line">    &#125;,</div><div class="line">    // 将用户的操作映射到模型的更新上</div><div class="line">    set: function(animalName) &#123;</div><div class="line">        this.model.setAnimal(animalName);</div><div class="line">    &#125;,</div><div class="line">&#125;;</div><div class="line">// whatDoesAnimalDo的数据model</div><div class="line">whatDoesAnimalDo.model = &#123;</div><div class="line">    // animal的数据</div><div class="line">    animalDictionary: &#123;</div><div class="line">        cat: "meows",</div><div class="line">        fish: "swims",</div><div class="line">        bird: "flies"</div><div class="line">    &#125;,</div><div class="line">    // 当前的animal，也就是这个application的状态</div><div class="line">    currentAnimal: null,</div><div class="line">    // 数据模型负责业务逻辑和数据存储</div><div class="line">    setAnimal: function(animalName) &#123;</div><div class="line">        this.currentAnimal = this.animalDictionary[animalName] ? animalName : null;</div><div class="line">        this.onchange();</div><div class="line">    &#125;,</div><div class="line">    // 并且通知视图更新显示</div><div class="line">    onchange: function() &#123;</div><div class="line">        whatDoesAnimalDo.view.update();</div><div class="line">    &#125;,</div><div class="line">    // 还需要响应视图对当前状态的查询</div><div class="line">    getAnimalAction: function() &#123;</div><div class="line">        return this.currentAnimal ? this.currentAnimal + " " + this.animalDictionary[this.currentAnimal] : "wuff?";</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">// whatDoesAnimalDo的视图</div><div class="line">whatDoesAnimalDo.view = &#123;</div><div class="line">    // 用户输入触发onchange事件</div><div class="line">    start: function() &#123;</div><div class="line">        document.getElementById('selAnimal').onchange = this.onchange;</div><div class="line">    &#125;,</div><div class="line">    // 该事件将用户请求发送给控制器</div><div class="line">    onchange: function() &#123;</div><div class="line">        whatDoesAnimalDo.set(document.getElementById('selAnimal').value);</div><div class="line">    &#125;,</div><div class="line">    // 视图更新显示的方法，其中视图会向model查询当前的状态，并将其显示给用户</div><div class="line">    update: function() &#123;</div><div class="line">        document.getElementById('whatDoesThisAnimalDo').innerHTML = whatDoesAnimalDo.model.getAnimalAction();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">whatDoesAnimalDo.start();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>上面是一段实现mvc的小清新的代码，从中可以看出，UI绑定的事件在View层做，通过View层给Controller做一个指示，Controller调用指定的model去做数据上操作，操作完成，model就是调用View层刷新页面！过程如下：<br><img src="/2016/12/16/MVC/mvc1.png" alt="mvc1.png" title=""><br>Controller可以作为一个中继器，为View层命令分发到对应的model层，比如发布，有很多UI组件，UI组件即创建了视图也加入了业务逻辑，可以看成是View和model的结合体。那么当组件与组件间有交互时，可以通过Controller中转，相当于一个Controller对应于很多个View和model。</p>
+<h2 id="MVP-1"><a href="#MVP-1" class="headerlink" title="MVP"></a>MVP</h2><p>mvp模式斩断了View层和model层的联系，完全通过Presenter层做桥梁：<br><img src="/2016/12/16/MVC/mvp.png" alt="mvp.png" title=""><br>渲染View的功能也放在了Presenter层中。</p>
+<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2>
       
     </div>
 
@@ -380,7 +385,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/redux/" rel="tag">#redux</a>
+            <a href="/tags/MVC/" rel="tag">#MVC</a>
           
         </div>
       
@@ -389,17 +394,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/05/redux/" rel="next" title="redux详解">
-                <i class="fa fa-chevron-left"></i> redux详解
+              <a href="/2016/12/14/Chrome-debug/" rel="next" title="Chrome-debug">
+                <i class="fa fa-chevron-left"></i> Chrome-debug
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/06/react-redux详解/" rel="prev" title="react-redux详解">
-                react-redux详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -414,10 +415,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/05/redux中间件/"
-     data-title="redux中间件"
+        <div class="ds-share flat" data-thread-key="2016/12/16/MVC/"
+     data-title="MVC/MVP/MVVM"
      data-content=""
-     data-url="http://yoursite.com/2016/12/05/redux中间件/">
+     data-url="http://yoursite.com/2016/12/16/MVC/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -444,8 +445,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/05/redux中间件/"
-           data-title="redux中间件" data-url="http://yoursite.com/2016/12/05/redux中间件/">
+      <div class="ds-thread" data-thread-key="2016/12/16/MVC/"
+           data-title="MVC/MVP/MVVM" data-url="http://yoursite.com/2016/12/16/MVC/">
       </div>
     
   </div>
@@ -547,7 +548,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#redux-thunk"><span class="nav-number">1.</span> <span class="nav-text">redux-thunk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redux-logger"><span class="nav-number">2.</span> <span class="nav-text">redux-logger</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP"><span class="nav-number">1.</span> <span class="nav-text">MVP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP-1"><span class="nav-number">2.</span> <span class="nav-text">MVP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVVM"><span class="nav-number">3.</span> <span class="nav-text">MVVM</span></a></li></ol></div>
             
           </div>
         </section>
