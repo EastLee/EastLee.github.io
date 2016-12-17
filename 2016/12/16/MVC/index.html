@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://yoursite.com/2016/12/16/MVC/mvc1.png">
 <meta property="og:image" content="http://yoursite.com/2016/12/16/MVC/mvp.png">
 <meta property="og:image" content="http://yoursite.com/2016/12/16/MVC/mvvm.png">
-<meta property="og:updated_time" content="2016-12-17T08:06:54.000Z">
+<meta property="og:updated_time" content="2016-12-17T08:09:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解中的MVC、MVP和MVVM">
 <meta name="twitter:description" content="一直理解不了MVC的架构模式，不过最近在看发布的业务代码，仿佛有了新的突破，所以写篇博客记录一下">
@@ -363,7 +363,7 @@
 <h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p>MVVM和MVP有点类似，如图：<br><img src="/2016/12/16/MVC/mvvm.png" alt="mvvm.png" title=""></p>
 <ul>
 <li>ViewModel是整个架构的核心，连接着View和Model，View做了很多声明式绑定（按照一定规则），Model就是要操作的数据。ViewModel根据声明的规则把Model的数据映射到View层，同时对View层的操作和自身数据做监听。</li>
-<li>参照大神的<a href="https://github.com/JsAaron/aaMVVM" target="_blank" rel="external">mvvm框架设计</a>，代码的核心就是对每个需要监控的属性，都会生成set与get的访问控制器。无论是绑定事件还是用户在控制台修改，只要修改了被监控的属性，就会在访问控制器中做处理，把处理后的数据反映到View层并且更新Model层，即这就是所谓数据驱动！</li>
+<li>参照大神的<a href="https://github.com/JsAaron/aaMVVM" target="_blank" rel="external">MVVM框架设计</a>，代码的核心就是对每个需要监控的属性，都会生成set与get的访问控制器。无论是绑定事件还是用户在控制台修改，只要修改了被监控的属性，就会在访问控制器中做处理，把处理后的数据反映到View层并且更新Model层，即这就是所谓数据驱动！</li>
 </ul>
 
       
@@ -514,7 +514,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
