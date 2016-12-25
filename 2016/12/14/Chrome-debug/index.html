@@ -109,7 +109,39 @@ DOM Breakpoints">
 <meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/NT3.png">
 <meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/NT4.png">
 <meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/NT5.png">
-<meta property="og:updated_time" content="2016-12-17T11:00:27.000Z">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/timeline1.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/timeline2.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/timeline3.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/timeline4.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/timeline5.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/timeline6.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/timeline7.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/timeline8.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile1.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile2.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile3.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile4.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile5.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile6.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile7.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile8.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile9.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile10.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile11.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile12.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile13.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile14.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile15.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/profile16.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/application1.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/application2.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/application3.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/secure1.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/secure2.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/secure3.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/audits1.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/14/Chrome-debug/audits2.png">
+<meta property="og:updated_time" content="2016-12-25T10:23:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chrome-debug">
 <meta name="twitter:description" content="面试经常有人问你，你熟悉chrome调试工具吗？真的熟悉了吗？那么小生来总结一下，有些操作确实不常用！
@@ -435,6 +467,140 @@ DOM Breakpoints">
 <li>TTFB这个部分的时间花费如果超过200ms，则应该考虑对网络进行性能优化了，可以参见<a href="http://zhuchenglin.me/performance-optimization-in-action" target="_blank" rel="external">网络性能优化方案</a>及里面的相关参考文档。</li>
 <li>通过按住Shift并且把光标移到资源名称上，可以查看该资源是由哪个对象或进程发起的（请求源）和对该资源的请求过程中引发了哪些资源（依赖资源）。在该资源的上方第一个标记为绿色的资源就是该资源的发起者（请求源），有可能会有第二个标记为绿色的资源是该资源的发起者的发起者，以此类推</li>
 </ul>
+<h2 id="Timeline"><a href="#Timeline" class="headerlink" title="Timeline"></a>Timeline</h2><blockquote>
+<p>说实话在所有的部分中，timeline最难，当初刚接触前端时，师傅就让我总结devtools，当时就卡在此处，两年后的我再来看一下。</p>
+</blockquote>
+<p>该面板主要包括4大块：<br>1、Controls 开始、停止和配置什么信息将要被获取<br>2、Overview 网页性能的概要<br>3、Flame Chart CPU堆栈轨迹可视化表<br>4、Details 当选择一个指定的事件后，会显示这个事件的更多信息；当没有选择事件时，会显示指定的时间帧信息</p>
+<blockquote>
+<p>Flame Chart里面的虚竖线含义：蓝色标记DOMContentLoaded事件；绿色标记第一次的绘制时间点；红色代表load事件。</p>
+</blockquote>
+<img src="/2016/12/14/Chrome-debug/timeline1.png" alt="timeline1.png" title="">
+<p>其中第2块Overview显示了网页性能相关的概要信息，可以通过鼠标或者区域边界上的灰色滑块来拖出一个指定区域范围，Flame Chart会跟着局部放大显示指定区域内的详情信息。</p>
+<blockquote>
+<p>可以通过键盘上的W,S来放大和缩小指定区域，通过A,D来向左或向右移动指定区域。</p>
+</blockquote>
+<p>Overview部分包括三个图标：</p>
+<ul>
+<li>FPS 每秒的帧数(Frames Per Second)，绿色柱状条越高，则每秒帧数越高，上方的红色柱状是一个长帧，在这个过程中可能发生<a href="https://developers.google.com/web/fundamentals/performance/rendering/" target="_blank" rel="external">jank</a></li>
+<li>CPU使用情况 这里的面积图标记着消耗CPU资源的各类事件</li>
+<li>NET 各种颜色的柱状条分别显示一种资源。柱状条越长，代表获取这个资源的时间越长<img src="/2016/12/14/Chrome-debug/timeline2.png" alt="timeline2.png" title="">
+</li>
+</ul>
+<blockquote>
+<p>CPU面积图中各颜色的含义：蓝色代表HTML文件；黄色代表脚本文件；紫色代表样式文件；绿色代表媒体文件；灰色代表其它杂项文件。<br>NET图表柱状条两种颜色的含义：较亮的部分表示等待时间（当资源被请求时，直到第一个字节被下载的时间)；较暗的部分表示传输时间(在第一个和最后一个字节被下载之间的时间)。</p>
+</blockquote>
+<p>支持两种网页录制操作：①录制网页加载，②录制网页交互。为了便于分析，录制的时间不宜太长、还要避免不必要的交互操作、并禁用浏览器的缓存和插件。</p>
+<p>当你在<code>Flame Chart</code>中选择一个事件，<code>Detail</code>面板就会展示此事件额外的信息。<br><img src="/2016/12/14/Chrome-debug/timeline3.png" alt="timeline3.png" title=""><br><code>Summary</code>会展现所有的事件信息，另外的部分仅仅对某些事件有效，详细请看<a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference" target="_blank" rel="external">Timeline event reference</a></p>
+<p>在录制之前点击Controls中的Screenshots复选框，可以在录制过程中捕获截屏，鼠标在Overview上从左向右移动则可以看到录制的动画。<br><img src="/2016/12/14/Chrome-debug/timeline4.png" alt="timeline4.png" title=""></p>
+<p>在录制之前点击Controls中的JS Profile复选框，可以在时间轴中捕获JavaScript的堆栈信息(会产生一定的性能消耗)，并且在Flame Chart(火焰图)中会显示所有被调用的JavaScript函数信息。<br><img src="/2016/12/14/Chrome-debug/timeline5.png" alt="timeline5.png" title=""></p>
+<p>在录制之前点击Controls中的Paint复选框，可以获取绘制事件的更多细节信息（注意这会产生很多的性能消耗）。如果要深入了解网页渲染方面的信息，可以点击DevTools右上角的菜单，在More tools里面选中Rendering settings，这里面包含了如下设置项：<br><img src="/2016/12/14/Chrome-debug/timeline6.png" alt="timeline6.png" title=""></p>
+<ul>
+<li>Paint Flashing 高亮显示网页中需要被重绘的部分。</li>
+<li>Layer Borders 显示Layer边界。</li>
+<li>FPS Meter 每一秒的帧细节，帧速率的分布信息和GPU的内存使用情况。</li>
+<li>Scrolling Performance Issues 分析鼠标滚动时的性能问题，会显示使屏幕滚动变慢的区域。</li>
+<li>Emulate CSS Media 仿真CSS媒体类型，查看不同的设备上CSS样式效果，可能的媒体类型选项有print、screen。</li>
+</ul>
+<p>可以通过在DevTools上按Cmd+F(Mac)调出查询框，来查看指定时间区域范围内的指定类型的事件，点击Cmd+G(Mac)或者Cmd+Shift+G(Mac)可以按事件发生的顺序来查询。<br><img src="/2016/12/14/Chrome-debug/timeline7.png" alt="timeline7.png" title=""><br>图中查询到了4个红色标记着的Parse HTML事件，点击Cmd+G焦点会在这4个事件移动。</p>
+<p>在<code>Overview</code>和<code>Flame Chart</code>上面右键，可以保存和打开记录<br><img src="/2016/12/14/Chrome-debug/timeline8.png" alt="timeline8.png" title=""></p>
+<h2 id="Profiles"><a href="#Profiles" class="headerlink" title="Profiles"></a>Profiles</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>当前使用的Chrome最新版为</p>
+<ul>
+<li>54.0.2840.71，这个版本的Profiles面板比之前提供的功能更多也更强大，下面是该面板所包含的功能点：</li>
+<li>Record JavaScript CPU Profile 用于分析网页上的JavaScript函数在执行过程中的CPU消耗信息。</li>
+<li>Take Heap Snapshot 创建堆快照用来显示网页上的JS对象和相关的DOM节点的内存分布情况。</li>
+<li>Record Allocation Timeline 从整个Heap角度记录内存的分配信息的时间轴信息，利用这个可以实现隔离内存泄漏问题。</li>
+<li>Record Allocation Profile 从JS函数角度记录内存的分配信息。<img src="/2016/12/14/Chrome-debug/profile1.png" alt="profile1.png" title="">
+</li>
+</ul>
+<h3 id="Record-JavaScript-CPU-Profile简介"><a href="#Record-JavaScript-CPU-Profile简介" class="headerlink" title="Record JavaScript CPU Profile简介"></a>Record JavaScript CPU Profile简介</h3><p>通过选择Record JavaScript CPU Profile，然后点击Start，结合你所要分析的具体场景，你可以重新加载网页，或者在网页上进行交互，甚至什么都不操作。最后点击Stop，完成记录操作。<br>有三种不同的视图可供选择：</p>
+<ul>
+<li>Chart 按时间先后顺序显示的火焰图。<img src="/2016/12/14/Chrome-debug/profile2.png" alt="profile2.png" title=""></li>
+<li>Heavy(Bottom Up) （自底向上）根据对性能的消耗影响列出所有的函数，并可以查看该函数的调用路径。<img src="/2016/12/14/Chrome-debug/profile3.png" alt="profile3.png" title=""></li>
+<li>Tree(Top Down) (自顶向下) 从调用栈的顶端（最初调用的位置）开始，显示调用结构的总体的树状图情况<img src="/2016/12/14/Chrome-debug/profile4.png" alt="profile4.png" title="">
+我们以Chart视图为例分析一下JS的执行的性能情况：<img src="/2016/12/14/Chrome-debug/profile5.png" alt="profile5.png" title="">
+该视图会以时间顺序展示CPU的性能情况，视图主要分成两块：</li>
+<li>Overview 整个录制结果的鸟瞰图（概览），柱形条的高度对应了调用堆栈的深度，也就是说柱形条高度越高，调用堆栈的深度越深。</li>
+<li>Call Stacks 在录制过程中被调用的函数的深入分析视图（调用堆栈），横轴表示时间，纵轴表示调用栈，自上而下的表示函数的调用情况。也就是说上面的函数调用在它下面的函数。<br>视图中的函数颜色不同于其它的面板，这里面的函数颜色标记是随机显示的。然而相同的函数调用颜色标记是相同的。<br>其中纵轴表示的函数调用堆栈高度仅仅函数的调用嵌套层次比较深，不表示其重要性很高，但是横轴上一个很宽的柱形条则意味着函数的调用需要一个很长的时间去完成，那么你就考虑去做一些优化操作。<br>将鼠标移到Call Stacks中的函数上可以显示函数的名称和时间相关的数据，会提供如下信息：</li>
+<li>Name 函数名称</li>
+<li>Self time 函数的本次调用运行的时间，仅仅包含该函数本身的运行时间，不包含它所调用的子函数的时间。</li>
+<li>Total time 函数的本次调用运行的总时间，包含它所调用的子函数的运行时间。</li>
+<li>URL 函数定义在文件中所在的位置，其格式为file.js:100，表示函数在file.js文件中的第100行。</li>
+<li>Aggregated self time 在这次的录制过程中函数调用运行的总时间，不包含它所调用的子函数的时间。</li>
+<li>Aggregated total time 在这次的录制过程中所有的函数调用运行的总时间，包含它所调用的子函数的时间。</li>
+<li>Not optimized 如果优化器检测到该函数有潜在的优化空间，那么该函数会被列在这里。</li>
+</ul>
+<h3 id="Take-Heap-Snapshot简介"><a href="#Take-Heap-Snapshot简介" class="headerlink" title="Take Heap Snapshot简介"></a>Take Heap Snapshot简介</h3><p>通过创建堆快照可以查看创建快照时网页上的JS对象和DOM节点的内存分布情况。利用该工具你可以创建JS的堆快照、内存分析图、对比堆快照以及定位内存泄漏问题。选中Take Heap Snapshot,点击Take Snapshot按钮即可获取快照，在每一次获取快照前都会自动执行垃圾回收操作。<br>快照最初会存储在渲染进程的内存之中，当我们点击创建快照按钮来查看时才会被传输到DevTools中，当快照被加载到DevTools里面并经过解析之后，在快照标题下方的文字显示的数字就是可访问到的JS对象总的大小。<br><img src="/2016/12/14/Chrome-debug/profile6.png" alt="profile6.png" title=""><br>堆快照提供了不同的视角来进行查看：</p>
+<ul>
+<li>Summary 该视图按照构造函数进行分组，用它可以捕获对象和它们使用的内存情况，对于跟踪定位DOM节点的内存泄漏特别有用。</li>
+<li>Comparison 对比两个快照的差别，用它可以对比某个操作前后的内存快照。分析操作前后的内存释放情况以及它的引用计数，便于你确认内存是否存在泄漏以及造成的原因。</li>
+<li>Containment 该视图可以探测堆的具体内容，它提供了一个更适合的视图来查看对象结构，有助于分析对象的引用情况，使用它可以分析闭包和进行更深层次的对象分析。</li>
+<li>Statistics 统计视图。</li>
+</ul>
+<h4 id="Summary视图"><a href="#Summary视图" class="headerlink" title="Summary视图"></a>Summary视图</h4><p>该视图会显示所有的对象信息，点击其中的一个对象进行展开可查看更详细的实例信息。鼠标移动到某个对象上会显示该对象实例的详情信息。<br><img src="/2016/12/14/Chrome-debug/profile7.png" alt="profile7.png" title=""><br>图中的各列的具体含义如下：</p>
+<ul>
+<li>Constructor 显示所有的构造函数，点击每一个构造函数可以查看由该构造函数创建的所有对象。</li>
+<li>Distance 显示通过最短的节点路径到根节点的距离。</li>
+<li>Objects Count 显示对象的个数和百分比。</li>
+<li>Shallow size 显示由特定的构造函数创建的所有对象的本身的内存总数。</li>
+<li>Retained size 显示由该对象及其它所引用的对象的总的内存总数。<blockquote>
+<p>Shallow size和Retained size的区别？Shallow size是对象本身占用内存的大小，不包含它所引用的对象。Retained size是该对象本身的Shallow size，加上能从该对象直接或者间接访问到对象的Shallow size之和。也就是说Retained size是该对象被GC之后所能回收到内存的总和。</p>
+</blockquote>
+</li>
+</ul>
+<p>在展开构造函数，则会列出该函数相关的所有对象实例，可以查看该对象的Shallow size和Retained size，在@符号后面的数字是该对象的唯一标识ID。<br>其中黄色的对象表示它被某个JS所引用，而红色的对象表示由黄色背景色引用被分离开的节点。<br><img src="/2016/12/14/Chrome-debug/profile8.png" alt="profile8.png" title=""><br>这些构造函数都代表什么含义呢？</p>
+<ul>
+<li>(global property) 全局对象（比如window）和通过它引用的对象之间的中间对象，如果一个对象是由Person构造函数生成并被全局对象所引用，那么它们的引用路径关系就像这样[global] &gt; (global property) &gt; Person。这跟常规的对象之间直接引用相比，采用中间对象主要是考虑性能的原因。全局对象的改变是很频繁的，而非全局变量的属性访问最优化方案对全局变量是不适用的。</li>
+<li>(roots) 它们可以是由引擎自己的目标创建的一些引用，这个引擎可以缓存引用的对象，但所有的这些引用都是弱引用，它们不会阻止引用对象被回收。</li>
+<li>(closure) 一些函数闭包中的一组对象的引用。</li>
+<li>(array, string, number, regexp) 一系属性引用了数组(Array),字符串(String),数字(Number)或正则表达式的对象类型。</li>
+<li>HTMLDivElement, HTMLAnchorElement, DocumentFragment等 你的代码中对元素(elements)的引用或者指定的document对象的引用。</li>
+</ul>
+<h4 id="Comparison视图"><a href="#Comparison视图" class="headerlink" title="Comparison视图"></a>Comparison视图</h4><p>通过比较多个快照之间的差异来找出内存泄露的对象，为了验证某个程序的操作不会引起内存泄露（通常会执行一个操作后再执行一个对应的相反操作，比如打开一个文档后再关闭它，应该是没有产生内存泄露问题的），你可以执行如下步骤：</p>
+<ul>
+<li>在执行一个操作之前拍一个快照。</li>
+<li>执行一个操作，通过你认为可能会引起内存泄露的一次页面交互操作。</li>
+<li>执行一个相反的操作。</li>
+<li>拍第二个快照，切换到Comparison视图，并与第一个快照进行对比。</li>
+</ul>
+<img src="/2016/12/14/Chrome-debug/profile9.png" alt="profile9.png" title="">
+<p>切换到Comparison视图之后，就可以看到两个不同的快照之间的差别。</p>
+<h4 id="Containment视图"><a href="#Containment视图" class="headerlink" title="Containment视图"></a>Containment视图</h4><p>该视图本质上就是应用程序的对象结构的“鸟瞰图”，允许你去深入分析函数的闭包，了解应用程序底层的内存使用情况。<br>这个视图提供了多个入口：</p>
+<ul>
+<li>DOMWindow objects DOMWindow对象，即JS代码全局对象。</li>
+<li>Native objects 浏览器原生对象，比如DOM节点，CSS规则。<img src="/2016/12/14/Chrome-debug/profile10.png" alt="profile10.png" title="">
+闭包小建议: 在快照的分析中命名函数的闭包相比匿名函数的闭包更容易区分。<br>Google上提供的例子和图如下：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createLargeClosure</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> largeStr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1000000</span>).join(<span class="string">'x'</span>);</div><div class="line"></div><div class="line">  <span class="keyword">var</span> lC = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 匿名函数</span></div><div class="line">    <span class="keyword">return</span> largeStr;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> lC;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createLargeClosure</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> largeStr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1000000</span>).join(<span class="string">'x'</span>);</div><div class="line"></div><div class="line">  <span class="keyword">var</span> lC = <span class="function"><span class="keyword">function</span> <span class="title">lC</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 命名函数</span></div><div class="line">    <span class="keyword">return</span> largeStr;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> lC;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<img src="/2016/12/14/Chrome-debug/profile11.png" alt="profile11.png" title="">
+<h4 id="Statistics视图"><a href="#Statistics视图" class="headerlink" title="Statistics视图"></a>Statistics视图</h4><p>该视图是堆快照的总的分布统计情况，这个直接上图就可以了：<br><img src="/2016/12/14/Chrome-debug/profile12.png" alt="profile12.png" title=""></p>
+<p>内存泄露示例:<br>DOM内存泄露可能比你想象的要大，考虑一下下面的例子-什么时候#tree节点被释放掉？<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> select = <span class="built_in">document</span>.querySelector;</div><div class="line"><span class="keyword">var</span> treeRef = select(<span class="string">"#tree"</span>);</div><div class="line"><span class="keyword">var</span> leafRef = select(<span class="string">"#leaf"</span>);</div><div class="line"><span class="keyword">var</span> body = select(<span class="string">"body"</span>);</div><div class="line"></div><div class="line">body.removeChild(treeRef);</div><div class="line"></div><div class="line"><span class="comment">//由于treeRef #tree不能被释放</span></div><div class="line">treeRef = <span class="literal">null</span>;</div><div class="line"></div><div class="line"><span class="comment">//由于leafRef的间接引用 #tree还是不能被释放</span></div><div class="line"></div><div class="line">leafRef = <span class="literal">null</span>;</div><div class="line"><span class="comment">//现在没有被引用，#tree这个时候才可以被释放了</span></div></pre></td></tr></table></figure></p>
+<img src="/2016/12/14/Chrome-debug/profile13.png" alt="profile13.png" title="">
+<p><code>#leaf</code>节点保持着对它的父节点(parentNode)的引用，这样一直递归引用了#tree节点，所以只有当leafRef被设置成null后，#tree下面的整个树节点才有可能被垃圾回收器回收。</p>
+<h3 id="Record-Allocation-Timeline简介"><a href="#Record-Allocation-Timeline简介" class="headerlink" title="Record Allocation Timeline简介"></a>Record Allocation Timeline简介</h3><p>该工具是可以帮助你追踪JS堆里面的内存泄漏的另一大利器。<br>选中Record Allocation Timeline按钮，点击Start按钮之后，执行你认为可能会引起内存泄漏的操作，操作之后点击左上角的停止按钮即可。你可以在蓝色竖线上通过缩放来过滤构造器窗格来仅仅显示在指定的时间帧内的被分配的对象。</p>
+<p>录制过程中，在时间线上会出现一些蓝色竖条，这些蓝色竖条代表一个新的内存分配，这个新的内存分配都可以会有潜在的内存泄露问题。<br><img src="/2016/12/14/Chrome-debug/profile14.png" alt="profile14.png" title=""><br>通过展开对象并点击它的值则可以在Object窗格中查看更多新分配的对象细节。<br><img src="/2016/12/14/Chrome-debug/profile15.png" alt="profile15.png" title=""></p>
+<h3 id="Record-Allocation-Profile简介"><a href="#Record-Allocation-Profile简介" class="headerlink" title="Record Allocation Profile简介"></a>Record Allocation Profile简介</h3><p>从JS函数角度记录并查看内存的分配信息。点击Start按钮，执行你想要去深入分析的页面操作，当你完成你的操作后点击Stop按钮。然后会显示一个按JS函数进行内存分配的分解图，默认的视图是Heavy (Bottom Up)，该视图会把最消耗内存的函数显示在最顶端。<br>下图是切换到Chart视图时具体的界面，点击任意函数跳转到Sources面板可以查看具体的函数信息。<br><img src="/2016/12/14/Chrome-debug/profile16.png" alt="profile16.png" title=""></p>
+<h2 id="Application面板简介"><a href="#Application面板简介" class="headerlink" title="Application面板简介"></a>Application面板简介</h2><p>该面板主要是记录网站加载的所有资源信息，包括存储数据（Local Storage、Session Storage、IndexedDB、Web SQL、Cookies）、缓存数据、字体、图片、脚本、样式表等。<br><img src="/2016/12/14/Chrome-debug/application1.png" alt="application1.png" title=""></p>
+<ul>
+<li>Local Storage 如果你在开发过程中使用了local storage来存储键值对(KVPs)，那么你就可以通过Local Storage窗格来检查、新增、修改、删除这个键值对。</li>
+<li>Application Cache 你可以使用Application Cache窗格去查看通过Application Cache API创建的资源。</li>
+<li>Frames 将页面上的资源按frame类别进行组织显示。</li>
+</ul>
+<p>Frames窗格<br>在上图中可以查看到顶级的top是一个主文档，在top下面是主文档的Fonts、Images、Scripts、Stylesheets等资源。最后一个就是主文件自身。在资源上右击后在弹出菜单选择Reveal in Network Panel，就会跳转到Network面板并定位到该资源的位置。<br><img src="/2016/12/14/Chrome-debug/application2.png" alt="application2.png" title=""><br><img src="/2016/12/14/Chrome-debug/application3.png" alt="application3.png" title=""><br>你也可以在Sources面板里面按frame类别来查看资源信息。</p>
+<h2 id="Security面板简介"><a href="#Security面板简介" class="headerlink" title="Security面板简介"></a>Security面板简介</h2><p>通过该面板你可以去调试当前网页的安全和认证等问题并确保您已经在你的网站上正确地实现HTTPS。</p>
+<blockquote>
+<p>HTTPS（Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。 它是一个URI scheme（抽象标识符体系），句法类同http:体系。用于安全的HTTP数据传输。https:URL表明它使用了HTTP，但HTTPS存在不同于HTTP的默认端口及一个加密/身份验证层（在HTTP与TCP之间）。<br>HTTPS和HTTP的区别主要为以下四点：<br>① https协议需要到CA申请证书，一般免费证书很少，需要交费。<br>② http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。<br>③ http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。<br>④ http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+</blockquote>
+<p>如果网页是安全的，则会显示这样一条消息：This page is secure (valid HTTPS).。<br><img src="/2016/12/14/Chrome-debug/secure1.png" alt="secure1.png" title=""><br>通过点击View certificate可以查看main origin的服务器证书信息。<br>点击左侧可以查看指定源的连接和证书详情。<br><img src="/2016/12/14/Chrome-debug/secure2.png" alt="secure2.png" title=""><br><img src="/2016/12/14/Chrome-debug/secure3.png" alt="secure3.png" title=""><br>如果网页是不安全的，则会显示：This page is not secure.。<br><br>该面板可以区分两种类型的不安全的页面：</p>
+<ul>
+<li>如果被请求的页面通过HTTP提供服务，那么这个主源就会被标记为不安全。</li>
+<li>如果被请求的页面是通过HTTPS获取的，但这个页面接着通过HTTP继续从其他来源检索内容，那么这个页面仍然被标记为不安全。这就是所谓的混合内容页面,混合内容页面只是部分受到保护,因为HTTP内容(非加密的内容)可以被嗅探者入侵,容易受到中间人攻击。</li>
+</ul>
+<p>点击左侧则提供一个跳转到Network面板视图的链接信息。</p>
+<blockquote>
+<p>中间人攻击(Man-in-the-Middle Attack,”MITM攻击”)是一种“间接”的入侵攻击，这种攻击模式是通过各种技术手段将受入侵者控制的一台计算机虚拟放置在网络连接中的两台通信计算机之间，这台计算机就称为“中间人”。</p>
+</blockquote>
+<h2 id="Audits面板简介"><a href="#Audits面板简介" class="headerlink" title="Audits面板简介"></a>Audits面板简介</h2><p>对当前网页进行网络利用情况、网页性能方面的诊断，并给出一些优化建议。比如列出所有没有用到的CSS文件等。<br><img src="/2016/12/14/Chrome-debug/audits1.png" alt="audits1.png" title=""><br>选中Network Utilization、Web Page Performance，点击Run按钮，将会对当前页面进行网络利用率和页面的性能优化作出诊断，并给出相应的优化建议。<br><img src="/2016/12/14/Chrome-debug/audits2.png" alt="audits2.png" title=""></p>
 
       
     </div>
@@ -628,7 +794,7 @@ DOM Breakpoints">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sources"><span class="nav-number">1.</span> <span class="nav-text">Sources</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM-Breakpoints"><span class="nav-number">1.1.</span> <span class="nav-text">DOM Breakpoints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHR-Breakpoints"><span class="nav-number">1.2.</span> <span class="nav-text">XHR Breakpoints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-Stack调用栈"><span class="nav-number">1.3.</span> <span class="nav-text">Call Stack调用栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Network"><span class="nav-number">2.</span> <span class="nav-text">Network</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sources"><span class="nav-number">1.</span> <span class="nav-text">Sources</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM-Breakpoints"><span class="nav-number">1.1.</span> <span class="nav-text">DOM Breakpoints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHR-Breakpoints"><span class="nav-number">1.2.</span> <span class="nav-text">XHR Breakpoints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-Stack调用栈"><span class="nav-number">1.3.</span> <span class="nav-text">Call Stack调用栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Network"><span class="nav-number">2.</span> <span class="nav-text">Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Timeline"><span class="nav-number">3.</span> <span class="nav-text">Timeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Profiles"><span class="nav-number">4.</span> <span class="nav-text">Profiles</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">4.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Record-JavaScript-CPU-Profile简介"><span class="nav-number">4.2.</span> <span class="nav-text">Record JavaScript CPU Profile简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Take-Heap-Snapshot简介"><span class="nav-number">4.3.</span> <span class="nav-text">Take Heap Snapshot简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary视图"><span class="nav-number">4.3.1.</span> <span class="nav-text">Summary视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparison视图"><span class="nav-number">4.3.2.</span> <span class="nav-text">Comparison视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Containment视图"><span class="nav-number">4.3.3.</span> <span class="nav-text">Containment视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Statistics视图"><span class="nav-number">4.3.4.</span> <span class="nav-text">Statistics视图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Record-Allocation-Timeline简介"><span class="nav-number">4.4.</span> <span class="nav-text">Record Allocation Timeline简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Record-Allocation-Profile简介"><span class="nav-number">4.5.</span> <span class="nav-text">Record Allocation Profile简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application面板简介"><span class="nav-number">5.</span> <span class="nav-text">Application面板简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security面板简介"><span class="nav-number">6.</span> <span class="nav-text">Security面板简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Audits面板简介"><span class="nav-number">7.</span> <span class="nav-text">Audits面板简介</span></a></li></ol></div>
             
           </div>
         </section>
