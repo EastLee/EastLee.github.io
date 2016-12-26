@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="EastLee">
 <meta property="og:description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
 全局安装webpack$ npm install webpack -g">
-<meta property="og:updated_time" content="2016-12-26T10:48:25.000Z">
+<meta property="og:updated_time" content="2016-12-26T13:59:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack.learning">
 <meta name="twitter:description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
@@ -387,6 +387,7 @@
 </ul>
 <h2 id="热加载"><a href="#热加载" class="headerlink" title="热加载"></a>热加载</h2><p>webpack-dev-server 还提供了模块热加载的方式，在不刷新浏览器的条件下，应用最新的代码更新，启动 webpack-dev-server 的时候添加 –inline –hot 参数就可以体验。<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack-dev-server --inline --hot</div></pre></td></tr></table></figure></p>
 <p>也可以在webpack.config.js中配置<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">plugins: [</div><div class="line">    <span class="comment">// 需要手动添加 HotModuleReplacementPlugin , 命令行的方式会自动添加</span></div><div class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</div><div class="line">],</div><div class="line"><span class="attr">devServer</span>: &#123;</div><div class="line">    <span class="attr">hot</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">inline</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>还可以利用<code>express</code>在本地起一个服务，利用<code>webpack-dev-middleware</code>和<code>webpack-hot-middleware</code>配合使用，请看配置<a href="https://www.npmjs.com/package/webpack-hot-middleware" target="_blank" rel="external">详情</a>和<a href="http://www.tuicool.com/articles/22aQ7vu" target="_blank" rel="external">分析</a></p>
 <h2 id="webpack-dev-server选项"><a href="#webpack-dev-server选项" class="headerlink" title="webpack-dev-server选项"></a>webpack-dev-server选项</h2><ul>
 <li>contentBase：默认webpack-dev-server会为根文件夹提供本地服务器，如果想为另外一个目录下的文件提供本地服务器，应该在这里设置其所在目录</li>
 <li>port：设置默认监听端口，如果省略，默认为”8080“</li>
