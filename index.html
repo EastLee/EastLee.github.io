@@ -277,7 +277,7 @@
               
                 
                 <a class="post-title-link" href="/2017/03/05/前端知识1/" itemprop="url">
-                  前端知识1
+                  addEventListener和attachEvent 区别
                 </a>
               
             
@@ -331,7 +331,7 @@
              
           
           
-             <span id="/2017/03/05/前端知识1/" class="leancloud_visitors" data-flag-title="前端知识1">
+             <span id="/2017/03/05/前端知识1/" class="leancloud_visitors" data-flag-title="addEventListener和attachEvent 区别">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -354,40 +354,19 @@
 
       
         
-          
-            <h2 id="addEventListener和attachEvent-区别"><a href="#addEventListener和attachEvent-区别" class="headerlink" title="addEventListener和attachEvent 区别"></a>addEventListener和attachEvent 区别</h2><h3 id="addEventListener"><a href="#addEventListener" class="headerlink" title="addEventListener"></a>addEventListener</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">target.addEventListener(type, listener, useCapture);</div></pre></td></tr></table></figure>
+          <h2 id="1、addEventListener"><a href="#1、addEventListener" class="headerlink" title="1、addEventListener"></a>1、addEventListener</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">target.addEventListener(type, listener, useCapture);</div></pre></td></tr></table></figure>
 <ul>
 <li>兼容性：ie9+及现代浏览器</li>
 <li>type：字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等</li>
 <li>useCapture：是否使用捕捉，一般用false（冒泡）</li>
 <li>删除方式：removeEventListener(event,function,capture/bubble)</li>
 <li>执行顺序：定义最早的最先执行</li>
-<li>作用域：this指向绑定的元素</li>
-<li>FF下event对象有target,但没有srcElement属性,chrome下都有</li>
-<li>event有currentTarget</li>
-<li>event有stopPropagation，stopImmediatePropagation</li>
-<li>cancelBubble属性只能用于阻止冒泡，无法阻止捕获阶段。该值可读写，默认值是false。当设置为true时，cancelBubble可以取消事件冒泡</li>
-<li>event支持preventDefault</li>
-<li>第二个参数可以是对象，事件会自动在传入对象中寻找handleEvent方法（ie9+支持）</li>
-</ul>
-<h3 id="attachEvent"><a href="#attachEvent" class="headerlink" title="attachEvent"></a>attachEvent</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">target.attachEvent(type, listener);</div></pre></td></tr></table></figure>
-<ul>
-<li>兼容性：ie5到ie10</li>
-<li>type：字符串，事件名称，含“on”，比如“onclick”、“onmouseover”、“onkeydown”等</li>
-<li>useCapture：无</li>
-<li>删除方式：detachEvent(event,function)</li>
-<li>执行顺序：定义最早的最后执行</li>
-<li>作用域：this指向window</li>
-<li>ie8-下event对象有srcElement,但没有target属性</li>
-<li>ie8-下event没有currentTarget</li>
-<li>ie8-下event没有stopPropagation，stopImmediatePropagation，ie也支持cancelBubble</li>
-<li>ie8-下event没有cancelable(只读)</li>
-<li>ie8-下event对象没有eventPhase</li>
-<li>ie8-下event不支持preventDefault，但是支持returnValue=false</li>
-<li>ie8-下event不支持defaultPrevented(只读)</li>
-</ul>
-
-          
+<li>作用域：this指向绑定的元素
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/05/前端知识1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

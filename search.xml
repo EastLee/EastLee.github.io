@@ -4,9 +4,9 @@
   
     
     <entry>
-      <title><![CDATA[前端知识1]]></title>
+      <title><![CDATA[addEventListener和attachEvent 区别]]></title>
       <url>http://yoursite.com/2017/03/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%861/</url>
-      <content type="text"><![CDATA[addEventListener和attachEvent 区别addEventListenertarget.addEventListener(type, listener, useCapture); 兼容性：ie9+及现代浏览器 type：字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等 useCapture：是否使用捕捉，一般用false（冒泡） 删除方式：removeEventListener(event,function,capture/bubble) 执行顺序：定义最早的最先执行 作用域：this指向绑定的元素 FF下event对象有target,但没有srcElement属性,chrome下都有 event有currentTarget event有stopPropagation，stopImmediatePropagation cancelBubble属性只能用于阻止冒泡，无法阻止捕获阶段。该值可读写，默认值是false。当设置为true时，cancelBubble可以取消事件冒泡 event支持preventDefault 第二个参数可以是对象，事件会自动在传入对象中寻找handleEvent方法（ie9+支持） attachEventtarget.attachEvent(type, listener); 兼容性：ie5到ie10 type：字符串，事件名称，含“on”，比如“onclick”、“onmouseover”、“onkeydown”等 useCapture：无 删除方式：detachEvent(event,function) 执行顺序：定义最早的最后执行 作用域：this指向window ie8-下event对象有srcElement,但没有target属性 ie8-下event没有currentTarget ie8-下event没有stopPropagation，stopImmediatePropagation，ie也支持cancelBubble ie8-下event没有cancelable(只读) ie8-下event对象没有eventPhase ie8-下event不支持preventDefault，但是支持returnValue=false ie8-下event不支持defaultPrevented(只读)]]></content>
+      <content type="text"><![CDATA[1、addEventListenertarget.addEventListener(type, listener, useCapture); 兼容性：ie9+及现代浏览器 type：字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等 useCapture：是否使用捕捉，一般用false（冒泡） 删除方式：removeEventListener(event,function,capture/bubble) 执行顺序：定义最早的最先执行 作用域：this指向绑定的元素 FF下event对象有target,但没有srcElement属性,chrome下都有 event有currentTarget event有stopPropagation，stopImmediatePropagation cancelBubble属性只能用于阻止冒泡，无法阻止捕获阶段。该值可读写，默认值是false。当设置为true时，cancelBubble可以取消事件冒泡 event支持preventDefault 第二个参数可以是对象，事件会自动在传入对象中寻找handleEvent方法（ie9+支持） 2、attachEventtarget.attachEvent(type, listener); 兼容性：ie5到ie10 type：字符串，事件名称，含“on”，比如“onclick”、“onmouseover”、“onkeydown”等 useCapture：无 删除方式：detachEvent(event,function) 执行顺序：定义最早的最后执行 作用域：this指向window ie8-下event对象有srcElement,但没有target属性 ie8-下event没有currentTarget ie8-下event没有stopPropagation，stopImmediatePropagation，ie也支持cancelBubble ie8-下event没有cancelable(只读) ie8-下event对象没有eventPhase ie8-下event不支持preventDefault，但是支持returnValue=false ie8-下event不支持defaultPrevented(只读)]]></content>
     </entry>
 
     

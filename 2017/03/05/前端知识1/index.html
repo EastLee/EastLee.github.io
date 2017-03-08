@@ -84,28 +84,31 @@
 
 
 
-<meta name="description" content="addEventListener和attachEvent 区别addEventListenertarget.addEventListener(type, listener, useCapture);
+<meta name="description" content="1、addEventListenertarget.addEventListener(type, listener, useCapture);
 
 兼容性：ie9+及现代浏览器
 type：字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等
-useCapture：是否使用捕捉，一般用false（冒泡）">
+useCapture：是否使用捕捉，一般用false（冒泡）
+删除方式：removeEventListener(eve">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端知识1">
+<meta property="og:title" content="addEventListener和attachEvent 区别">
 <meta property="og:url" content="http://yoursite.com/2017/03/05/前端知识1/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="addEventListener和attachEvent 区别addEventListenertarget.addEventListener(type, listener, useCapture);
+<meta property="og:description" content="1、addEventListenertarget.addEventListener(type, listener, useCapture);
 
 兼容性：ie9+及现代浏览器
 type：字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等
-useCapture：是否使用捕捉，一般用false（冒泡）">
-<meta property="og:updated_time" content="2017-03-08T02:40:24.000Z">
+useCapture：是否使用捕捉，一般用false（冒泡）
+删除方式：removeEventListener(eve">
+<meta property="og:updated_time" content="2017-03-08T02:56:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端知识1">
-<meta name="twitter:description" content="addEventListener和attachEvent 区别addEventListenertarget.addEventListener(type, listener, useCapture);
+<meta name="twitter:title" content="addEventListener和attachEvent 区别">
+<meta name="twitter:description" content="1、addEventListenertarget.addEventListener(type, listener, useCapture);
 
 兼容性：ie9+及现代浏览器
 type：字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等
-useCapture：是否使用捕捉，一般用false（冒泡）">
+useCapture：是否使用捕捉，一般用false（冒泡）
+删除方式：removeEventListener(eve">
 
 
 
@@ -123,7 +126,7 @@ useCapture：是否使用捕捉，一般用false（冒泡）">
   };
 </script>
 
-  <title> 前端知识1 | EastLee </title>
+  <title> addEventListener和attachEvent 区别 | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -286,7 +289,7 @@ useCapture：是否使用捕捉，一般用false（冒泡）">
             
             
               
-                前端知识1
+                addEventListener和attachEvent 区别
               
             
           </h1>
@@ -339,7 +342,7 @@ useCapture：是否使用捕捉，一般用false（冒泡）">
              
           
           
-             <span id="/2017/03/05/前端知识1/" class="leancloud_visitors" data-flag-title="前端知识1">
+             <span id="/2017/03/05/前端知识1/" class="leancloud_visitors" data-flag-title="addEventListener和attachEvent 区别">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -361,14 +364,14 @@ useCapture：是否使用捕捉，一般用false（冒泡）">
       
 
       
-        <h2 id="addEventListener和attachEvent-区别"><a href="#addEventListener和attachEvent-区别" class="headerlink" title="addEventListener和attachEvent 区别"></a>addEventListener和attachEvent 区别</h2><h3 id="addEventListener"><a href="#addEventListener" class="headerlink" title="addEventListener"></a>addEventListener</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">target.addEventListener(type, listener, useCapture);</div></pre></td></tr></table></figure>
+        <h2 id="1、addEventListener"><a href="#1、addEventListener" class="headerlink" title="1、addEventListener"></a>1、addEventListener</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">target.addEventListener(type, listener, useCapture);</div></pre></td></tr></table></figure>
 <ul>
 <li>兼容性：ie9+及现代浏览器</li>
 <li>type：字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等</li>
 <li>useCapture：是否使用捕捉，一般用false（冒泡）</li>
 <li>删除方式：removeEventListener(event,function,capture/bubble)</li>
 <li>执行顺序：定义最早的最先执行</li>
-<li>作用域：this指向绑定的元素</li>
+<li>作用域：this指向绑定的元素<a id="more"></a></li>
 <li>FF下event对象有target,但没有srcElement属性,chrome下都有</li>
 <li>event有currentTarget</li>
 <li>event有stopPropagation，stopImmediatePropagation</li>
@@ -376,7 +379,8 @@ useCapture：是否使用捕捉，一般用false（冒泡）">
 <li>event支持preventDefault</li>
 <li>第二个参数可以是对象，事件会自动在传入对象中寻找handleEvent方法（ie9+支持）</li>
 </ul>
-<h3 id="attachEvent"><a href="#attachEvent" class="headerlink" title="attachEvent"></a>attachEvent</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">target.attachEvent(type, listener);</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="2、attachEvent"><a href="#2、attachEvent" class="headerlink" title="2、attachEvent"></a>2、attachEvent</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">target.attachEvent(type, listener);</div></pre></td></tr></table></figure>
 <ul>
 <li>兼容性：ie5到ie10</li>
 <li>type：字符串，事件名称，含“on”，比如“onclick”、“onmouseover”、“onkeydown”等</li>
@@ -449,7 +453,7 @@ useCapture：是否使用捕捉，一般用false（冒泡）">
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2017/03/05/前端知识1/"
-     data-title="前端知识1"
+     data-title="addEventListener和attachEvent 区别"
      data-content=""
      data-url="http://yoursite.com/2017/03/05/前端知识1/">
   <div class="ds-share-inline">
@@ -479,7 +483,7 @@ useCapture：是否使用捕捉，一般用false（冒泡）">
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/03/05/前端知识1/"
-           data-title="前端知识1" data-url="http://yoursite.com/2017/03/05/前端知识1/">
+           data-title="addEventListener和attachEvent 区别" data-url="http://yoursite.com/2017/03/05/前端知识1/">
       </div>
     
   </div>
@@ -581,7 +585,7 @@ useCapture：是否使用捕捉，一般用false（冒泡）">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#addEventListener和attachEvent-区别"><span class="nav-number">1.</span> <span class="nav-text">addEventListener和attachEvent 区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#addEventListener"><span class="nav-number">1.1.</span> <span class="nav-text">addEventListener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#attachEvent"><span class="nav-number">1.2.</span> <span class="nav-text">attachEvent</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、addEventListener"><span class="nav-number">1.</span> <span class="nav-text">1、addEventListener</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、attachEvent"><span class="nav-number">2.</span> <span class="nav-text">2、attachEvent</span></a></li></ol></div>
             
           </div>
         </section>
