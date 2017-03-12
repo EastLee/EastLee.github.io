@@ -96,7 +96,7 @@ jsonp
 首先浏览器端先定义一个执行函数：function dosomething(json)&amp;#123;    //to do something&amp;#125;">
 <meta property="og:image" content="http://yoursite.com/2017/03/12/跨域/wn1.png">
 <meta property="og:image" content="http://yoursite.com/2017/03/12/跨域/wn2.png">
-<meta property="og:updated_time" content="2017-03-12T09:40:10.000Z">
+<meta property="og:updated_time" content="2017-03-12T10:57:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域方式">
 <meta name="twitter:description" content="跨域的概念页面与页面之间和浏览器与服务器之间进行通信，如果协议、域名、端口有任何一个不同，都被当作是不同的域，此时的通信是不被浏览器同源策略所允许的。那么如何解决跨域呢？大概有如下一些常用的方法！
@@ -367,7 +367,7 @@ jsonp
 <ul>
 <li>在页面插入一个<code>script</code>标签，<code>url=&#39;http://XXXX?callback=dosomething&#39;</code>，此时就会向服务器发送这么个请求。</li>
 <li>当服务器接收到这个请求，就会把<code>callback</code>当做一个<code>key</code>，然后得到这个<code>key</code>对应的<code>value</code>值，此处是<code>dosomething</code>；<code>key</code>也可以不是<code>callback</code>,开发者可以定义其他的字符串代替，当然前端要告诉后端这个<code>key</code>是什么！</li>
-<li><p>后端获得了<code>value</code>是<code>dosomething</code>,就会做下面的操作，就是拼接出一个参数是<code>json</code>的执行函数，返回给后端</p>
+<li><p>后端获得了<code>value</code>是<code>dosomething</code>,就会做下面的操作，就是拼接出一个参数是<code>json</code>的执行函数，返回给前端</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">dosomething+<span class="string">"("</span>+json+<span class="string">")"</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>页面加载这个js代码，就会直接执行，那么就可以在<code>dosomething</code>这个函数体里面做自己想做的事！</p>
