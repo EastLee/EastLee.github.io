@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MV*," />
+  <meta name="keywords" content="修改函数上下文," />
 
 
 
@@ -84,20 +84,31 @@
 
 
 
-<meta name="description" content="一直理解不了MVC的架构模式，不过最近在看发布的业务代码，仿佛有了新的突破，所以写篇博客记录一下">
+<meta name="description" content="call、apply区别
+func.call(obj, a, b, c)
+func.apply(obj, [a, b, c])
+
+apply相比于call有何妙用呢？如下：
+function log()&amp;#123;    console.log.apply(console, arguments);&amp;#125;;log(1);    //1log(1,2);    //1 2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解中的MVC、MVP和MVVM">
-<meta property="og:url" content="http://yoursite.com/2016/12/16/MVC/index.html">
+<meta property="og:title" content="call-apply-bind">
+<meta property="og:url" content="http://yoursite.com/2017/03/12/call-apply-bind/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="一直理解不了MVC的架构模式，不过最近在看发布的业务代码，仿佛有了新的突破，所以写篇博客记录一下">
-<meta property="og:image" content="http://yoursite.com/2016/12/16/MVC/mvc1.png">
-<meta property="og:image" content="http://yoursite.com/2016/12/16/MVC/mvp.png">
-<meta property="og:image" content="http://yoursite.com/2016/12/16/MVC/mvvm.png">
-<meta property="og:updated_time" content="2016-12-17T08:09:28.000Z">
+<meta property="og:description" content="call、apply区别
+func.call(obj, a, b, c)
+func.apply(obj, [a, b, c])
+
+apply相比于call有何妙用呢？如下：
+function log()&amp;#123;    console.log.apply(console, arguments);&amp;#125;;log(1);    //1log(1,2);    //1 2">
+<meta property="og:updated_time" content="2017-03-12T10:50:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解中的MVC、MVP和MVVM">
-<meta name="twitter:description" content="一直理解不了MVC的架构模式，不过最近在看发布的业务代码，仿佛有了新的突破，所以写篇博客记录一下">
-<meta name="twitter:image" content="http://yoursite.com/2016/12/16/MVC/mvc1.png">
+<meta name="twitter:title" content="call-apply-bind">
+<meta name="twitter:description" content="call、apply区别
+func.call(obj, a, b, c)
+func.apply(obj, [a, b, c])
+
+apply相比于call有何妙用呢？如下：
+function log()&amp;#123;    console.log.apply(console, arguments);&amp;#125;;log(1);    //1log(1,2);    //1 2">
 
 
 
@@ -115,7 +126,7 @@
   };
 </script>
 
-  <title> 理解中的MVC、MVP和MVVM | EastLee </title>
+  <title> call-apply-bind | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +289,7 @@
             
             
               
-                理解中的MVC、MVP和MVVM
+                call-apply-bind
               
             
           </h1>
@@ -290,8 +301,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-16T00:07:38+08:00" content="2016-12-16">
-              2016-12-16
+            <time itemprop="dateCreated" datetime="2017-03-12T17:46:32+08:00" content="2017-03-12">
+              2017-03-12
             </time>
           </span>
 
@@ -304,8 +315,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/前端知识/" itemprop="url" rel="index">
+                    <span itemprop="name">前端知识</span>
                   </a>
                 </span>
 
@@ -320,8 +331,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/16/MVC/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/MVC/" itemprop="commentsCount"></span>
+                <a href="/2017/03/12/call-apply-bind/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/12/call-apply-bind/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -331,7 +342,7 @@
              
           
           
-             <span id="/2016/12/16/MVC/" class="leancloud_visitors" data-flag-title="理解中的MVC、MVP和MVVM">
+             <span id="/2017/03/12/call-apply-bind/" class="leancloud_visitors" data-flag-title="call-apply-bind">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,18 +364,25 @@
       
 
       
-        <blockquote>
-<p>一直理解不了MVC的架构模式，不过最近在看发布的业务代码，仿佛有了新的突破，所以写篇博客记录一下</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><figure class="highlight"><table><tr><td class="code"><pre><div class="line">&lt;select id="selAnimal"&gt;</div><div class="line">     &lt;option value="cat"&gt;cat&lt;/option&gt;</div><div class="line">     &lt;option value="fish"&gt;fish&lt;/option&gt;</div><div class="line">     &lt;option value="bird"&gt;bird&lt;/option&gt;</div><div class="line"> &lt;/select&gt;</div><div class="line"> &lt;p id="whatDoesThisAnimalDo"&gt;&lt;/p&gt;</div><div class="line"></div><div class="line"> &lt;script type="text/javascript"&gt;</div><div class="line"> // whatDoesAnimalDo 就是一个controller</div><div class="line">var whatDoesAnimalDo = &#123;</div><div class="line">    // 选择视图</div><div class="line">    start: function() &#123;</div><div class="line">        this.view.start();</div><div class="line">    &#125;,</div><div class="line">    // 将用户的操作映射到模型的更新上</div><div class="line">    set: function(animalName) &#123;</div><div class="line">        this.model.setAnimal(animalName);</div><div class="line">    &#125;,</div><div class="line">&#125;;</div><div class="line">// whatDoesAnimalDo的数据model</div><div class="line">whatDoesAnimalDo.model = &#123;</div><div class="line">    // animal的数据</div><div class="line">    animalDictionary: &#123;</div><div class="line">        cat: "meows",</div><div class="line">        fish: "swims",</div><div class="line">        bird: "flies"</div><div class="line">    &#125;,</div><div class="line">    // 当前的animal，也就是这个application的状态</div><div class="line">    currentAnimal: null,</div><div class="line">    // 数据模型负责业务逻辑和数据存储</div><div class="line">    setAnimal: function(animalName) &#123;</div><div class="line">        this.currentAnimal = this.animalDictionary[animalName] ? animalName : null;</div><div class="line">        this.onchange();</div><div class="line">    &#125;,</div><div class="line">    // 并且通知视图更新显示</div><div class="line">    onchange: function() &#123;</div><div class="line">        whatDoesAnimalDo.view.update();</div><div class="line">    &#125;,</div><div class="line">    // 还需要响应视图对当前状态的查询</div><div class="line">    getAnimalAction: function() &#123;</div><div class="line">        return this.currentAnimal ? this.currentAnimal + " " + this.animalDictionary[this.currentAnimal] : "wuff?";</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">// whatDoesAnimalDo的视图</div><div class="line">whatDoesAnimalDo.view = &#123;</div><div class="line">    // 用户输入触发onchange事件</div><div class="line">    start: function() &#123;</div><div class="line">        document.getElementById('selAnimal').onchange = this.onchange;</div><div class="line">    &#125;,</div><div class="line">    // 该事件将用户请求发送给控制器</div><div class="line">    onchange: function() &#123;</div><div class="line">        whatDoesAnimalDo.set(document.getElementById('selAnimal').value);</div><div class="line">    &#125;,</div><div class="line">    // 视图更新显示的方法，其中视图会向model查询当前的状态，并将其显示给用户</div><div class="line">    update: function() &#123;</div><div class="line">        document.getElementById('whatDoesThisAnimalDo').innerHTML = whatDoesAnimalDo.model.getAnimalAction();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">whatDoesAnimalDo.start();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>上面是一段实现MVC的小清新的代码，从中可以看出，UI绑定的事件在View层做，通过View层给Controller做一个指示，Controller调用指定的Model去做数据上操作，操作完成，Model就是调用View层刷新页面！过程如下：<br><img src="/2016/12/16/MVC/mvc1.png" alt="mvc1.png" title=""><br>Controller可以作为一个中继器，为View层命令分发到对应的Model层，比如发布，有很多UI组件，UI组件即创建了视图也加入了业务逻辑，可以看成是View和Model的结合体。那么当组件与组件间有交互时，可以通过Controller中转，相当于一个Controller对应于很多个View和Model。</p>
-<h2 id="MVP-1"><a href="#MVP-1" class="headerlink" title="MVP"></a>MVP</h2><p>MVP模式斩断了View层和Model层的联系，完全通过Presenter层做桥梁：<br><img src="/2016/12/16/MVC/mvp.png" alt="mvp.png" title=""><br>渲染View的功能也放在了Presenter层中。</p>
-<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p>MVVM和MVP有点类似，如图：<br><img src="/2016/12/16/MVC/mvvm.png" alt="mvvm.png" title=""></p>
-<ul>
-<li>ViewModel是整个架构的核心，连接着View和Model，View做了很多声明式绑定（按照一定规则），Model就是要操作的数据。ViewModel根据声明的规则把Model的数据映射到View层，同时对View层的操作和自身数据做监听。</li>
-<li>参照大神的<a href="https://github.com/JsAaron/aaMVVM" target="_blank" rel="external">MVVM框架设计</a>，代码的核心就是对每个需要监控的属性，都会生成set与get的访问控制器。无论是绑定事件还是用户在控制台修改，只要修改了被监控的属性，就会在访问控制器中做处理，把处理后的数据反映到View层并且更新Model层，即这就是所谓数据驱动！</li>
+        <h2 id="call、apply区别"><a href="#call、apply区别" class="headerlink" title="call、apply区别"></a>call、apply区别</h2><ul>
+<li><code>func.call(obj, a, b, c)</code></li>
+<li><code>func.apply(obj, [a, b, c])</code></li>
 </ul>
+<p><code>apply</code>相比于<code>call</code>有何妙用呢？如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, <span class="built_in">arguments</span>);</div><div class="line">&#125;;</div><div class="line">log(<span class="number">1</span>);    <span class="comment">//1</span></div><div class="line">log(<span class="number">1</span>,<span class="number">2</span>);    <span class="comment">//1 2</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><code>log</code>参数事先不知道会是多少个，所以用<code>apply</code>就可以模糊传参，当然参数至少是数组或者类数组，而如果使用<code>call</code>，就需要把数组或者类数组转化成单个参数，就会比较麻烦。</p>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">func.bind(obj, a, b)(c, d)</div></pre></td></tr></table></figure>
+<p><code>bind</code>第一次绑定上下文不会执行，还需再加一个小括号才会执行，<code>a</code>、<code>b</code>、<code>c</code>、<code>d</code>会一起作为参数传入，官方兼容实现如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">Function</span>.prototype.bind) &#123;</div><div class="line">    <span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">oThis</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>) &#123;</div><div class="line">        <span class="comment">// closest thing possible to the ECMAScript 5 internal IsCallable function</span></div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Function.prototype.bind - what is trying to be bound is not callable"</span>);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">var</span> aArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>),</div><div class="line">          fToBind = <span class="keyword">this</span>,</div><div class="line">         fNOP = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">         fBound = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">           <span class="keyword">return</span> fToBind.apply(<span class="keyword">this</span> <span class="keyword">instanceof</span> fNOP &amp;&amp; oThis ? <span class="keyword">this</span> : oThis || <span class="built_in">window</span>,</div><div class="line">                  aArgs.concat(<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)));</div><div class="line">         &#125;;</div><div class="line"></div><div class="line">     fNOP.prototype = <span class="keyword">this</span>.prototype;</div><div class="line">     fBound.prototype = <span class="keyword">new</span> fNOP();</div><div class="line"></div><div class="line">     <span class="keyword">return</span> fBound;</div><div class="line">   &#125;;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p><code>this instanceof fNOP &amp;&amp; oThis ? this : oThis || window</code> 解释：</p>
+<ul>
+<li>如果没有<code>new</code>绑定上下文后的方法，那么执行的时候返回的上下文是<code>oThis</code>或者<code>window</code></li>
+<li>如果有<code>new</code>，<code>this instanceof fNOP</code>肯定是真，如果有参数，<code>oThis</code>也是真，返回<code>this</code>即<code>new</code>出来的<code>fBound</code>对象，此对象的原型链指向<code>fToBind</code>的原型链，相当于对原函数做了一次<code>new</code></li>
+<li>如果有<code>new</code>，<code>this instanceof fNOP</code>肯定是真，如果没有参数，<code>oThis</code>是假，<code>fToBind</code>内部的上下文就变成了<code>window</code>，如下：<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> f = func.bind();</div><div class="line"><span class="keyword">new</span> f();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>经笔者在<code>Chrome</code>下测试，发现上面第三条有错误嫌疑，结果和第二条相同，所以可以把<code>&amp;&amp; oThis</code>去掉，但是笔者不清楚是版本的问题还是浏览器实现的问题！</p>
 
       
     </div>
@@ -391,7 +409,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MV/" rel="tag">#MV*</a>
+            <a href="/tags/修改函数上下文/" rel="tag">#修改函数上下文</a>
           
         </div>
       
@@ -400,17 +418,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/14/Chrome-debug/" rel="next" title="Chrome-debug">
-                <i class="fa fa-chevron-left"></i> Chrome-debug
+              <a href="/2017/03/12/跨域/" rel="next" title="跨域方式">
+                <i class="fa fa-chevron-left"></i> 跨域方式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/05/前端知识1/" rel="prev" title="addEventListener和attachEvent 区别">
-                addEventListener和attachEvent 区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -425,10 +439,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/16/MVC/"
-     data-title="理解中的MVC、MVP和MVVM"
+        <div class="ds-share flat" data-thread-key="2017/03/12/call-apply-bind/"
+     data-title="call-apply-bind"
      data-content=""
-     data-url="http://yoursite.com/2016/12/16/MVC/">
+     data-url="http://yoursite.com/2017/03/12/call-apply-bind/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -455,8 +469,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/16/MVC/"
-           data-title="理解中的MVC、MVP和MVVM" data-url="http://yoursite.com/2016/12/16/MVC/">
+      <div class="ds-thread" data-thread-key="2017/03/12/call-apply-bind/"
+           data-title="call-apply-bind" data-url="http://yoursite.com/2017/03/12/call-apply-bind/">
       </div>
     
   </div>
@@ -558,7 +572,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP"><span class="nav-number">1.</span> <span class="nav-text">MVP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP-1"><span class="nav-number">2.</span> <span class="nav-text">MVP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVVM"><span class="nav-number">3.</span> <span class="nav-text">MVVM</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#call、apply区别"><span class="nav-number">1.</span> <span class="nav-text">call、apply区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind"><span class="nav-number">2.</span> <span class="nav-text">bind</span></a></li></ol></div>
             
           </div>
         </section>
