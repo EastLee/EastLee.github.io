@@ -354,14 +354,15 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>这两个属性在严格模式下都不可用</p>
 </blockquote>
 <h2 id="caller"><a href="#caller" class="headerlink" title="caller"></a>caller</h2><p>在一个函数调用另一个函数时，被调用函数会自动生成一个caller属性，指向调用它的函数对象。如果该函数当前未被调用，或并非被其他函数调用，则caller为null。<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">testCaller</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">    <span class="keyword">var</span> caller = testCaller.caller;  </div><div class="line">    alert(caller);  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">aCaller</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">    testCaller();</div><div class="line">&#125;  </div><div class="line"></div><div class="line">aCaller();</div></pre></td></tr></table></figure></p>
-<h2 id="callee"><a href="#callee" class="headerlink" title="callee"></a>callee</h2><p>当函数被调用时，它的arguments.callee对象就会指向自身，也就是一个对自己的引用。<br>由于arguments在函数被调用时才有效，因此arguments.callee在函数未调用时是不存在的（即null.callee），且解引用它会产生异常。<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">aCallee</span>(<span class="params">arg</span>) </span>&#123;  </div><div class="line">    alert(<span class="built_in">arguments</span>.callee);  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">aCaller</span>(<span class="params">arg1, arg2</span>) </span>&#123;</div><div class="line">    aCallee();</div><div class="line">&#125;  </div><div class="line"></div><div class="line">aCaller();</div></pre></td></tr></table></figure></p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/14/caller-callee/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
