@@ -84,26 +84,26 @@
 
 
 
-<meta name="description" content="proto
+<meta name="description" content="proto和prototype
 该属性在各个浏览器下的实现差别也许比较大.Firefox是最先实现的这个属性，我们通常用的proto属性都是从Object.prototype上继承下来的。
 
-8个构造器：Number.__proto__ === Function.prototypeBoolean.__proto__ === Function.prototypeString.__proto__ === Function">
+8个构造器：Number.__proto__ === Function.prototypeBoolean.__proto__ === Function.prototypeString.__proto__ ==">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解__proto__ 、constructor和prototype的关系">
 <meta property="og:url" content="http://yoursite.com/2017/03/13/原型链/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="proto
+<meta property="og:description" content="proto和prototype
 该属性在各个浏览器下的实现差别也许比较大.Firefox是最先实现的这个属性，我们通常用的proto属性都是从Object.prototype上继承下来的。
 
-8个构造器：Number.__proto__ === Function.prototypeBoolean.__proto__ === Function.prototypeString.__proto__ === Function">
+8个构造器：Number.__proto__ === Function.prototypeBoolean.__proto__ === Function.prototypeString.__proto__ ==">
 <meta property="og:image" content="http://yoursite.com/2017/03/13/原型链/1.jpeg">
-<meta property="og:updated_time" content="2017-03-14T15:00:01.000Z">
+<meta property="og:updated_time" content="2017-03-14T15:03:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解__proto__ 、constructor和prototype的关系">
-<meta name="twitter:description" content="proto
+<meta name="twitter:description" content="proto和prototype
 该属性在各个浏览器下的实现差别也许比较大.Firefox是最先实现的这个属性，我们通常用的proto属性都是从Object.prototype上继承下来的。
 
-8个构造器：Number.__proto__ === Function.prototypeBoolean.__proto__ === Function.prototypeString.__proto__ === Function">
+8个构造器：Number.__proto__ === Function.prototypeBoolean.__proto__ === Function.prototypeString.__proto__ ==">
 <meta name="twitter:image" content="http://yoursite.com/2017/03/13/原型链/1.jpeg">
 
 
@@ -360,7 +360,7 @@
       
 
       
-        <h2 id="proto"><a href="#proto" class="headerlink" title="proto"></a><strong>proto</strong></h2><blockquote>
+        <h2 id="proto和prototype"><a href="#proto和prototype" class="headerlink" title="proto和prototype"></a><strong>proto</strong>和prototype</h2><blockquote>
 <p>该属性在各个浏览器下的实现差别也许比较大.Firefox是最先实现的这个属性，我们通常用的<strong>proto</strong>属性都是从Object.prototype上继承下来的。</p>
 </blockquote>
 <p>8个构造器：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="built_in">Number</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Boolean</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">String</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype  </div><div class="line"><span class="built_in">Function</span>.__proto__ === <span class="built_in">Function</span>.prototype   </div><div class="line"><span class="built_in">Array</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">RegExp</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Error</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Date</span>.__proto__ === <span class="built_in">Function</span>.prototype</div></pre></td></tr></table></figure></p>
@@ -368,6 +368,7 @@
 <p>特殊的对象：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="built_in">Math</span>.__proto__ === <span class="built_in">Object</span>.prototype</div><div class="line"><span class="built_in">JSON</span>.__proto__ === <span class="built_in">Object</span>.prototype</div></pre></td></tr></table></figure></p>
 <p>构造器的原型的类型：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype === <span class="function"><span class="keyword">function</span>  //特殊</span></div><div class="line"><span class="title">typeof</span> <span class="title">Object</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">Number</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">Boolean</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">String</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">Array</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">RegExp</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">Error</span>.<span class="title">prototype</span> === <span class="title">object</span></div><div class="line"><span class="title">typeof</span> <span class="title">Date</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">Object</span>.<span class="title">prototype</span> === <span class="title">object</span></div></pre></td></tr></table></figure></p>
 <img src="/2017/03/13/原型链/1.jpeg" alt="1.jpeg" title="">
+<h2 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h2><p>记住<code>constructor</code>是<code>prototype</code>上面的属性就行了！</p>
 
       
     </div>
@@ -557,7 +558,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#proto"><span class="nav-number">1.</span> <span class="nav-text">proto</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#proto和prototype"><span class="nav-number">1.</span> <span class="nav-text">proto和prototype</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">2.</span> <span class="nav-text">constructor</span></a></li></ol></div>
             
           </div>
         </section>
