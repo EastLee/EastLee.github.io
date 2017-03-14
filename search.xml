@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[caller-callee]]></title>
+      <url>http://yoursite.com/2017/03/14/caller-callee/</url>
+      <content type="text"><![CDATA[这两个属性在严格模式下都不可用 caller在一个函数调用另一个函数时，被调用函数会自动生成一个caller属性，指向调用它的函数对象。如果该函数当前未被调用，或并非被其他函数调用，则caller为null。function testCaller() &#123; var caller = testCaller.caller; alert(caller); &#125; function aCaller() &#123; testCaller();&#125; aCaller(); callee当函数被调用时，它的arguments.callee对象就会指向自身，也就是一个对自己的引用。由于arguments在函数被调用时才有效，因此arguments.callee在函数未调用时是不存在的（即null.callee），且解引用它会产生异常。function aCallee(arg) &#123; alert(arguments.callee); &#125; function aCaller(arg1, arg2) &#123; aCallee();&#125; aCaller();]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[深入理解__proto__ 、constructor和prototype的关系]]></title>
       <url>http://yoursite.com/2017/03/13/%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
       <content type="text"><![CDATA[proto和prototype 该属性在各个浏览器下的实现差别也许比较大.Firefox是最先实现的这个属性，我们通常用的proto属性都是从Object.prototype上继承下来的。 8个构造器：Number.__proto__ === Function.prototypeBoolean.__proto__ === Function.prototypeString.__proto__ === Function.prototypeObject.__proto__ === Function.prototype Function.__proto__ === Function.prototype Array.__proto__ === Function.prototypeRegExp.__proto__ === Function.prototypeError.__proto__ === Function.prototypeDate.__proto__ === Function.prototype 特殊的对象：Math.__proto__ === Object.prototypeJSON.__proto__ === Object.prototype 构造器的原型的类型：typeof Function.prototype === function //特殊typeof Object.prototype === object typeof Number.prototype === object typeof Boolean.prototype === object typeof String.prototype === object typeof Array.prototype === object typeof RegExp.prototype === object typeof Error.prototype === objecttypeof Date.prototype === object typeof Object.prototype === object constructor记住constructor是prototype上面的属性就行了！]]></content>
