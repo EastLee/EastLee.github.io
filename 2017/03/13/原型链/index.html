@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="原型链," />
 
 
 
@@ -84,15 +84,27 @@
 
 
 
-<meta name="description" content="Keep moving">
-<meta property="og:type" content="website">
-<meta property="og:title" content="EastLee">
-<meta property="og:url" content="http://yoursite.com/categories/构建工具/index.html">
+<meta name="description" content="proto
+该属性在各个浏览器下的实现差别也许比较大.Firefox是最先实现的这个属性，我们通常用的proto属性都是从Object.prototype上继承下来的。
+
+8个构造器：Number.__proto__ === Function.prototypeBoolean.__proto__ === Function.prototypeString.__proto__ === Function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解__proto__ 、constructor和prototype的关系">
+<meta property="og:url" content="http://yoursite.com/2017/03/13/原型链/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="Keep moving">
+<meta property="og:description" content="proto
+该属性在各个浏览器下的实现差别也许比较大.Firefox是最先实现的这个属性，我们通常用的proto属性都是从Object.prototype上继承下来的。
+
+8个构造器：Number.__proto__ === Function.prototypeBoolean.__proto__ === Function.prototypeString.__proto__ === Function">
+<meta property="og:image" content="http://yoursite.com/2017/03/13/原型链/1.jpeg">
+<meta property="og:updated_time" content="2017-03-14T14:50:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EastLee">
-<meta name="twitter:description" content="Keep moving">
+<meta name="twitter:title" content="深入理解__proto__ 、constructor和prototype的关系">
+<meta name="twitter:description" content="proto
+该属性在各个浏览器下的实现差别也许比较大.Firefox是最先实现的这个属性，我们通常用的proto属性都是从Object.prototype上继承下来的。
+
+8个构造器：Number.__proto__ === Function.prototypeBoolean.__proto__ === Function.prototypeString.__proto__ === Function">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/13/原型链/1.jpeg">
 
 
 
@@ -110,7 +122,7 @@
   };
 </script>
 
-  <title> 分类: 构建工具 | EastLee </title>
+  <title> 深入理解__proto__ 、constructor和prototype的关系 | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -141,7 +153,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -252,103 +264,186 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        构建工具
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/13/gulp-develop-tool/" itemprop="url">
-              
-                <span itemprop="name">一个基于自身业务的前端简单生产工具</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-13T21:37:43+08:00"
-              content="2016-11-13" >
-          11-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/18/webpack-plugin/" itemprop="url">
-              
-                <span itemprop="name">webpack.plugin</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-18T18:03:06+08:00"
-              content="2016-10-18" >
-          10-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/17/webpack-learning/" itemprop="url">
-              
-                <span itemprop="name">webpack.learning</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-17T22:37:16+08:00"
-              content="2016-10-17" >
-          10-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                深入理解__proto__ 、constructor和prototype的关系
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-13T23:43:16+08:00" content="2017-03-13">
+              2017-03-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端知识/" itemprop="url" rel="index">
+                    <span itemprop="name">前端知识</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/13/原型链/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/原型链/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+             
+          
+          
+             <span id="/2017/03/13/原型链/" class="leancloud_visitors" data-flag-title="深入理解__proto__ 、constructor和prototype的关系">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="proto"><a href="#proto" class="headerlink" title="proto"></a><strong>proto</strong></h2><blockquote>
+<p>该属性在各个浏览器下的实现差别也许比较大.Firefox是最先实现的这个属性，我们通常用的<strong>proto</strong>属性都是从Object.prototype上继承下来的。</p>
+</blockquote>
+<p>8个构造器：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="built_in">Number</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Boolean</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">String</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype  </div><div class="line"><span class="built_in">Function</span>.__proto__ === <span class="built_in">Function</span>.prototype   </div><div class="line"><span class="built_in">Array</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">RegExp</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Error</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Date</span>.__proto__ === <span class="built_in">Function</span>.prototype</div></pre></td></tr></table></figure></p>
+<p>特殊的对象：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="built_in">Math</span>.__proto__ === <span class="built_in">Object</span>.prototype</div><div class="line"><span class="built_in">JSON</span>.__proto__ === <span class="built_in">Object</span>.prototype</div></pre></td></tr></table></figure></p>
+<p>构造器的原型的类型：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype === <span class="function"><span class="keyword">function</span>  //特殊</span></div><div class="line"><span class="title">typeof</span> <span class="title">Object</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">Number</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">Boolean</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">String</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">Array</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">RegExp</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">Error</span>.<span class="title">prototype</span> === <span class="title">object</span></div><div class="line"><span class="title">typeof</span> <span class="title">Date</span>.<span class="title">prototype</span> === <span class="title">object</span>  </div><div class="line"><span class="title">typeof</span> <span class="title">Object</span>.<span class="title">prototype</span> === <span class="title">object</span></div></pre></td></tr></table></figure></p>
+<img src="/2017/03/13/原型链/1.jpeg" alt="1.jpeg" title="">
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.png" alt="EastLee wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/原型链/" rel="tag">#原型链</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/13/typeof-instanceof/" rel="next" title="typeof-instanceof">
+                <i class="fa fa-chevron-left"></i> typeof-instanceof
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/13/原型链/"
+     data-title="深入理解__proto__ 、constructor和prototype的关系"
+     data-content=""
+     data-url="http://yoursite.com/2017/03/13/原型链/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -356,6 +451,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/13/原型链/"
+           data-title="深入理解__proto__ 、constructor和prototype的关系" data-url="http://yoursite.com/2017/03/13/原型链/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -375,8 +478,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://img2.imgtn.bdimg.com/it/u=1950629119,3796724963&fm=206&gp=0.jpg"
@@ -437,6 +549,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#proto"><span class="nav-number">1.</span> <span class="nav-text">proto</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -548,6 +671,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
