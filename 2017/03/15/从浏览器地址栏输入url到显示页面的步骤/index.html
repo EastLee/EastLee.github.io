@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Promise," />
+  <meta name="keywords" content="网络," />
 
 
 
@@ -84,19 +84,24 @@
 
 
 
-<meta name="description" content="我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下es6-promise源码，那么下面简单介绍一下实现思想！">
+<meta name="description" content="强缓存当浏览器对某个资源的请求命中了强缓存时，返回的http状态为200，在chrome的开发者工具的network里面size会显示为from cache，强缓存是利用Expires或者Cache-Control这两个http response header实现的，它们都用来表示资源在客户端缓存的有效期，Expires是http1.0提出的一个表示资源过期时间的header，它描述的是一个绝对时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise实现逻辑">
-<meta property="og:url" content="http://yoursite.com/2016/11/27/Promise-logic/index.html">
+<meta property="og:title" content="从浏览器地址栏输入url到显示页面的步骤">
+<meta property="og:url" content="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下es6-promise源码，那么下面简单介绍一下实现思想！">
-<meta property="og:image" content="http://yoursite.com/2016/11/27/Promise-logic/Promise.png">
-<meta property="og:image" content="http://yoursite.com/2016/11/27/Promise-logic/Then.png">
-<meta property="og:updated_time" content="2016-11-27T15:49:17.000Z">
+<meta property="og:description" content="强缓存当浏览器对某个资源的请求命中了强缓存时，返回的http状态为200，在chrome的开发者工具的network里面size会显示为from cache，强缓存是利用Expires或者Cache-Control这两个http response header实现的，它们都用来表示资源在客户端缓存的有效期，Expires是http1.0提出的一个表示资源过期时间的header，它描述的是一个绝对时">
+<meta property="og:image" content="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/1.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/2.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/3.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/4.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/5.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/6.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/7.png">
+<meta property="og:updated_time" content="2017-03-15T16:04:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise实现逻辑">
-<meta name="twitter:description" content="我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下es6-promise源码，那么下面简单介绍一下实现思想！">
-<meta name="twitter:image" content="http://yoursite.com/2016/11/27/Promise-logic/Promise.png">
+<meta name="twitter:title" content="从浏览器地址栏输入url到显示页面的步骤">
+<meta name="twitter:description" content="强缓存当浏览器对某个资源的请求命中了强缓存时，返回的http状态为200，在chrome的开发者工具的network里面size会显示为from cache，强缓存是利用Expires或者Cache-Control这两个http response header实现的，它们都用来表示资源在客户端缓存的有效期，Expires是http1.0提出的一个表示资源过期时间的header，它描述的是一个绝对时">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/1.png">
 
 
 
@@ -114,7 +119,7 @@
   };
 </script>
 
-  <title> Promise实现逻辑 | EastLee </title>
+  <title> 从浏览器地址栏输入url到显示页面的步骤 | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +282,7 @@
             
             
               
-                Promise实现逻辑
+                从浏览器地址栏输入url到显示页面的步骤
               
             
           </h1>
@@ -289,8 +294,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-27T22:50:22+08:00" content="2016-11-27">
-              2016-11-27
+            <time itemprop="dateCreated" datetime="2017-03-15T17:23:11+08:00" content="2017-03-15">
+              2017-03-15
             </time>
           </span>
 
@@ -303,8 +308,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
+                  <a href="/categories/前端知识/" itemprop="url" rel="index">
+                    <span itemprop="name">前端知识</span>
                   </a>
                 </span>
 
@@ -319,8 +324,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/27/Promise-logic/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/27/Promise-logic/" itemprop="commentsCount"></span>
+                <a href="/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/从浏览器地址栏输入url到显示页面的步骤/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -330,7 +335,7 @@
              
           
           
-             <span id="/2016/11/27/Promise-logic/" class="leancloud_visitors" data-flag-title="Promise实现逻辑">
+             <span id="/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/" class="leancloud_visitors" data-flag-title="从浏览器地址栏输入url到显示页面的步骤">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,28 +357,117 @@
       
 
       
-        <blockquote>
-<p>我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下<a href="https://www.npmjs.com/package/es6-promise" target="_blank" rel="external">es6-promise</a>源码，那么下面简单介绍一下实现思想！</p>
+        <h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><p>当浏览器对某个资源的请求命中了强缓存时，返回的http状态为200，在chrome的开发者工具的network里面size会显示为from cache，强缓存是利用Expires或者Cache-Control这两个http response header实现的，它们都用来表示资源在客户端缓存的有效期，Expires是http1.0提出的一个表示资源过期时间的header，它描述的是一个绝对时间，由服务器返回，用GMT格式的字符串表示，如：Expires:Thu, 31 Dec 2037 23:55:55 GMT，原理如下：<br><a id="more"></a></p>
+<ul>
+<li>浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上Expires的header，如：<img src="/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/1.png" alt="1.png" title=""></li>
+<li>浏览器在接收到这个资源后，会把这个资源连同所有response header一起缓存下来（所以缓存命中的请求返回的header并不是来自服务器，而是来自之前缓存的header）；</li>
+<li>浏览器再请求这个资源时，先从缓存中寻找，找到这个资源后，拿出它的Expires跟当前的请求时间比较，如果请求时间在Expires指定的时间之前，就能命中缓存，否则就不行。</li>
+<li>如果缓存没有命中，浏览器直接从服务器加载资源时，Expires Header在重新加载的时候会被更新。</li>
+</ul>
+<p>Expires是较老的强缓存管理header，由于它是服务器返回的一个绝对时间，在服务器时间与客户端时间相差较大时，缓存管理容易出现问题，比如随意修改下客户端时间，就能影响缓存命中的结果。所以在http1.1的时候，提出了一个新的header，就是Cache-Control，这是一个相对时间，在配置缓存的时候，以秒为单位，用数值表示，如：Cache-Control:max-age=315360000，它的缓存原理是：</p>
+<ul>
+<li>浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上Cache-Control的header，如：<img src="/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/2.png" alt="2.png" title=""></li>
+<li>浏览器在接收到这个资源后，会把这个资源连同所有response header一起缓存下来；</li>
+<li>浏览器再请求这个资源时，先从缓存中寻找，找到这个资源后，根据它第一次的请求时间和Cache-Control设定的有效期，计算出一个资源过期时间，再拿这个过期时间跟当前的请求时间比较，如果请求时间在过期时间之前，就能命中缓存，否则就不行。</li>
+<li>如果缓存没有命中，浏览器直接从服务器加载资源时，Cache-Control Header在重新加载的时候会被更新。 Cache-Control描述的是一个相对时间，在进行缓存命中的时候，都是利用客户端时间进行判断，所以相比较Expires，Cache-Control的缓存管理更有效，安全一些。<blockquote>
+<p>这两个header可以只启用一个，也可以同时启用，当response header中，Expires和Cache-Control同时存在时，Cache-Control优先级高于Expires.</p>
 </blockquote>
-<a id="more"></a>
-<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p><code>Promise</code>处理流程如下：<br><img src="/2016/11/27/Promise-logic/Promise.png" alt="Promise.png" title=""><br>一般的用法都会new一个promise对象：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">   <span class="keyword">if</span>(ok)&#123;</div><div class="line">       resolve(value)</div><div class="line">   &#125;<span class="keyword">else</span>&#123;</div><div class="line">       reject(reason)</div><div class="line">   &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p><code>Promise</code>构造函数只有一个参数，类型为<code>function</code>，而此函数有两个参数也是函数类型即resolve和reject，他们两个是源码中定义的。拒绝时的状态为reject就不说了，resolve是成功时的处理函数，他会根据value进行处理</p>
-<ul>
-<li>value是普通的值，他就会挂在到<code>Promise</code>对象的_result属性上</li>
-<li>value是<code>Promise</code>对象，那么他就会把value的_result值赋值给外层的<code>Promise</code>对象的_result属性</li>
-<li>value是对象且带有then函数属性，那么value就会被当做一个类似<code>Promise</code>的对象，运行此对象then的结果赋值给<code>Promise</code>对象的_result属性上</li>
+</li>
 </ul>
-<p>挂在<code>Promise</code>对象的_result属性上的值是为了传入后续的then函数中</p>
-<h2 id="Then"><a href="#Then" class="headerlink" title="Then"></a>Then</h2><p><code>Then</code>处理流程如下：<br><img src="/2016/11/27/Promise-logic/Then.png" alt="Then.png" title=""><br><code>Then</code>有两个函数参数，使用哪一个完全依据上个<code>Promise</code>运行的状态。<code>Then</code>并不是在主线程开始运行的，在源码中专门有一个数组用于收集<code>Then</code>的处理。</p>
+<h2 id="http连接"><a href="#http连接" class="headerlink" title="http连接"></a>http连接</h2><p>如果强缓存没有命中，那就要向服务器发请求了：</p>
 <ul>
-<li>每个<code>Then</code>的处理都会单独new一个新的<code>Promise</code>对象</li>
-<li>第一个<code>Then</code>会传入数组，并启动异步执行开关</li>
-<li>其余的<code>Then</code>处理会挂载到上一个<code>Promise</code>对象的属性上</li>
-<li>通过遍历，当一个<code>Then</code>处理完成，下一个<code>Then</code>的处理和上一个<code>Then</code>处理的值就会存入数组中并且开始遍历执行，直到处理完所有的<code>Then</code></li>
-<li>在处理<code>Then</code>过程中value也会按照<code>Promise</code>方式处理</li>
+<li>浏览器解析URL获取协议，主机，端口，path</li>
+<li>浏览器组装一个HTTP（GET）请求报文</li>
+<li><p>浏览器获取主机ip地址</p>
+<blockquote>
+<p>1、浏览器缓存<br>2、本机缓存<br>3、hosts文件<br>4、路由器缓存<br>5、ISP DNS缓存<br>6、DNS递归查询</p>
+</blockquote>
+</li>
+<li><p>打开一个socket与目标IP地址，端口建立TCP链接，三次握手如下：</p>
+<blockquote>
+<p>客户端发送一个TCP的SYN=1，Seq=X的包到服务器端口<br>服务器发回SYN=1， ACK=X+1， Seq=Y的响应包<br>客户端发送ACK=Y+1， Seq=Z</p>
+</blockquote>
+</li>
+<li><p>TCP链接建立后发送HTTP请求</p>
+</li>
+<li>服务器接受请求并解析，将请求转发到服务程序，如虚拟主机使用HTTP Host头部判断请求的服务程序</li>
 </ul>
-<h2 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h2><p><code>all</code>的处理思想和以上一致，唯一的区别是会遍历传入的数组，对每一个进行处理，在处理完全后，把值传入<code>Then</code>中，只不过此时的value是数组罢了</p>
-<h2 id="polyfill"><a href="#polyfill" class="headerlink" title="polyfill"></a>polyfill</h2><p>其作用是检测当前环境存不存在<code>Promise</code>，如果不存在就会引入源码中的<code>Promise</code>。</p>
+<p>为什么需要“三次握手”？<br>在谢希仁著《计算机网络》第四版中讲“三次握手”的目的是“为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误”。在另一部经典的《计算机网络》一书中讲“三次握手”的目的是为了解决“网络中存在延迟的重复分组”的问题。这两种不用的表述其实阐明的是同一个问题。<br>谢希仁版《计算机网络》中的例子是这样的，“已失效的连接请求报文段”的产生在这样一种情况下：client发出的第一个连接请求报文段并没有丢失，而是在某个网络结点长时间的滞留了，以致延误到连接释放以后的某个时间才到达server。本来这是一个早已失效的报文段。但server收到此失效的连接请求报文段后，就误认为是client再次发出的一个新的连接请求。于是就向client发出确认报文段，同意建立连接。假设不采用“三次握手”，那么只要server发出确认，新的连接就建立了。由于现在client并没有发出建立连接的请求，因此不会理睬server的确认，也不会向server发送数据。但server却以为新的运输连接已经建立，并一直等待client发来数据。这样，server的很多资源就白白浪费掉了。采用“三次握手”的办法可以防止上述现象发生。例如刚才那种情况，client不会向server的确认发出确认。server由于收不到确认，就知道client并没有要求建立连接。”。主要目的防止server端一直等待，浪费资源。</p>
+<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p>此时请求来到了服务器，服务器检查HTTP请求头是否包含缓存验证信息，如果协商缓存命中，请求响应返回的http状态为304并且会显示一个Not Modified的字符串。协商缓存是利用的是【Last-Modified，If-Modified-Since】和【ETag、If-None-Match】这两对Header来管理的。原理如下：</p>
+<ul>
+<li>浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上Last-Modified的header，这个header表示这个资源在服务器上的最后修改时间：<img src="/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/3.png" alt="3.png" title=""></li>
+<li>浏览器再次跟服务器请求这个资源时，在request的header上加上If-Modified-Since的header，这个header的值就是上一次请求时返回的Last-Modified的值：<img src="/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/4.png" alt="4.png" title=""></li>
+<li>服务器再次收到资源请求时，根据浏览器传过来If-Modified-Since和资源在服务器上的最后修改时间判断资源是否有变化，如果没有变化则返回304 Not Modified，但是不会返回资源内容；如果有变化，就正常返回资源内容。当服务器返回304 Not Modified的响应时，response header中不会再添加Last-Modified的header，因为既然资源没有变化，那么Last-Modified也就不会改变。</li>
+<li>浏览器收到304的响应后，就会从缓存中加载资源。</li>
+<li>如果协商缓存没有命中，浏览器直接从服务器加载资源时，Last-Modified Header在重新加载的时候会被更新，下次请求时，If-Modified-Since会启用上次返回的Last-Modified值。</li>
+</ul>
+<p>【Last-Modified，If-Modified-Since】都是根据服务器时间返回的header，一般来说，在没有调整服务器时间和篡改客户端缓存的情况下，这两个header配合起来管理协商缓存是非常可靠的，但是有时候也会服务器上资源其实有变化，但是最后修改时间却没有变化的情况，而这种问题又很不容易被定位出来，而当这种情况出现的时候，就会影响协商缓存的可靠性。所以就有了另外一对header来管理协商缓存，这对header就是【ETag、If-None-Match】。它们的缓存管理的方式是：</p>
+<ul>
+<li>浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上ETag的header，这个header是服务器根据当前请求的资源生成的一个唯一标识，这个唯一标识是一个字符串，只要资源有变化这个串就不同，跟最后修改时间没有关系，所以能很好的补充Last-Modified的问题：<img src="/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/5.png" alt="5.png" title=""></li>
+<li>浏览器再次跟服务器请求这个资源时，在request的header上加上If-None-Match的header，这个header的值就是上一次请求时返回的ETag的值：<img src="/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/6.png" alt="6.png" title=""></li>
+<li>服务器再次收到资源请求时，根据浏览器传过来If-None-Match和然后再根据资源生成一个新的ETag，如果这两个值相同就说明资源没有变化，否则就是有变化；如果没有变化则返回304 Not Modified，但是不会返回资源内容；如果有变化，就正常返回资源内容。与Last-Modified不一样的是，当服务器返回304 Not Modified的响应时，由于ETag重新生成过，response header中还会把这个ETag返回，即使这个ETag跟之前的没有变化。</li>
+<li>浏览器收到304的响应后，就会从缓存中加载资源。</li>
+</ul>
+<p>【Last-Modified，If-Modified-Since】和【ETag、If-None-Match】一般都是同时启用，这是为了处理Last-Modified不可靠的情况。有一种场景需要注意：</p>
+<ul>
+<li>分布式系统里多台机器间文件的Last-Modified必须保持一致，以免负载均衡到不同机器导致比对失败；</li>
+<li>分布式系统尽量关闭掉ETag(每台机器生成的ETag都会不一样）;</li>
+</ul>
+<blockquote>
+<p>当ctrl+f5强制刷新网页时，直接从服务器加载，跳过强缓存和协商缓存；<br>当f5刷新网页时，跳过强缓存，但是会检查协商缓存；</p>
+</blockquote>
+<h2 id="关闭http连接"><a href="#关闭http连接" class="headerlink" title="关闭http连接"></a>关闭http连接</h2><p>服务器将响应报文通过TCP连接发送回浏览器，浏览器接收HTTP响应，然后根据情况选择关闭TCP连接或者保留重用，关闭TCP连接的四次握手如下：</p>
+<ul>
+<li>主动方发送Fin=1， Ack=Z， Seq= X报文</li>
+<li>被动方发送ACK=X+1， Seq=Z报文</li>
+<li>被动方发送Fin=1， ACK=X， Seq=Y报文</li>
+<li>主动方发送ACK=Y， Seq=X报文<br>4次挥手过程状态：（可参考下图）<img src="/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/7.png" alt="7.png" title="">
+FIN_WAIT_1: 这个状态要好好解释一下，其实FIN_WAIT_1和FIN_WAIT_2状态的真正含义都是表示等待对方的FIN报文。而这两种状态的区别是：FIN_WAIT_1状态实际上是当SOCKET在ESTABLISHED状态时，它想主动关闭连接，向对方发送了FIN报文，此时该SOCKET即进入到FIN_WAIT_1状态。而当对方回应ACK报文后，则进入到FIN_WAIT_2状态，当然在实际的正常情况下，无论对方何种情况下，都应该马上回应ACK报文，所以FIN_WAIT_1状态一般是比较难见到的，而FIN_WAIT_2状态还有时常常可以用netstat看到。（主动方）<br>FIN_WAIT_2：上面已经详细解释了这种状态，实际上FIN_WAIT_2状态下的SOCKET，表示半连接，也即有一方要求close连接，但另外还告诉对方，我暂时还有点数据需要传送给你(ACK信息)，稍后再关闭连接。（主动方）<br>TIME_WAIT: 表示收到了对方的FIN报文，并发送出了ACK报文，就等2MSL后即可回到CLOSED可用状态了。如果FIN_WAIT_1状态下，收到了对方同时带FIN标志和ACK标志的报文时，可以直接进入到TIME_WAIT状态，而无须经过FIN_WAIT_2状态。（主动方）<br>CLOSING（比较少见）: 这种状态比较特殊，实际情况中应该是很少见，属于一种比较罕见的例外状态。正常情况下，当你发送FIN报文后，按理来说是应该先收到（或同时收到）对方的 ACK报文，再收到对方的FIN报文。但是CLOSING状态表示你发送FIN报文后，并没有收到对方的ACK报文，反而却也收到了对方的FIN报文。什么情况下会出现此种情况呢？其实细想一下，也不难得出结论：那就是如果双方几乎在同时close一个SOCKET的话，那么就出现了双方同时发送FIN报文的情况，也即会出现CLOSING状态，表示双方都正在关闭SOCKET连接。<br>CLOSE_WAIT: 这种状态的含义其实是表示在等待关闭。怎么理解呢？当对方close一个SOCKET后发送FIN报文给自己，你系统毫无疑问地会回应一个ACK报文给对方，此时则进入到CLOSE_WAIT状态。接下来呢，实际上你真正需要考虑的事情是察看你是否还有数据发送给对方，如果没有的话，那么你也就可以 close这个SOCKET，发送FIN报文给对方，也即关闭连接。所以你在CLOSE_WAIT状态下，需要完成的事情是等待你去关闭连接。（被动方）<br>LAST_ACK: 这个状态还是比较容易好理解的，它是被动关闭一方在发送FIN报文后，最后等待对方的ACK报文。当收到ACK报文后，也即可以进入到CLOSED可用状态了。（被动方）<br>CLOSED: 表示连接中断。</li>
+</ul>
+<h2 id="渲染页面"><a href="#渲染页面" class="headerlink" title="渲染页面"></a>渲染页面</h2><p>1、构建DOM树</p>
+<ul>
+<li>Tokenizing：根据HTML规范将字符流解析为标记</li>
+<li>Lexing：词法分析将标记转换为对象并定义属性和规则</li>
+<li>DOM construction：根据HTML标记关系将对象组成DOM树</li>
+</ul>
+<p>2、解析过程中遇到图片、样式表、js文件，启动下载<br>3、构建CSSOM树：</p>
+<ul>
+<li>Tokenizing：字符流转换为标记流</li>
+<li>Node：根据标记创建节点</li>
+<li>CSSOM：节点创建CSSOM树</li>
+</ul>
+<p>4、根据DOM树和CSSOM树构建渲染树:</p>
+<ul>
+<li>从DOM树的根节点遍历所有可见节点，不可见节点包括：1）script,meta这样本身不可见的标签。2)被css隐藏的节点，如display: none</li>
+<li>对每一个可见节点，找到恰当的CSSOM规则并应用</li>
+<li>发布可视节点的内容和计算样式</li>
+</ul>
+<p>5、布局<br>呈现树构造完成后浏览器便进行布局处理，及计算每个呈现树节点的大小和位置信息。有人可能要问，前面已将样式附着到DOM节点上，不是已经有了样式信息为何还要计算大小。这里可以这样理解，以上包含大小的样式信息只是存在内存里，并没有实际使用，浏览器要根据窗口的实际大小来处理呈现树节点的实际显示大小和位置，比如对于margin为auto的处理。布局是一个递归过程，从跟呈现节点开始，递归遍历子节点，计算集合几何信息。</p>
+<p>6、绘制<br>布局完成后，便是将呈现树绘制出来显示在屏幕上。对于每一个呈现树节点来说，主要绘制顺序如下：</p>
+<ul>
+<li>背景颜色</li>
+<li>背景图片</li>
+<li>边框</li>
+<li>子呈现树节点</li>
+<li>轮廓</li>
+</ul>
+<p>7、js解析</p>
+<ul>
+<li>浏览器创建Document对象并解析HTML，将解析到的元素和文本节点添加到文档中，此时document.readystate为loading</li>
+<li>HTML解析器遇到没有async和defer的script时，将他们添加到文档中，然后执行行内或外部脚本。这些脚本会同步执行，并且在脚本下载和执行时解析器会暂停。这样就可以用document.write()把文本插入到输入流中。同步脚本经常简单定义函数和注册事件处理程序，他们可以遍历和操作script和他们之前的文档内容</li>
+<li>当解析器遇到设置了async属性的script时，开始下载脚本并继续解析文档。脚本会在它下载完成后尽快执行，但是解析器不会停下来等它下载。异步脚本禁止使用document.write()，它们可以访问自己script和之前的文档元素</li>
+<li>当文档完成解析，document.readState变成interactive</li>
+<li>所有defer脚本会按照在文档出现的顺序执行，延迟脚本能访问完整文档树，禁止使用document.write()</li>
+<li>浏览器在Document对象上触发DOMContentLoaded事件</li>
+<li>此时文档完全解析完成，浏览器可能还在等待如图片等内容加载，等这些内容完成载入并且所有异步脚本完成载入和执行，document.readState变为complete,window触发load事件</li>
+</ul>
+<p>8.特殊情况</p>
+<ul>
+<li>js修改了css样式，就会触发重绘，如果修改了位置和大小，就要重新布局</li>
+<li>js如果插入了dom节点，就会生成Dom树依次执行上面几个过程</li>
+<li>如果css样式放在了页面的底部，那么首先展现出来的页面是没有样式的，只有加载和解析了底部的css，才会生成CSSOM树，再对应到DOM树种，因为页面的解析是自上而下的</li>
+</ul>
+<p>显示页面（HTML解析过程中会逐步显示页面）</p>
 
       
     </div>
@@ -400,7 +494,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Promise/" rel="tag">#Promise</a>
+            <a href="/tags/网络/" rel="tag">#网络</a>
           
         </div>
       
@@ -409,17 +503,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/14/nextThemeProblemRepair/" rel="next" title="next主题vendors报错404">
-                <i class="fa fa-chevron-left"></i> next主题vendors报错404
+              <a href="/2017/03/14/https理解/" rel="next" title="https理解">
+                <i class="fa fa-chevron-left"></i> https理解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/05/redux/" rel="prev" title="redux详解">
-                redux详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -434,10 +524,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/11/27/Promise-logic/"
-     data-title="Promise实现逻辑"
+        <div class="ds-share flat" data-thread-key="2017/03/15/从浏览器地址栏输入url到显示页面的步骤/"
+     data-title="从浏览器地址栏输入url到显示页面的步骤"
      data-content=""
-     data-url="http://yoursite.com/2016/11/27/Promise-logic/">
+     data-url="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -464,8 +554,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/27/Promise-logic/"
-           data-title="Promise实现逻辑" data-url="http://yoursite.com/2016/11/27/Promise-logic/">
+      <div class="ds-thread" data-thread-key="2017/03/15/从浏览器地址栏输入url到显示页面的步骤/"
+           data-title="从浏览器地址栏输入url到显示页面的步骤" data-url="http://yoursite.com/2017/03/15/从浏览器地址栏输入url到显示页面的步骤/">
       </div>
     
   </div>
@@ -567,7 +657,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Then"><span class="nav-number">2.</span> <span class="nav-text">Then</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-all"><span class="nav-number">3.</span> <span class="nav-text">Promise.all</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#polyfill"><span class="nav-number">4.</span> <span class="nav-text">polyfill</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#强缓存"><span class="nav-number">1.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http连接"><span class="nav-number">2.</span> <span class="nav-text">http连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协商缓存"><span class="nav-number">3.</span> <span class="nav-text">协商缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭http连接"><span class="nav-number">4.</span> <span class="nav-text">关闭http连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染页面"><span class="nav-number">5.</span> <span class="nav-text">渲染页面</span></a></li></ol></div>
             
           </div>
         </section>
