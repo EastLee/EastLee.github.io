@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[文档模式]]></title>
+      <url>http://yoursite.com/2017/03/19/%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</url>
+      <content type="text"><![CDATA[文档模式 混杂模式（quirks mode） 标准模式（standards mode） 如果文档开始处没有发现文档声明，则所有浏览器都会默认开启混杂模式 标准模式 标准模式也分为标准模式和非标准模式 标准模式 4.0.1 严格型 &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt; HTMML 5 &lt;!DOCTYPE html&gt; 准标准模式 4.0.1 过度型 &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt; 4.0.1 框架集型 &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"&gt;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[asyn-defer]]></title>
       <url>http://yoursite.com/2017/03/19/asyn-defer/</url>
       <content type="text"><![CDATA[&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;没有defer或async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。 &lt;script async src=&quot;script.js&quot;&gt;&lt;/script&gt;有async，加载和渲染后续文档元素的过程将和script.js的加载与执行并行进行（异步）。 &lt;script defer src=&quot;myscript.js&quot;&gt;&lt;/script&gt;有defer，加载后续文档元素的过程将和script.js的加载并行进行（异步），但是script.js的执行要在所有元素解析完成之后，DOMContentLoaded事件触发之前完成(现实中并不一定会在DOMContentLoaded前面触发)。 然后从实用角度来说呢，首先把所有脚本都丢到&lt;/body&gt;之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。 接着，我们来看一张图咯： 此图告诉我们以下几个要点： defer和async在网络读取（下载）这块儿是一样的，都是异步的（相较于HTML解析） 它俩的差别在于脚本下载完之后何时执行，显然defer是最接近我们对于应用脚本加载和执行的要求的 带有defer属性的脚本执行也不一定按照顺序执行，有风险。 async则是一个乱序执行的主，反正对它来说脚本的加载和执行是紧紧挨着的，所以不管你声明的顺序如何，只要它加载完了就会立刻执行 async一定会在load之前加载，但可能会在DOMContentLoaded事件触发之前或者之后处理 async对于应用脚本的用处不大，因为它完全不考虑依赖（哪怕是最低级的顺序执行），不过它对于那些可以不依赖任何脚本或不被任何脚本依赖的脚本来说却是非常合适的，最典型的例子：Google Analytics]]></content>

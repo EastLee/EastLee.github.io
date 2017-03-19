@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Promise," />
+  <meta name="keywords" content="文档模式," />
 
 
 
@@ -84,19 +84,40 @@
 
 
 
-<meta name="description" content="我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下es6-promise源码，那么下面简单介绍一下实现思想！">
+<meta name="description" content="文档模式
+混杂模式（quirks mode）
+标准模式（standards mode）
+
+
+如果文档开始处没有发现文档声明，则所有浏览器都会默认开启混杂模式
+
+标准模式
+标准模式也分为标准模式和非标准模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise实现逻辑">
-<meta property="og:url" content="http://yoursite.com/2016/11/27/Promise-logic/index.html">
+<meta property="og:title" content="文档模式">
+<meta property="og:url" content="http://yoursite.com/2017/03/19/文档模式/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下es6-promise源码，那么下面简单介绍一下实现思想！">
-<meta property="og:image" content="http://yoursite.com/2016/11/27/Promise-logic/Promise.png">
-<meta property="og:image" content="http://yoursite.com/2016/11/27/Promise-logic/Then.png">
-<meta property="og:updated_time" content="2016-11-27T15:49:17.000Z">
+<meta property="og:description" content="文档模式
+混杂模式（quirks mode）
+标准模式（standards mode）
+
+
+如果文档开始处没有发现文档声明，则所有浏览器都会默认开启混杂模式
+
+标准模式
+标准模式也分为标准模式和非标准模式">
+<meta property="og:updated_time" content="2017-03-19T15:54:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise实现逻辑">
-<meta name="twitter:description" content="我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下es6-promise源码，那么下面简单介绍一下实现思想！">
-<meta name="twitter:image" content="http://yoursite.com/2016/11/27/Promise-logic/Promise.png">
+<meta name="twitter:title" content="文档模式">
+<meta name="twitter:description" content="文档模式
+混杂模式（quirks mode）
+标准模式（standards mode）
+
+
+如果文档开始处没有发现文档声明，则所有浏览器都会默认开启混杂模式
+
+标准模式
+标准模式也分为标准模式和非标准模式">
 
 
 
@@ -114,7 +135,7 @@
   };
 </script>
 
-  <title> Promise实现逻辑 | EastLee </title>
+  <title> 文档模式 | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +298,7 @@
             
             
               
-                Promise实现逻辑
+                文档模式
               
             
           </h1>
@@ -289,8 +310,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-27T22:50:22+08:00" content="2016-11-27">
-              2016-11-27
+            <time itemprop="dateCreated" datetime="2017-03-19T23:39:55+08:00" content="2017-03-19">
+              2017-03-19
             </time>
           </span>
 
@@ -303,8 +324,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
+                  <a href="/categories/前端知识/" itemprop="url" rel="index">
+                    <span itemprop="name">前端知识</span>
                   </a>
                 </span>
 
@@ -319,8 +340,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/27/Promise-logic/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/27/Promise-logic/" itemprop="commentsCount"></span>
+                <a href="/2017/03/19/文档模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/19/文档模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -330,7 +351,7 @@
              
           
           
-             <span id="/2016/11/27/Promise-logic/" class="leancloud_visitors" data-flag-title="Promise实现逻辑">
+             <span id="/2017/03/19/文档模式/" class="leancloud_visitors" data-flag-title="文档模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,28 +373,33 @@
       
 
       
-        <blockquote>
-<p>我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下<a href="https://www.npmjs.com/package/es6-promise" target="_blank" rel="external">es6-promise</a>源码，那么下面简单介绍一下实现思想！</p>
+        <h2 id="文档模式"><a href="#文档模式" class="headerlink" title="文档模式"></a>文档模式</h2><ul>
+<li>混杂模式（quirks mode）</li>
+<li>标准模式（standards mode）</li>
+</ul>
+<blockquote>
+<p>如果文档开始处没有发现文档声明，则所有浏览器都会默认开启混杂模式</p>
+</blockquote>
+<h2 id="标准模式"><a href="#标准模式" class="headerlink" title="标准模式"></a>标准模式</h2><blockquote>
+<p>标准模式也分为标准模式和非标准模式</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p><code>Promise</code>处理流程如下：<br><img src="/2016/11/27/Promise-logic/Promise.png" alt="Promise.png" title=""><br>一般的用法都会new一个promise对象：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">   <span class="keyword">if</span>(ok)&#123;</div><div class="line">       resolve(value)</div><div class="line">   &#125;<span class="keyword">else</span>&#123;</div><div class="line">       reject(reason)</div><div class="line">   &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p><code>Promise</code>构造函数只有一个参数，类型为<code>function</code>，而此函数有两个参数也是函数类型即resolve和reject，他们两个是源码中定义的。拒绝时的状态为reject就不说了，resolve是成功时的处理函数，他会根据value进行处理</p>
-<ul>
-<li>value是普通的值，他就会挂在到<code>Promise</code>对象的_result属性上</li>
-<li>value是<code>Promise</code>对象，那么他就会把value的_result值赋值给外层的<code>Promise</code>对象的_result属性</li>
-<li>value是对象且带有then函数属性，那么value就会被当做一个类似<code>Promise</code>的对象，运行此对象then的结果赋值给<code>Promise</code>对象的_result属性上</li>
+<h3 id="标准模式-1"><a href="#标准模式-1" class="headerlink" title="标准模式"></a>标准模式</h3><ul>
+<li><p>4.0.1 严格型</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>HTMML 5</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>挂在<code>Promise</code>对象的_result属性上的值是为了传入后续的then函数中</p>
-<h2 id="Then"><a href="#Then" class="headerlink" title="Then"></a>Then</h2><p><code>Then</code>处理流程如下：<br><img src="/2016/11/27/Promise-logic/Then.png" alt="Then.png" title=""><br><code>Then</code>有两个函数参数，使用哪一个完全依据上个<code>Promise</code>运行的状态。<code>Then</code>并不是在主线程开始运行的，在源码中专门有一个数组用于收集<code>Then</code>的处理。</p>
-<ul>
-<li>每个<code>Then</code>的处理都会单独new一个新的<code>Promise</code>对象</li>
-<li>第一个<code>Then</code>会传入数组，并启动异步执行开关</li>
-<li>其余的<code>Then</code>处理会挂载到上一个<code>Promise</code>对象的属性上</li>
-<li>通过遍历，当一个<code>Then</code>处理完成，下一个<code>Then</code>的处理和上一个<code>Then</code>处理的值就会存入数组中并且开始遍历执行，直到处理完所有的<code>Then</code></li>
-<li>在处理<code>Then</code>过程中value也会按照<code>Promise</code>方式处理</li>
+<h3 id="准标准模式"><a href="#准标准模式" class="headerlink" title="准标准模式"></a>准标准模式</h3><ul>
+<li><p>4.0.1 过度型</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>4.0.1 框架集型</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"&gt;</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h2><p><code>all</code>的处理思想和以上一致，唯一的区别是会遍历传入的数组，对每一个进行处理，在处理完全后，把值传入<code>Then</code>中，只不过此时的value是数组罢了</p>
-<h2 id="polyfill"><a href="#polyfill" class="headerlink" title="polyfill"></a>polyfill</h2><p>其作用是检测当前环境存不存在<code>Promise</code>，如果不存在就会引入源码中的<code>Promise</code>。</p>
 
       
     </div>
@@ -400,7 +426,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Promise/" rel="tag">#Promise</a>
+            <a href="/tags/文档模式/" rel="tag">#文档模式</a>
           
         </div>
       
@@ -409,17 +435,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/14/nextThemeProblemRepair/" rel="next" title="next主题vendors报错404">
-                <i class="fa fa-chevron-left"></i> next主题vendors报错404
+              <a href="/2017/03/19/asyn-defer/" rel="next" title="asyn-defer">
+                <i class="fa fa-chevron-left"></i> asyn-defer
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/05/redux/" rel="prev" title="redux详解">
-                redux详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -434,10 +456,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/11/27/Promise-logic/"
-     data-title="Promise实现逻辑"
+        <div class="ds-share flat" data-thread-key="2017/03/19/文档模式/"
+     data-title="文档模式"
      data-content=""
-     data-url="http://yoursite.com/2016/11/27/Promise-logic/">
+     data-url="http://yoursite.com/2017/03/19/文档模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -464,8 +486,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/27/Promise-logic/"
-           data-title="Promise实现逻辑" data-url="http://yoursite.com/2016/11/27/Promise-logic/">
+      <div class="ds-thread" data-thread-key="2017/03/19/文档模式/"
+           data-title="文档模式" data-url="http://yoursite.com/2017/03/19/文档模式/">
       </div>
     
   </div>
@@ -567,7 +589,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Then"><span class="nav-number">2.</span> <span class="nav-text">Then</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-all"><span class="nav-number">3.</span> <span class="nav-text">Promise.all</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#polyfill"><span class="nav-number">4.</span> <span class="nav-text">polyfill</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文档模式"><span class="nav-number">1.</span> <span class="nav-text">文档模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准模式"><span class="nav-number">2.</span> <span class="nav-text">标准模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标准模式-1"><span class="nav-number">2.1.</span> <span class="nav-text">标准模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准标准模式"><span class="nav-number">2.2.</span> <span class="nav-text">准标准模式</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
