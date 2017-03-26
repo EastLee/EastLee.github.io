@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="作用域+闭包," />
 
 
 
@@ -84,15 +84,37 @@
 
 
 
-<meta name="description" content="Keep moving">
-<meta property="og:type" content="website">
-<meta property="og:title" content="EastLee">
-<meta property="og:url" content="http://yoursite.com/tags/原型链/index.html">
+<meta name="description" content="作用域链
+作用域就是变量和函数的可访问范围
+
+
+作用域链是保证对执行环境有权访问的所有变量和函数的有序访问。
+作用域链的前端始终都是当前执行的代码所在环境的变量对象，如果这个环境是函数，则将其活动对象作为变量对象。
+作用域链中的下一个变量对象来自包含（外部）环境，而再下一个变量对象则来自下一个包含环境，这样一直延续到全局执行环境。
+全局执行环境的变量对象始终都是作用域链中最后一个对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="作用域+闭包">
+<meta property="og:url" content="http://yoursite.com/2017/03/26/作用域-闭包/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="Keep moving">
+<meta property="og:description" content="作用域链
+作用域就是变量和函数的可访问范围
+
+
+作用域链是保证对执行环境有权访问的所有变量和函数的有序访问。
+作用域链的前端始终都是当前执行的代码所在环境的变量对象，如果这个环境是函数，则将其活动对象作为变量对象。
+作用域链中的下一个变量对象来自包含（外部）环境，而再下一个变量对象则来自下一个包含环境，这样一直延续到全局执行环境。
+全局执行环境的变量对象始终都是作用域链中最后一个对象">
+<meta property="og:updated_time" content="2017-03-26T15:07:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EastLee">
-<meta name="twitter:description" content="Keep moving">
+<meta name="twitter:title" content="作用域+闭包">
+<meta name="twitter:description" content="作用域链
+作用域就是变量和函数的可访问范围
+
+
+作用域链是保证对执行环境有权访问的所有变量和函数的有序访问。
+作用域链的前端始终都是当前执行的代码所在环境的变量对象，如果这个环境是函数，则将其活动对象作为变量对象。
+作用域链中的下一个变量对象来自包含（外部）环境，而再下一个变量对象则来自下一个包含环境，这样一直延续到全局执行环境。
+全局执行环境的变量对象始终都是作用域链中最后一个对象">
 
 
 
@@ -110,7 +132,7 @@
   };
 </script>
 
-  <title> 标签: 原型链 | EastLee </title>
+  <title> 作用域+闭包 | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -141,7 +163,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -252,46 +274,215 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        原型链
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                作用域+闭包
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-26T21:43:18+08:00" content="2017-03-26">
+              2017-03-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端知识/" itemprop="url" rel="index">
+                    <span itemprop="name">前端知识</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/26/作用域-闭包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/26/作用域-闭包/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+             
+          
+          
+             <span id="/2017/03/26/作用域-闭包/" class="leancloud_visitors" data-flag-title="作用域+闭包">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><blockquote>
+<p>作用域就是变量和函数的可访问范围</p>
+</blockquote>
+<ul>
+<li>作用域链是保证对执行环境有权访问的所有变量和函数的有序访问。</li>
+<li>作用域链的前端始终都是当前执行的代码所在环境的变量对象，如果这个环境是函数，则将其活动对象作为变量对象。</li>
+<li>作用域链中的下一个变量对象来自包含（外部）环境，而再下一个变量对象则来自下一个包含环境，这样一直延续到全局执行环境。</li>
+<li>全局执行环境的变量对象始终都是作用域链中最后一个对象<a id="more"></a>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2>闭包是在某个作用域内定义的函数，它可以访问这个作用域内的所有变量。闭包作用域链通常包括三个部分：</li>
+<li>函数本身作用域。</li>
+<li>闭包定义时的作用域。</li>
+<li>全局作用域。</li>
+</ul>
+<p>闭包常见用途：</p>
+<ul>
+<li>创建特权方法用于访问控制（比如可以读取函数内部的变量）</li>
+<li>让这些变量的值始终保持在内存中。</li>
+<li>事件处理程序及回调</li>
+</ul>
+<h2 id="函数的生命周期"><a href="#函数的生命周期" class="headerlink" title="函数的生命周期"></a>函数的生命周期</h2><p>函数的的生命周期分为创建和激活阶段（调用时）</p>
+<h3 id="函数创建"><a href="#函数创建" class="headerlink" title="函数创建"></a>函数创建</h3><p>函数声明属于VO对象，在进入上下文阶段创建<br>函数表达式不属于VO对象，在执行上下文阶段创建</p>
+<h3 id="函数的激活"><a href="#函数的激活" class="headerlink" title="函数的激活"></a>函数的激活</h3><blockquote>
+<p>[[scope]]是所有父变量对象的层级链，处于当前函数上下文之上，在函数创建时存于其中。</p>
+</blockquote>
+<p>用一个稍微复杂的例子描述上面讲到的这些:<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> y = <span class="number">20</span>;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> z = <span class="number">30</span>;</div><div class="line">    alert(x +  y + z);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  bar();</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(); <span class="comment">// 60</span></div></pre></td></tr></table></figure></p>
+<p>全局上下文的变量对象是：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">globalContext.VO === Global = &#123;</div><div class="line">  <span class="attr">x</span>: <span class="number">10</span></div><div class="line">  foo: &lt;reference to function&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>在“foo”创建时，“foo”的[[scope]]属性是：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">foo.[[Scope]] = [</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>在“foo”激活时（进入上下文），“foo”上下文的活动对象是：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">fooContext.AO = &#123;</div><div class="line">  <span class="attr">y</span>: <span class="number">20</span>,</div><div class="line">  <span class="attr">bar</span>: &lt;reference to function&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>“foo”上下文的作用域链为：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">fooContext.Scope = fooContext.AO + foo.[[Scope]] <span class="comment">// i.e.:</span></div><div class="line"></div><div class="line">fooContext.Scope = [</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>内部函数“bar”创建时，其[[scope]]为：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">bar.[[Scope]] = [</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>在“bar”激活时，“bar”上下文的活动对象为：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">barContext.AO = &#123;</div><div class="line">  <span class="attr">z</span>: <span class="number">30</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>“bar”上下文的作用域链为：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">barContext.Scope = barContext.AO + bar.[[Scope]] <span class="comment">// i.e.:</span></div><div class="line"></div><div class="line">barContext.Scope = [</div><div class="line">  barContext.AO,</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><p>1、标记清除<br>2、引用计数（高程P97）</p>
+<blockquote>
+<p>引用计数有相互引用问题</p>
+</blockquote>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/03/13/原型链/" itemprop="url">
-              
-                <span itemprop="name">深入理解__proto__ 、constructor和prototype的关系</span>
-              
-            </a>
+<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.png" alt="EastLee wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-13T23:43:16+08:00"
-              content="2017-03-13" >
-          03-13
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/作用域-闭包/" rel="tag">#作用域+闭包</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/21/编码/" rel="next" title="编码">
+                <i class="fa fa-chevron-left"></i> 编码
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/26/作用域-闭包/"
+     data-title="作用域+闭包"
+     data-content=""
+     data-url="http://yoursite.com/2017/03/26/作用域-闭包/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -299,6 +490,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/26/作用域-闭包/"
+           data-title="作用域+闭包" data-url="http://yoursite.com/2017/03/26/作用域-闭包/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -318,8 +517,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://img2.imgtn.bdimg.com/it/u=1950629119,3796724963&fm=206&gp=0.jpg"
@@ -380,6 +588,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-number">1.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的生命周期"><span class="nav-number">3.</span> <span class="nav-text">函数的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数创建"><span class="nav-number">3.1.</span> <span class="nav-text">函数创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的激活"><span class="nav-number">3.2.</span> <span class="nav-text">函数的激活</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理"><span class="nav-number">4.</span> <span class="nav-text">内存管理</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -491,6 +710,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
