@@ -398,9 +398,9 @@
 <p>[[scope]]是所有父变量对象的层级链，处于当前函数上下文之上，在函数创建时存于其中。</p>
 </blockquote>
 <p>用一个稍微复杂的例子描述上面讲到的这些:<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> y = <span class="number">20</span>;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> z = <span class="number">30</span>;</div><div class="line">    alert(x +  y + z);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  bar();</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(); <span class="comment">// 60</span></div></pre></td></tr></table></figure></p>
-<p>全局上下文的变量对象是：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">globalContext.VO === Global = &#123;</div><div class="line">  <span class="attr">x</span>: <span class="number">10</span></div><div class="line">  foo: &lt;reference to function&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>全局上下文的变量对象是：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">globalContext.VO === Global = &#123;</div><div class="line">  <span class="attr">x</span>: <span class="number">10</span></div><div class="line">  foo: <span class="xml"><span class="tag">&lt;<span class="name">reference</span> <span class="attr">to</span> <span class="attr">function</span>&gt;</span></span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>在“foo”创建时，“foo”的[[scope]]属性是：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">foo.[[Scope]] = [</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
-<p>在“foo”激活时（进入上下文），“foo”上下文的活动对象是：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">fooContext.AO = &#123;</div><div class="line">  <span class="attr">y</span>: <span class="number">20</span>,</div><div class="line">  <span class="attr">bar</span>: &lt;reference to function&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>在“foo”激活时（进入上下文），“foo”上下文的活动对象是：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">fooContext.AO = &#123;</div><div class="line">  <span class="attr">y</span>: <span class="number">20</span>,</div><div class="line">  <span class="attr">bar</span>: <span class="xml"><span class="tag">&lt;<span class="name">reference</span> <span class="attr">to</span> <span class="attr">function</span>&gt;</span></span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>“foo”上下文的作用域链为：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">fooContext.Scope = fooContext.AO + foo.[[Scope]] <span class="comment">// i.e.:</span></div><div class="line"></div><div class="line">fooContext.Scope = [</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
 <p>内部函数“bar”创建时，其[[scope]]为：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">bar.[[Scope]] = [</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
 <p>在“bar”激活时，“bar”上下文的活动对象为：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">barContext.AO = &#123;</div><div class="line">  <span class="attr">z</span>: <span class="number">30</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
@@ -452,6 +452,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/29/in操作符/" rel="prev" title="in操作符">
+                in操作符 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -542,7 +546,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -559,7 +563,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
