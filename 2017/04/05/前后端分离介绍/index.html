@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Promise," />
+  <meta name="keywords" content="前后端分离," />
 
 
 
@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下es6-promise源码，那么下面简单介绍一下实现思想！">
+<meta name="description" content="引言这两年前后端分离的概念遍布于前端世界的各个角落，就连rd也能说出个所以然！对于前端，可能每个人对这个概念的理解都不一样！我的理解是前后端本是一家子，是亲兄弟，干活时，我可以帮你做，你也可以帮我做，后来各自成家，开始有了界限，不过还是可以互相帮助，再后来有了儿子，有了孙子…，血缘关系越来越远，界限原来越清晰，分离的程度越来越高。最近同事就问了我这么个问题，那么我就看了几篇文章再结合自己的实践，总">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise实现逻辑">
-<meta property="og:url" content="http://yoursite.com/2016/11/27/Promise-logic/index.html">
+<meta property="og:title" content="前后端分离介绍">
+<meta property="og:url" content="http://yoursite.com/2017/04/05/前后端分离介绍/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下es6-promise源码，那么下面简单介绍一下实现思想！">
-<meta property="og:image" content="http://yoursite.com/2016/11/27/Promise-logic/Promise.png">
-<meta property="og:image" content="http://yoursite.com/2016/11/27/Promise-logic/Then.png">
-<meta property="og:updated_time" content="2016-11-27T15:49:17.000Z">
+<meta property="og:description" content="引言这两年前后端分离的概念遍布于前端世界的各个角落，就连rd也能说出个所以然！对于前端，可能每个人对这个概念的理解都不一样！我的理解是前后端本是一家子，是亲兄弟，干活时，我可以帮你做，你也可以帮我做，后来各自成家，开始有了界限，不过还是可以互相帮助，再后来有了儿子，有了孙子…，血缘关系越来越远，界限原来越清晰，分离的程度越来越高。最近同事就问了我这么个问题，那么我就看了几篇文章再结合自己的实践，总">
+<meta property="og:image" content="http://yoursite.com/2017/04/05/前后端分离介绍/1.png">
+<meta property="og:image" content="http://yoursite.com/2017/04/05/前后端分离介绍/2.png">
+<meta property="og:updated_time" content="2017-04-05T15:56:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise实现逻辑">
-<meta name="twitter:description" content="我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下es6-promise源码，那么下面简单介绍一下实现思想！">
-<meta name="twitter:image" content="http://yoursite.com/2016/11/27/Promise-logic/Promise.png">
+<meta name="twitter:title" content="前后端分离介绍">
+<meta name="twitter:description" content="引言这两年前后端分离的概念遍布于前端世界的各个角落，就连rd也能说出个所以然！对于前端，可能每个人对这个概念的理解都不一样！我的理解是前后端本是一家子，是亲兄弟，干活时，我可以帮你做，你也可以帮我做，后来各自成家，开始有了界限，不过还是可以互相帮助，再后来有了儿子，有了孙子…，血缘关系越来越远，界限原来越清晰，分离的程度越来越高。最近同事就问了我这么个问题，那么我就看了几篇文章再结合自己的实践，总">
+<meta name="twitter:image" content="http://yoursite.com/2017/04/05/前后端分离介绍/1.png">
 
 
 
@@ -114,7 +114,7 @@
   };
 </script>
 
-  <title> Promise实现逻辑 | EastLee </title>
+  <title> 前后端分离介绍 | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +277,7 @@
             
             
               
-                Promise实现逻辑
+                前后端分离介绍
               
             
           </h1>
@@ -289,8 +289,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-27T22:50:22+08:00" content="2016-11-27">
-              2016-11-27
+            <time itemprop="dateCreated" datetime="2017-04-05T21:59:15+08:00" content="2017-04-05">
+              2017-04-05
             </time>
           </span>
 
@@ -303,8 +303,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
+                  <a href="/categories/前端知识/" itemprop="url" rel="index">
+                    <span itemprop="name">前端知识</span>
                   </a>
                 </span>
 
@@ -319,8 +319,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/27/Promise-logic/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/27/Promise-logic/" itemprop="commentsCount"></span>
+                <a href="/2017/04/05/前后端分离介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/05/前后端分离介绍/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -330,7 +330,7 @@
              
           
           
-             <span id="/2016/11/27/Promise-logic/" class="leancloud_visitors" data-flag-title="Promise实现逻辑">
+             <span id="/2017/04/05/前后端分离介绍/" class="leancloud_visitors" data-flag-title="前后端分离介绍">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,28 +352,85 @@
       
 
       
-        <blockquote>
-<p>我们都知道promise可以很好的解决异步嵌套的问题，使代码更有可读性，但是一直没去研究promise的实现逻辑，最近看了一下<a href="https://www.npmjs.com/package/es6-promise" target="_blank" rel="external">es6-promise</a>源码，那么下面简单介绍一下实现思想！</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p><code>Promise</code>处理流程如下：<br><img src="/2016/11/27/Promise-logic/Promise.png" alt="Promise.png" title=""><br>一般的用法都会new一个promise对象：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">   <span class="keyword">if</span>(ok)&#123;</div><div class="line">       resolve(value)</div><div class="line">   &#125;<span class="keyword">else</span>&#123;</div><div class="line">       reject(reason)</div><div class="line">   &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p><code>Promise</code>构造函数只有一个参数，类型为<code>function</code>，而此函数有两个参数也是函数类型即resolve和reject，他们两个是源码中定义的。拒绝时的状态为reject就不说了，resolve是成功时的处理函数，他会根据value进行处理</p>
-<ul>
-<li>value是普通的值，他就会挂在到<code>Promise</code>对象的_result属性上</li>
-<li>value是<code>Promise</code>对象，那么他就会把value的_result值赋值给外层的<code>Promise</code>对象的_result属性</li>
-<li>value是对象且带有then函数属性，那么value就会被当做一个类似<code>Promise</code>的对象，运行此对象then的结果赋值给<code>Promise</code>对象的_result属性上</li>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这两年前后端分离的概念遍布于前端世界的各个角落，就连rd也能说出个所以然！对于前端，可能每个人对这个概念的理解都不一样！我的理解是前后端本是一家子，是亲兄弟，干活时，我可以帮你做，你也可以帮我做，后来各自成家，开始有了界限，不过还是可以互相帮助，再后来有了儿子，有了孙子…，血缘关系越来越远，界限原来越清晰，分离的程度越来越高。最近同事就问了我这么个问题，那么我就看了几篇文章再结合自己的实践，总结一下这个概念。<br><a id="more"></a></p>
+<h2 id="Web研发模式演变"><a href="#Web研发模式演变" class="headerlink" title="Web研发模式演变"></a><a href="https://github.com/lifesinger/blog/issues/184" target="_blank" rel="external">Web研发模式演变</a></h2><h3 id="JSP时代"><a href="#JSP时代" class="headerlink" title="JSP时代"></a>JSP时代</h3><ul>
+<li>本地开发页面需要起一个<code>Tomcat</code>或<code>Apache</code>，调试和开发对前端来说都不是很友好</li>
+<li><code>JSP</code>可以内嵌<code>java</code>代码，前后端的代码完全柔和在了一起</li>
 </ul>
-<p>挂在<code>Promise</code>对象的_result属性上的值是为了传入后续的then函数中</p>
-<h2 id="Then"><a href="#Then" class="headerlink" title="Then"></a>Then</h2><p><code>Then</code>处理流程如下：<br><img src="/2016/11/27/Promise-logic/Then.png" alt="Then.png" title=""><br><code>Then</code>有两个函数参数，使用哪一个完全依据上个<code>Promise</code>运行的状态。<code>Then</code>并不是在主线程开始运行的，在源码中专门有一个数组用于收集<code>Then</code>的处理。</p>
+<h3 id="后端为主的MVC时代"><a href="#后端为主的MVC时代" class="headerlink" title="后端为主的MVC时代"></a>后端为主的MVC时代</h3><p>在这个时代，后端采用<code>MVC</code>开发模式，可以将前端页面放在View层，并且可以套用<code>Velocity</code>等模板</p>
 <ul>
-<li>每个<code>Then</code>的处理都会单独new一个新的<code>Promise</code>对象</li>
-<li>第一个<code>Then</code>会传入数组，并启动异步执行开关</li>
-<li>其余的<code>Then</code>处理会挂载到上一个<code>Promise</code>对象的属性上</li>
-<li>通过遍历，当一个<code>Then</code>处理完成，下一个<code>Then</code>的处理和上一个<code>Then</code>处理的值就会存入数组中并且开始遍历执行，直到处理完所有的<code>Then</code></li>
-<li>在处理<code>Then</code>过程中value也会按照<code>Promise</code>方式处理</li>
+<li>后端或者前端需要套模板，并且依赖后端测试环境</li>
+<li>职责不清，经常遇到前后端都可以做，但是互相推诿的事情</li>
 </ul>
-<h2 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h2><p><code>all</code>的处理思想和以上一致，唯一的区别是会遍历传入的数组，对每一个进行处理，在处理完全后，把值传入<code>Then</code>中，只不过此时的value是数组罢了</p>
-<h2 id="polyfill"><a href="#polyfill" class="headerlink" title="polyfill"></a>polyfill</h2><p>其作用是检测当前环境存不存在<code>Promise</code>，如果不存在就会引入源码中的<code>Promise</code>。</p>
+<h3 id="Ajax带来的SPA时代"><a href="#Ajax带来的SPA时代" class="headerlink" title="Ajax带来的SPA时代"></a>Ajax带来的SPA时代</h3><ul>
+<li>前后端需要约定接口</li>
+<li>如果页面非常复杂，那么用<code>Ajax</code>做<code>SPA</code>将会非常痛苦</li>
+<li>过多的请求和<code>DOM</code>操作，导致性能不佳</li>
+<li>容易造成白屏</li>
+</ul>
+<h3 id="前端为主的MV-时代"><a href="#前端为主的MV-时代" class="headerlink" title="前端为主的MV*时代"></a>前端为主的MV*时代</h3><p>新框架如雨后春笋般涌现，如<code>react</code>、<code>vue</code>、<code>angularjs</code>等</p>
+<p>好处：</p>
+<ul>
+<li>前后端职责清晰，前端专注于页面呈现，后端则可以专注于业务逻辑的处理，输出<code>RESTful</code>等接口，模拟数据也不难</li>
+<li>粒度可控，代码有层次，符合前端开发习惯</li>
+<li>无需套模板</li>
+</ul>
+<p>不足：</p>
+<ul>
+<li>前后端代码无法复用</li>
+<li>全异步，对<code>SEO</code>不利，往往还需要服务端做同步渲染的降级方案。</li>
+<li><code>SPA</code>不能满足所有需求，依旧存在大量多页面应用。<code>URL Design</code>需要后端配合，前端无法完全掌控。</li>
+</ul>
+<h3 id="Node带来的全栈时代"><a href="#Node带来的全栈时代" class="headerlink" title="Node带来的全栈时代"></a>Node带来的全栈时代</h3><p>前端的页面，无论有无模板都需要放在服务器上，那么现在用<code>Node</code>作为服务器，把我们的页面放在这样的服务器上，此服务器就由前端负责。<br><img src="/2017/04/05/前后端分离介绍/1.png" alt="1.png" title=""><br>职责扩展：</p>
+<ul>
+<li>路由可以由前端控制，页面和<code>Node</code>可以用相同路由（可以解决<code>SEO</code>问题）</li>
+<li>前后端代码复用</li>
+<li>后端专注于业务逻辑，提供各式接口，由<code>Node</code>服务器按需调用传给页面</li>
+<li>性能优化更加方便，不在受制于以前的后端</li>
+</ul>
+<h2 id="什么是前后端分离"><a href="#什么是前后端分离" class="headerlink" title="什么是前后端分离"></a>什么是前后端分离</h2><p>对于这个概念没有绝对的定义，仁者见仁智者见智，最容易想到的就是<code>SPA</code>，<code>SPA</code>确实做到了前后端分离，但这种方式存在两个问题：</p>
+<ul>
+<li><code>WEB</code>服务中，<code>SPA</code>类占的比例很少。很多场景下还有同步/同步+异步混合的模式，<code>SPA</code>不能作为一种通用的解决方案。</li>
+<li>现阶段的<code>SPA</code>开发模式，接口通常是按照展现逻辑来提供的，有时候为了提高效率，后端会帮我们处理一些展现逻辑，这就意味着后端还是涉足了<code>View</code>层的工作，不是真正的前后端分离。</li>
+</ul>
+<p><code>SPA</code>式的前后端分离，认为只要是客户端的就是前端，服务器端的就是后端，对于我厂，<code>SPA</code>已经够用，但是对于业务更复杂的公司，这种分法已经无法满足前后端分离的需求，从职责上划分才能满足：</p>
+<ul>
+<li>前端：负责<code>View</code>和<code>Controller</code>层。（即前端要把后端的一部分工作抢了）</li>
+<li>后端：只负责<code>Model</code>层，业务处理/数据等。</li>
+</ul>
+<h2 id="为什么要前后端分离"><a href="#为什么要前后端分离" class="headerlink" title="为什么要前后端分离"></a>为什么要前后端分离</h2><ul>
+<li>前后端职责不清</li>
+<li>开发效率问题</li>
+<li>局限前端的发挥</li>
+</ul>
+<h2 id="本厂实践"><a href="#本厂实践" class="headerlink" title="本厂实践"></a>本厂实践</h2><h3 id="m端模板前后端分离"><a href="#m端模板前后端分离" class="headerlink" title="m端模板前后端分离"></a>m端模板前后端分离</h3><p>背景：模板一直由rd开发，但是由于众所周知的原因，rd一直不能很好的完成这个任务，也是为了解放他们的双手，上级领导要求模板今后就由前端维护，一场浩大的模板重构项目就开始了</p>
+<ul>
+<li>以前模板充斥各种字段和方法，历史原因，后端同学只知道其中一部分，重构后，后端完全输出<code>json</code>数据，方便前端同学套模板，也还有少量的方法，不过后端同学也给出了API文档</li>
+<li>测试环境问题，起初测试环境是由前端大牛用<code>Node</code>搭建了一个，但是需要前端造假数据，想想一个新页面需要多少假数据，这个量要花多少时间，后来后端提供了一个测试服务器，只需将写好的模板用ftp传上去即可，还能提示错误信息，完美！</li>
+</ul>
+<p>那么这这种页面还处于<code>Ajax</code>时代，同步和<code>Ajax</code>异步并行，只不过纠结于模板放在谁那里维护！</p>
+<h3 id="pc发布和管理后台"><a href="#pc发布和管理后台" class="headerlink" title="pc发布和管理后台"></a>pc发布和管理后台</h3><p>界面完全由js生成，后端数据要么放在模板里面输出，要么用<code>Ajax</code>请求，这种方式是我最讨厌的方式，与其说方便了后端同学不如说坑了自己，坏处已在上面阐明，但是事无绝对！</p>
+<h3 id="react和vue"><a href="#react和vue" class="headerlink" title="react和vue"></a>react和vue</h3><p>和上面一样，界面完全由js生成，后端数据要么放在模板里面输出，要么用<code>Ajax</code>请求，但是凭借框架强大的渲染能力和友好的开发方式，还是受到了众多前端童鞋的欢迎</p>
+<h2 id="淘宝基于Node的前后端分离"><a href="#淘宝基于Node的前后端分离" class="headerlink" title="淘宝基于Node的前后端分离"></a><a href="http://blog.csdn.net/zhoudaxia/article/details/29413117" target="_blank" rel="external">淘宝基于Node的前后端分离</a></h2><p>渲染这块工作，对于前端开发者的日常工作来说，佔了非常大的比例，也是最容易与后端开发纠结不清的地方。回首过去前端技术发展的这几年， <code>View</code>这个层面的工作，经过了许多次的变革，像是：<br>1、<code>Form Submit</code>全页刷新 =&gt; <code>AJAX</code>局部刷新<br>2、服务端续染 + <code>MVC</code> =&gt; 客户端渲染 + <code>MVC</code><br>3、传统换页跳转 =&gt; 单页面应用<br>可以观察到在这几年，大家都倾向将渲染这件事，从服务器端端移向了浏览器端。而服务器端则专注于服务化 ，提供数据接口。</p>
+<p>浏览器端渲染的好处：</p>
+<ul>
+<li>摆脱业务逻辑与呈现逻辑在<code>Java</code>模版引擎中的耦合与混乱。</li>
+<li>针对多终端应用，更容易以接口化的形式。在浏览器端搭配不同的模版，呈现不同的应用。</li>
+<li>页面呈现本来就不仅是<code>html</code>，在前端的渲染可以更轻易的以组件化形式 (<code>html + js + css</code>)提供功能，使得前端组件不需依赖于服务端产生的<code>html</code>结构。</li>
+<li>脱离对于后端开发、发佈流程的依赖。</li>
+<li>方便联调。</li>
+</ul>
+<p>浏览器端渲染造成的坏处：</p>
+<ul>
+<li>模版分离在不同的库。有的模版放在服务端 (<code>JAVA</code>)，而有的放在浏览器端 (<code>JS</code>)。前后端模版语言不相通。</li>
+<li>需要等待所有模版与组件在浏览器端载入完成后才能开始渲染，无法即开即看。</li>
+<li>首次进入会有白屏等待渲染的时间，不利于用户体验</li>
+<li>开发单页面应用时，前端<code>Route</code>与服务器端<code>Route</code>不匹配，处理起来很麻烦。</li>
+<li>重要内容都在前端组装，不利于<code>SEO</code><img src="/2017/04/05/前后端分离介绍/2.png" alt="2.png" title="">
+</li>
+</ul>
+<p>那么在原始的前后中间加一层<code>NodeJS</code>，可以很好的划分职责并且解决一些问题：<br>1、职责划分<br>后端专注于服务层、数据格式、数据稳定、业务逻辑；前端专注于UI层、控只逻辑、渲染逻辑、交互、用户体验<br>2、模版共享<br>可以在浏览器和<code>Node</code>端用一样的模板<br>3、路由共享<br>假如需要在前端做浏览器端路由时，可以同时配置服务器端的路由，使其在 浏览器端换页 或是 服务端换页 ，都可以得到一致的渲染效果。同时也处理了SEO的问题。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>前后端分离，不用纠结于概念，只要能满足业务需求，只要能达到技术要求就行，无非就是分离程度的区别！</p>
 
       
     </div>
@@ -400,7 +457,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Promise/" rel="tag">#Promise</a>
+            <a href="/tags/前后端分离/" rel="tag">#前后端分离</a>
           
         </div>
       
@@ -409,17 +466,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/14/nextThemeProblemRepair/" rel="next" title="next主题vendors报错404">
-                <i class="fa fa-chevron-left"></i> next主题vendors报错404
+              <a href="/2017/04/04/浏览器内核介绍/" rel="next" title="浏览器内核介绍">
+                <i class="fa fa-chevron-left"></i> 浏览器内核介绍
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/05/redux/" rel="prev" title="redux详解">
-                redux详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -434,10 +487,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/11/27/Promise-logic/"
-     data-title="Promise实现逻辑"
+        <div class="ds-share flat" data-thread-key="2017/04/05/前后端分离介绍/"
+     data-title="前后端分离介绍"
      data-content=""
-     data-url="http://yoursite.com/2016/11/27/Promise-logic/">
+     data-url="http://yoursite.com/2017/04/05/前后端分离介绍/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -464,8 +517,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/27/Promise-logic/"
-           data-title="Promise实现逻辑" data-url="http://yoursite.com/2016/11/27/Promise-logic/">
+      <div class="ds-thread" data-thread-key="2017/04/05/前后端分离介绍/"
+           data-title="前后端分离介绍" data-url="http://yoursite.com/2017/04/05/前后端分离介绍/">
       </div>
     
   </div>
@@ -567,7 +620,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Then"><span class="nav-number">2.</span> <span class="nav-text">Then</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-all"><span class="nav-number">3.</span> <span class="nav-text">Promise.all</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#polyfill"><span class="nav-number">4.</span> <span class="nav-text">polyfill</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web研发模式演变"><span class="nav-number">2.</span> <span class="nav-text">Web研发模式演变</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP时代"><span class="nav-number">2.1.</span> <span class="nav-text">JSP时代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端为主的MVC时代"><span class="nav-number">2.2.</span> <span class="nav-text">后端为主的MVC时代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax带来的SPA时代"><span class="nav-number">2.3.</span> <span class="nav-text">Ajax带来的SPA时代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端为主的MV-时代"><span class="nav-number">2.4.</span> <span class="nav-text">前端为主的MV*时代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node带来的全栈时代"><span class="nav-number">2.5.</span> <span class="nav-text">Node带来的全栈时代</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是前后端分离"><span class="nav-number">3.</span> <span class="nav-text">什么是前后端分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要前后端分离"><span class="nav-number">4.</span> <span class="nav-text">为什么要前后端分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本厂实践"><span class="nav-number">5.</span> <span class="nav-text">本厂实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#m端模板前后端分离"><span class="nav-number">5.1.</span> <span class="nav-text">m端模板前后端分离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pc发布和管理后台"><span class="nav-number">5.2.</span> <span class="nav-text">pc发布和管理后台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react和vue"><span class="nav-number">5.3.</span> <span class="nav-text">react和vue</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#淘宝基于Node的前后端分离"><span class="nav-number">6.</span> <span class="nav-text">淘宝基于Node的前后端分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>
