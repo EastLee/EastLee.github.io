@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="webpack," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,19 +84,15 @@
 
 
 
-<meta name="description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
-全局安装webpack$ npm install webpack -g">
-<meta property="og:type" content="article">
-<meta property="og:title" content="webpack.learning">
-<meta property="og:url" content="http://yoursite.com/2016/10/17/webpack-learning/index.html">
+<meta name="description" content="Keep moving">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EastLee">
+<meta property="og:url" content="http://yoursite.com/tags/DOCTYPE与浏览器模式分析/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
-全局安装webpack$ npm install webpack -g">
-<meta property="og:updated_time" content="2016-12-26T13:59:51.000Z">
+<meta property="og:description" content="Keep moving">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack.learning">
-<meta name="twitter:description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
-全局安装webpack$ npm install webpack -g">
+<meta name="twitter:title" content="EastLee">
+<meta name="twitter:description" content="Keep moving">
 
 
 
@@ -114,7 +110,7 @@
   };
 </script>
 
-  <title> webpack.learning | EastLee </title>
+  <title> 标签: DOCTYPE与浏览器模式分析 | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,7 +141,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,233 +252,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                webpack.learning
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-17T22:37:16+08:00" content="2016-10-17">
-              2016-10-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/构建工具/" itemprop="url" rel="index">
-                    <span itemprop="name">构建工具</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/17/webpack-learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/17/webpack-learning/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-             
-          
-          
-             <span id="/2016/10/17/webpack-learning/" class="leancloud_visitors" data-flag-title="webpack.learning">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h2><p>作为前端，没用过Node，只能说是个十足的菜鸟！</p>
-<h2 id="全局安装webpack"><a href="#全局安装webpack" class="headerlink" title="全局安装webpack"></a>全局安装webpack</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ npm install webpack -g</div></pre></td></tr></table></figure>
- <a id="more"></a>
-<h2 id="运行例子"><a href="#运行例子" class="headerlink" title="运行例子"></a>运行例子</h2><p>进入<a href="https://github.com/EastLee/webpack-gulp-react" target="_blank" rel="external">文件</a>，首先运行 npm install，安装所需要的依赖，然后可以打开<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example1.webpack" target="_blank" rel="external">example1.webpack</a>文件夹，运行下面的命令：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack src/index.js dist/index.js</div></pre></td></tr></table></figure></p>
-<p>之后打开index.html就可以看见运行效果！</p>
-<h2 id="生成配置文件webpack-config-js"><a href="#生成配置文件webpack-config-js" class="headerlink" title="生成配置文件webpack.config.js"></a>生成配置文件webpack.config.js</h2><p>查看第二个<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example2.webpack" target="_blank" rel="external">例子</a>,进入文件，只要运行如下命令即可，<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack</div></pre></td></tr></table></figure></p>
-<p>此时webpack就会自动运行这个配置文件,如果想配置多个config文件，用如下命令：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack --config webpack.config.prod.js</div></pre></td></tr></table></figure></p>
-<h2 id="编译React"><a href="#编译React" class="headerlink" title="编译React"></a>编译React</h2><p>安装一下插件<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ npm install babel-loader babel-core babel-preset-es2015 babel-preset-stage<span class="number">-0</span> babel-preset-react babel-polyfill --save-dev</div><div class="line"></div><div class="line">$ npm install react react-dom --save</div></pre></td></tr></table></figure></p>
-<p>babel-core是babel6的基础模块,babel-loader和babel-preset-es2015用于编译ES6语法的js，babel-preset-stage-0主要是应对ES7语法标准的插件，babel-preset-react用于编译react。先看一个<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example3.webpack" target="_blank" rel="external">栗子</a></p>
-<h2 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="babel-polyfill"></a>babel-polyfill</h2><p>Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。<br>举例来说，ES6在Array对象上新增了Array.from方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用babel-polyfill，为当前环境提供一个垫片。</p>
-<p>引入代码：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span>;</div><div class="line"><span class="comment">// 或者</span></div><div class="line"><span class="built_in">require</span>(<span class="string">'babel-polyfill'</span>);</div></pre></td></tr></table></figure></p>
-<h2 id="webpack打包css"><a href="#webpack打包css" class="headerlink" title="webpack打包css"></a>webpack打包css</h2><p>安装如下几个loader：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ npm install style-loader css-loader sass-loader --save-dev</div></pre></td></tr></table></figure></p>
-<ul>
-<li>style-loader 将css插入到页面的style标签</li>
-<li>css-loader 是处理css文件中的url()等</li>
-<li>sass-loader 是将sass文件编译成css</li>
-</ul>
-<h2 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h2><p>安装：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ npm install webpack-dev-server -g</div></pre></td></tr></table></figure></p>
-<p>启动：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack-dev-server --content-base ./</div></pre></td></tr></table></figure></p>
-<p>–content-base ./ 参数表示将当前目录作为 server 根目录。 命令启动过后，会在 8080 端口启动一个 http 服务，通过访问 <a href="http://localhost:8080/index.html" target="_blank" rel="external">http://localhost:8080/index.html</a> 可以访问 index.html 内容。<br>此时修改内容，刷新页面，页面内容的改变并没有呈现出来，因为webpack-dev-server的打包结果是放在内存中的，此时可以在webpack.config.js的output中加上publicPath，现在再刷新页面就可以看见效果了！</p>
-<h2 id="实时刷新"><a href="#实时刷新" class="headerlink" title="实时刷新"></a>实时刷新</h2><p>1、Iframe 模式</p>
-<p>修改访问的路径： <a href="http://localhost:8080/index.html" target="_blank" rel="external">http://localhost:8080/index.html</a> -&gt; <a href="http://localhost:8080/webpack-dev-server/index.html" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/index.html</a> 。这个时候每次修改代码，打包完成过后都会自动刷新页面。</p>
-<ul>
-<li>不需要额外配置，只用修改路径</li>
-<li>应用被嵌入了一个 iframe 内部，页面顶部可以展示打包进度信息</li>
-<li>因为 iframe 的关系，如果应用有多个页面，无法看到当前应用的 url 信息</li>
-</ul>
-<p>2、inline 模式</p>
-<p>启动 webpack-dev-server 的时候添加 –inline 参数</p>
-<ul>
-<li>需要添加 –inline 配置参数</li>
-<li>没有顶部信息提示条，提示信息在控制台中展现</li>
-</ul>
-<h2 id="热加载"><a href="#热加载" class="headerlink" title="热加载"></a>热加载</h2><p>webpack-dev-server 还提供了模块热加载的方式，在不刷新浏览器的条件下，应用最新的代码更新，启动 webpack-dev-server 的时候添加 –inline –hot 参数就可以体验。<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack-dev-server --inline --hot</div></pre></td></tr></table></figure></p>
-<p>也可以在webpack.config.js中配置<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">plugins: [</div><div class="line">    <span class="comment">// 需要手动添加 HotModuleReplacementPlugin , 命令行的方式会自动添加</span></div><div class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</div><div class="line">],</div><div class="line"><span class="attr">devServer</span>: &#123;</div><div class="line">    <span class="attr">hot</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">inline</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>还可以利用<code>express</code>在本地起一个服务，利用<code>webpack-dev-middleware</code>和<code>webpack-hot-middleware</code>配合使用，请看配置<a href="https://www.npmjs.com/package/webpack-hot-middleware" target="_blank" rel="external">详情</a>和<a href="http://www.tuicool.com/articles/22aQ7vu" target="_blank" rel="external">分析</a></p>
-<h2 id="webpack-dev-server选项"><a href="#webpack-dev-server选项" class="headerlink" title="webpack-dev-server选项"></a>webpack-dev-server选项</h2><ul>
-<li>contentBase：默认webpack-dev-server会为根文件夹提供本地服务器，如果想为另外一个目录下的文件提供本地服务器，应该在这里设置其所在目录</li>
-<li>port：设置默认监听端口，如果省略，默认为”8080“</li>
-<li>inline：设置为true，当源文件改变时会自动刷新页面</li>
-<li>colors：设置为true，使终端输出的文件为彩色的</li>
-<li>historyApiFallback：在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html</li>
-<li>hot：热更新</li>
-</ul>
-<h2 id="devtool选项"><a href="#devtool选项" class="headerlink" title="devtool选项"></a>devtool选项</h2><ul>
-<li>source-map：在一个单独的文件中产生一个完整且功能完全的文件。这个文件具有最好的source map，但是它会减慢打包文件的构建速度；</li>
-<li>cheap-module-source-map：在一个单独的文件中生成一个不带列映射的map，不带列映射提高项目构建速度，但是也使得浏览器开发者工具只能对应到具体的行，不能对应到具体的列（符号），会对调试造成不便；</li>
-<li>eval-source-map：使用eval打包源文件模块，在同一个文件中生成干净的完整的source map。这个选项可以在不影响构建速度的前提下生成完整的sourcemap，但是对打包后输出的JS文件的执行具有性能和安全的隐患。不过在开发阶段这是一个非常好的选项，但是在生产阶段一定不要用这个选项；</li>
-<li>cheap-module-eval-source-map：这是在打包文件时最快的生成source map的方法，生成的Source Map 会和打包后的JavaScript文件同行显示，没有列映射，和eval-source-map选项具有相似的缺点；</li>
-</ul>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        DOCTYPE与浏览器模式分析
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.png" alt="EastLee wechat" style="width: 200px; max-width: 100%;"/>
-    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
-</div>
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2017/04/09/DOCTYPE与浏览器模式分析/" itemprop="url">
+              
+                <span itemprop="name">DOCTYPE与浏览器模式分析</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-04-09T13:08:54+08:00"
+              content="2017-04-09" >
+          04-09
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/webpack/" rel="tag">#webpack</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/05/12/form-submit/" rel="next" title="表单提交问题">
-                <i class="fa fa-chevron-left"></i> 表单提交问题
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/18/webpack-plugin/" rel="prev" title="webpack.plugin">
-                webpack.plugin <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/10/17/webpack-learning/"
-     data-title="webpack.learning"
-     data-content=""
-     data-url="http://yoursite.com/2016/10/17/webpack-learning/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
+    
   </div>
-</div>
-      
-    </div>
-  </div>
+
+  
 
 
           </div>
@@ -490,14 +299,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/10/17/webpack-learning/"
-           data-title="webpack.learning" data-url="http://yoursite.com/2016/10/17/webpack-learning/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -517,17 +318,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://img2.imgtn.bdimg.com/it/u=1950629119,3796724963&fm=206&gp=0.jpg"
@@ -588,17 +380,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Node"><span class="nav-number">1.</span> <span class="nav-text">安装Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装webpack"><span class="nav-number">2.</span> <span class="nav-text">全局安装webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行例子"><span class="nav-number">3.</span> <span class="nav-text">运行例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成配置文件webpack-config-js"><span class="nav-number">4.</span> <span class="nav-text">生成配置文件webpack.config.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译React"><span class="nav-number">5.</span> <span class="nav-text">编译React</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#babel-polyfill"><span class="nav-number">6.</span> <span class="nav-text">babel-polyfill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack打包css"><span class="nav-number">7.</span> <span class="nav-text">webpack打包css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">8.</span> <span class="nav-text">webpack-dev-server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实时刷新"><span class="nav-number">9.</span> <span class="nav-text">实时刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#热加载"><span class="nav-number">10.</span> <span class="nav-text">热加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server选项"><span class="nav-number">11.</span> <span class="nav-text">webpack-dev-server选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#devtool选项"><span class="nav-number">12.</span> <span class="nav-text">devtool选项</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -710,10 +491,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
