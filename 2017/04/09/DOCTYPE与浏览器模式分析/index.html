@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/09/DOCTYPE与浏览器模式分析/index.html">
 <meta property="og:site_name" content="EastLee">
 <meta property="og:description" content="DOCTYPE的诞生DOCTYPE，或者称为 Document Type Declaration（文档类型声明，缩写 DTD）。通常情况下，DOCTYPE 位于一个 HTML 文档的最前面的位置，位于根元素 HTML 的起始标签之前。因为浏览器必须在解析 HTML 文档正文之前就确定当前文档的类型，以决定其需要采用的渲染模式，不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript">
-<meta property="og:updated_time" content="2017-04-09T05:50:13.000Z">
+<meta property="og:updated_time" content="2017-04-09T05:52:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOCTYPE与浏览器模式分析">
 <meta name="twitter:description" content="DOCTYPE的诞生DOCTYPE，或者称为 Document Type Declaration（文档类型声明，缩写 DTD）。通常情况下，DOCTYPE 位于一个 HTML 文档的最前面的位置，位于根元素 HTML 的起始标签之前。因为浏览器必须在解析 HTML 文档正文之前就确定当前文档的类型，以决定其需要采用的渲染模式，不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript">
@@ -349,7 +349,7 @@
       
 
       
-        <h2 id="DOCTYPE的诞生"><a href="#DOCTYPE的诞生" class="headerlink" title="DOCTYPE的诞生"></a>DOCTYPE的诞生</h2><p>DOCTYPE，或者称为 Document Type Declaration（文档类型声明，缩写 DTD）。通常情况下，DOCTYPE 位于一个 HTML 文档的最前面的位置，位于根元素 HTML 的起始标签之前。因为浏览器必须在解析 HTML 文档正文之前就确定当前文档的类型，以决定其需要采用的渲染模式，不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript 脚本的解析。尤其是在 IE 系列浏览器中，由 DOCTYPE 所决定的 HTML 页面的渲染模式至关重要。可以把他看成是一个选择渲染模式的<code>开关</code>！<br><a id="more"></a><br>究竟为何浏览器要制作这么一个“开关”。微软开发的 IE 系列浏览器中寿命最长的 IE6 伴随 Windows XP 诞生。相比上一个版本 IE5.5，IE6 确实有着许多重大的改进，其中对于页面渲染而言最大的变化就在于 IE6 支持了部分 CSS1 中的特性。例如，为一个块级元素设定宽度及高度时，不再作用于 border 外围，而是如 W3C 规范中所描述的仅仅是元素内容之上。这一点和 IE5.5 差别巨大。为了保证那些 90 年代后期的基于 IE6 之前版本开发的页面能够正常显示，即保证浏览器有向后兼容性，此“开关”诞生，微软试图通过对 DOCTYPE 的判断来决定浏览器采取何种模式工作，即是 IE6 还是 IE5.5 的问题。所以从 document.compatMode 返回的字符串值中也可以看出来，BackCompat 代表了向后兼容（即 IE5.5），CSS1Compat 代表了对 CSS1 规范的兼容（即 IE6）。由此，浏览器的工作模式被分为了混杂模式及标准模式。</p>
+        <h2 id="DOCTYPE的诞生"><a href="#DOCTYPE的诞生" class="headerlink" title="DOCTYPE的诞生"></a><a href="http://w3help.org/zh-cn/casestudies/002" target="_blank" rel="external">DOCTYPE的诞生</a></h2><p>DOCTYPE，或者称为 Document Type Declaration（文档类型声明，缩写 DTD）。通常情况下，DOCTYPE 位于一个 HTML 文档的最前面的位置，位于根元素 HTML 的起始标签之前。因为浏览器必须在解析 HTML 文档正文之前就确定当前文档的类型，以决定其需要采用的渲染模式，不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript 脚本的解析。尤其是在 IE 系列浏览器中，由 DOCTYPE 所决定的 HTML 页面的渲染模式至关重要。可以把他看成是一个选择渲染模式的<code>开关</code>！<br><a id="more"></a><br>究竟为何浏览器要制作这么一个“开关”。微软开发的 IE 系列浏览器中寿命最长的 IE6 伴随 Windows XP 诞生。相比上一个版本 IE5.5，IE6 确实有着许多重大的改进，其中对于页面渲染而言最大的变化就在于 IE6 支持了部分 CSS1 中的特性。例如，为一个块级元素设定宽度及高度时，不再作用于 border 外围，而是如 W3C 规范中所描述的仅仅是元素内容之上。这一点和 IE5.5 差别巨大。为了保证那些 90 年代后期的基于 IE6 之前版本开发的页面能够正常显示，即保证浏览器有向后兼容性，此“开关”诞生，微软试图通过对 DOCTYPE 的判断来决定浏览器采取何种模式工作，即是 IE6 还是 IE5.5 的问题。所以从 document.compatMode 返回的字符串值中也可以看出来，BackCompat 代表了向后兼容（即 IE5.5），CSS1Compat 代表了对 CSS1 规范的兼容（即 IE6）。由此，浏览器的工作模式被分为了混杂模式及标准模式。</p>
 <p>值得注意的是，IE 的版本号一路从 6.0 升至了目前的 9.0，但升级仅限于标准模式。对于混杂模式，IE 的版本号永久的冻结在 5.5，这也算是为了向后兼容的巨大牺牲。也就是说即使我们使用着最新最高级的 IE9，但若我们不书写 DOCTYPE 或者使用了能够触发混杂模式的 DOCTYPE，那我们所面对的浏览器仍相当于是那个十几年前的老古董 IE5.5。而其他那些浏览器的混杂模式和标准模式之间却没有像IE中这么大的差别。</p>
 <p>近似标准模式（Almost Standards Mode）从字面意思上看与标准模式非常类似，但确实有小的差别。主要体现在对于表格单元格内垂直方向布局渲染差异。IE8 开始、Firefox、Chrome、Safari、Opera 7.5 开始，这些浏览器的标准模式更加严格的遵循了 CSS2.1 规范，故对于在目前看来不太“标准”的以前的标准模式，被赋予了“近似标准模式”的名字。但是在较早的 IE6 IE7 以及 Opera 7.5 之前版本中，浏览器无法严格遵循 CSS2.1 规范，故对于它们来说没有这个近似标准模式，也可以理解为它们的近似标准模式就是标准模式。</p>
 <ul>
