@@ -100,7 +100,7 @@ GET在浏览器回退时是无害的，而POST会再次提交请求。
 GET产生的URL地址可以被Bookmark，而POST不可以。
 GET请求会被浏览器主动cache，而POST不会，除非手动设置。
 GET请求只能进行url编码，而POST支持多">
-<meta property="og:updated_time" content="2017-05-31T08:19:48.000Z">
+<meta property="og:updated_time" content="2017-05-31T08:20:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GET和POST区别">
 <meta name="twitter:description" content="前言之前很长时间我都在想这个问题，总感觉网上的答案有问题，并非我想要的，但是又搞不清楚问题在哪里！一天我跑去问立峰（rd大神），他反问我，我支支吾吾说了一些：
@@ -384,7 +384,7 @@ GET请求只能进行url编码，而POST支持多">
 <li>浏览器对url的长度要求是2k到90k吧，不同浏览器限制不一样</li>
 <li>服务器。URL长了，对服务器处理也是一种负担。原本一个会话就没有多少数据，现在如果有人恶意地构造几个几M大小的URL，并不停地访问你的服务器。服务器的最大并发数显然会下降。另一种攻击方式是，把告诉服务器Content-Length是一个很大的数，然后只给服务器发一点儿数据，嘿嘿，服务器你就傻等着去吧。哪怕你有超时设置，这种故意的次次访问超时也能让服务器吃不了兜着走。有鉴于此，多数服务器出于安全啦、稳定啦方面的考虑，会给URL长度加限制。</li>
 </ul>
-<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><p>人们常说post比get安全，好吧，我只能安不安全是相对的！</p>
+<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><p>人们常说post比get安全，好吧，我只能说安不安全是相对的！</p>
 <h2 id="实际上的答案"><a href="#实际上的答案" class="headerlink" title="实际上的答案"></a>实际上的答案</h2><p>get和post都是HTTP协议规定的请求方法，HTTP的底层是TCP/IP，所以GET和POST的底层也是TCP/IP，也就是说，GET/POST都是TCP链接，本质上无差别。GET和POST能做的事情是一样一样的。你要给GET加上request body，给POST带上url参数，技术上是完全行的通的，主要传输方和接收方支持！</p>
 <p>既然能做的事都可以一样，那么为什么HTTP要划分不同的方法呢？试想如果没有这些方法的标记，所有的请求看起来都是一毛一样，是不是一团混乱！比如酒店会把顾客划分为VIP，会员和普通用户，虽然都是人，可是享受的服务不一样！所以HTTP是一种行为准则，需要浏览器和服务器自觉遵守。</p>
 <p>GET和POST有一个重大区别：GET产生一个TCP数据包;POST产生两个TCP数据包。</p>
