@@ -354,8 +354,7 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前很长时间我都在想这个问题，总感觉网上的答案有问题，并非我想要的，但是又搞不清楚问题在哪里！一天我跑去问立峰（rd大神），他反问我，我支支吾吾说了一些：</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前很长时间我都在想这个问题，总感觉网上的答案有问题，并非我想要的，但是又搞不清楚问题在哪里！一天我跑去问立峰（rd大神），他反问我，我支支吾吾说了一些：</p>
 <ul>
 <li>GET在浏览器回退时是无害的，而POST会再次提交请求。</li>
 <li>GET产生的URL地址可以被Bookmark，而POST不可以。</li>
@@ -365,36 +364,12 @@
 <li>GET请求在URL中传送的参数是有长度限制的，而POST么有。</li>
 <li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</li>
 <li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</li>
-<li>GET参数通过URL传递，POST放在Request body中。</li>
-</ul>
-<p>好吧，其实就是网上千变一律的答案，虽然我感觉有哪里不对，但是我不知道问题所在，还是随大流！然后他说面试时回答这个问题可以体现一个人的水平层次，然后他说了一下他的答案，不过当时没听懂！最近发现两篇文章，说的很清晰，让我恍然大悟！</p>
-<h2 id="网上的答案"><a href="#网上的答案" class="headerlink" title="网上的答案"></a>网上的答案</h2><p>网上的答案无非主要是三点：<code>get</code>请求数据放在url中并且url有长度限制，<code>post</code>请求数据放在body中，所以导致后者比前者安全。</p>
-<p>那么网上的答案从何而来呢？在<a href="https://www.w3.org/TR/REC-html40/interact/forms.html#h-17.13.1" target="_blank" rel="external">HTML标准</a>中找到了相似的描述，这是HTML标准对HTTP用法的约定，所以不能说网上的答案是完全错误的，只能说是片面的。<code>XMLHttpRequest</code>对象就是这样，get请求参数放在url中，post请求放在body中。</p>
-<h2 id="url长度限制"><a href="#url长度限制" class="headerlink" title="url长度限制"></a>url长度限制</h2><p>这个限制并非是HTTP协议对GET和POST做的长度限制，限制url长度的是浏览器和服务器</p>
-<ul>
-<li>浏览器对url的长度要求是2k到90k吧，不同浏览器限制不一样</li>
-<li>服务器。URL长了，对服务器处理也是一种负担。原本一个会话就没有多少数据，现在如果有人恶意地构造几个几M大小的URL，并不停地访问你的服务器。服务器的最大并发数显然会下降。另一种攻击方式是，把告诉服务器Content-Length是一个很大的数，然后只给服务器发一点儿数据，嘿嘿，服务器你就傻等着去吧。哪怕你有超时设置，这种故意的次次访问超时也能让服务器吃不了兜着走。有鉴于此，多数服务器出于安全啦、稳定啦方面的考虑，会给URL长度加限制。</li>
-</ul>
-<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><p>人们常说post比get安全，好吧，我只能安不安全是相对的！</p>
-<h2 id="实际上的答案"><a href="#实际上的答案" class="headerlink" title="实际上的答案"></a>实际上的答案</h2><p>get和post都是HTTP协议规定的请求方法，HTTP的底层是TCP/IP，所以GET和POST的底层也是TCP/IP，也就是说，GET/POST都是TCP链接，本质上无差别。GET和POST能做的事情是一样一样的。你要给GET加上request body，给POST带上url参数，技术上是完全行的通的，主要传输方和接收方支持！</p>
-<p>既然能做的事都可以一样，那么为什么HTTP要划分不同的方法呢？试想如果没有这些方法的标记，所有的请求看起来都是一毛一样，是不是一团混乱！比如酒店会把顾客划分为VIP，会员和普通用户，虽然都是人，可是享受的服务不一样！所以HTTP是一种行为准则，需要浏览器和服务器自觉遵守。</p>
-<p>GET和POST有一个重大区别：GET产生一个TCP数据包;POST产生两个TCP数据包。</p>
-<ul>
-<li>对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200(返回数据);</li>
-<li>对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok(返回数据)。</li>
-</ul>
-<p>因为POST需要两步，时间上消耗的要多一点，看起来GET比POST更有效。因此Yahoo团队有推荐用GET替换POST来优化网站性能。但这是一个坑!跳入需谨慎。为什么?</p>
-<ul>
-<li>GET与POST都有自己的语义，不能随便混用。</li>
-<li>据研究，在网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。而在网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点。</li>
-<li>并不是所有浏览器都会在POST中发送两次包，Firefox就只发送一次。</li>
-</ul>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
-<li><a href="http://www.cnblogs.com/nankezhishi/archive/2012/06/09/getandpost.html" target="_blank" rel="external">GET和POST有什么区别？及为什么网上的多数答案都是错的。</a></li>
-<li><a href="http://www.techweb.com.cn/network/system/2016-10-11/2407736.shtml" target="_blank" rel="external">99%的人都理解错了HTTP中GET与POST的区别</a></li>
-</ul>
-
-          
+<li>GET参数通过URL传递，POST放在Request body中。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/31/GET和POST区别/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
