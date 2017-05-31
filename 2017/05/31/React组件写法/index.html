@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="js原生事件绑定," />
+  <meta name="keywords" content="React," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="在HTML元素中内嵌事件处理程序&amp;lt;!-- 输出“Clicked” —— 事件处理程序中，可以直接编写 JavaScript 代码 --&amp;gt;&amp;lt;input type=&quot;button&quot; value=&quot;Click Me&quot; onclick=&quot;alert(&apos;Clicked&apos;)&quot; /&amp;gt;&amp;lt;!-- 输出“click” —— 事件处理程序中，可以直接访问事件对象 event --&amp;gt;&amp;">
+<meta name="description" content="简介用ES5(createClass)或ES6都可以完美地写React组件，本文总结两者写法的区别！
+区别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js原生事件绑定">
-<meta property="og:url" content="http://yoursite.com/2017/04/09/js原生事件绑定/index.html">
+<meta property="og:title" content="React组件写法">
+<meta property="og:url" content="http://yoursite.com/2017/05/31/React组件写法/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="在HTML元素中内嵌事件处理程序&amp;lt;!-- 输出“Clicked” —— 事件处理程序中，可以直接编写 JavaScript 代码 --&amp;gt;&amp;lt;input type=&quot;button&quot; value=&quot;Click Me&quot; onclick=&quot;alert(&apos;Clicked&apos;)&quot; /&amp;gt;&amp;lt;!-- 输出“click” —— 事件处理程序中，可以直接访问事件对象 event --&amp;gt;&amp;">
-<meta property="og:updated_time" content="2017-04-09T10:18:54.000Z">
+<meta property="og:description" content="简介用ES5(createClass)或ES6都可以完美地写React组件，本文总结两者写法的区别！
+区别">
+<meta property="og:updated_time" content="2017-05-31T06:31:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js原生事件绑定">
-<meta name="twitter:description" content="在HTML元素中内嵌事件处理程序&amp;lt;!-- 输出“Clicked” —— 事件处理程序中，可以直接编写 JavaScript 代码 --&amp;gt;&amp;lt;input type=&quot;button&quot; value=&quot;Click Me&quot; onclick=&quot;alert(&apos;Clicked&apos;)&quot; /&amp;gt;&amp;lt;!-- 输出“click” —— 事件处理程序中，可以直接访问事件对象 event --&amp;gt;&amp;">
+<meta name="twitter:title" content="React组件写法">
+<meta name="twitter:description" content="简介用ES5(createClass)或ES6都可以完美地写React组件，本文总结两者写法的区别！
+区别">
 
 
 
@@ -111,7 +114,7 @@
   };
 </script>
 
-  <title> js原生事件绑定 | EastLee </title>
+  <title> React组件写法 | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +277,7 @@
             
             
               
-                js原生事件绑定
+                React组件写法
               
             
           </h1>
@@ -286,8 +289,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-09T14:03:07+08:00" content="2017-04-09">
-              2017-04-09
+            <time itemprop="dateCreated" datetime="2017-05-31T11:37:44+08:00" content="2017-05-31">
+              2017-05-31
             </time>
           </span>
 
@@ -300,8 +303,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端知识/" itemprop="url" rel="index">
-                    <span itemprop="name">前端知识</span>
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
                   </a>
                 </span>
 
@@ -316,8 +319,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/04/09/js原生事件绑定/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/09/js原生事件绑定/" itemprop="commentsCount"></span>
+                <a href="/2017/05/31/React组件写法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/31/React组件写法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -327,7 +330,7 @@
              
           
           
-             <span id="/2017/04/09/js原生事件绑定/" class="leancloud_visitors" data-flag-title="js原生事件绑定">
+             <span id="/2017/05/31/React组件写法/" class="leancloud_visitors" data-flag-title="React组件写法">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -349,41 +352,35 @@
       
 
       
-        <h2 id="在HTML元素中内嵌事件处理程序"><a href="#在HTML元素中内嵌事件处理程序" class="headerlink" title="在HTML元素中内嵌事件处理程序"></a>在HTML元素中内嵌事件处理程序</h2><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 输出“Clicked” —— 事件处理程序中，可以直接编写 JavaScript 代码 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Click Me"</span> <span class="attr">onclick</span>=<span class="string">"alert('Clicked')"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 输出“click” —— 事件处理程序中，可以直接访问事件对象 event --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Click Me"</span> <span class="attr">onclick</span>=<span class="string">"alert(event.type)"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 输出“Click Me” —— 事件处理程序中，this 指向事件的目标元素 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Click Me"</span> <span class="attr">onclick</span>=<span class="string">"alert(this.value)"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Click Me"</span> <span class="attr">onclick</span>=<span class="string">"showMessage(event,this)"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.baidu.com"</span> <span class="attr">onclick</span>=<span class="string">"showMessage(event,this);return false;"</span>&gt;</span>baidu<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">showMessage</span>(<span class="params">e,t</span>) </span>&#123;</div><div class="line">        alert(e.type);</div><div class="line">        alert(t.value);</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>优点：简单、粗暴，浏览器兼容性好。<br>缺点：</p>
-<ul>
-<li>存在时差问题。用户可能会在 HTML 元素一出现在页面上时，就触发相应事件，但当时的事件处理程序有可能还未具备执行条件（例如事件处理程序所在的外部脚本文件还未加载或解析完毕），此时会引发 undefined 错误。</li>
-<li>HTML 与 JavaScript 代码紧密耦合。如果要重命名事件处理程序，就要改动两个地方，容易改漏、改错。</li>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>用<code>ES5(createClass)</code>或<code>ES6</code>都可以完美地写<code>React</code>组件，本文总结两者写法的区别！</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><a id="more"></a>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//ES5(createClass)</span></div><div class="line"><span class="keyword">var</span> InputControlES5 = React.createClass(&#123;</div><div class="line">    <span class="attr">propTypes</span>: &#123;</div><div class="line">        <span class="attr">initialValue</span>: React.PropTypes.string</div><div class="line">    &#125;,</div><div class="line">    getDefaultProps()&#123;</div><div class="line">        <span class="keyword">return</span>&#123;</div><div class="line">            <span class="attr">initialValue</span>: <span class="string">''</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// 设置 initial state</span></div><div class="line">    getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">text</span>: <span class="keyword">this</span>.props.initialValue || <span class="string">'placeholder'</span></div><div class="line">        &#125;;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">handleChange</span>: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123; <span class="attr">text</span>: event.target.value &#125;);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                Type something:</div><div class="line">                &lt;input onChange=&#123;this.handleChange&#125; value=&#123;this.state.text&#125; /&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">//ES6</div><div class="line">class InputControlES6 extends React.Component &#123;</div><div class="line">    constructor(props) &#123;</div><div class="line">        super(props);</div><div class="line">        // 设置 initial state</div><div class="line">        this.state = &#123; text: props.initialValue || 'placeholder' &#125;;</div><div class="line">        // ES6 类中函数必须手动绑定</div><div class="line">        this.handleChange = this.handleChange.bind(this);</div><div class="line">    &#125;</div><div class="line">    handleChange(event) &#123;</div><div class="line">        this.setState(&#123; text: event.target.value &#125;);</div><div class="line">    &#125;</div><div class="line">    render() &#123;</div><div class="line">        return (</div><div class="line">            &lt;div&gt;</div><div class="line">                Type something: &lt;input onChange=&#123;this.handleChange&#125; value=&#123;this.state.text&#125; /&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">InputControlES6.propTypes = &#123;</div><div class="line">    initialValue: React.PropTypes.string</div><div class="line">&#125;;</div><div class="line">InputControlES6.defaultProps = &#123;</div><div class="line">    initialValue: ''</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="函数绑定"><a href="#函数绑定" class="headerlink" title="函数绑定"></a>函数绑定</h3><ul>
+<li>用<code>createClass</code>每一个成员函数都由<code>React</code>自动绑定，函数中的<code>this</code>变量在函数调用时会被正确设置。</li>
+<li>用<code>ES6</code>函数不是自动绑定的，必须手动绑定。最好是在构造函数中做这事，就像上面的例子那样。</li>
 </ul>
-<h2 id="事件属性"><a href="#事件属性" class="headerlink" title="事件属性"></a>事件属性</h2><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">'btn'</span> <span class="attr">value</span>=<span class="string">"Click Me"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 绑定事件处理程序</span></div><div class="line">    btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        alert(<span class="string">'Clicked'</span>);</div><div class="line">        alert(<span class="keyword">this</span>.id);    <span class="comment">// 输出“myDiv” —— this 指向事件的目标元素</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 删除事件处理程序</span></div><div class="line">    btn.onclick = <span class="literal">null</span>;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>特点：本质上，等于HTML事件处理程序;</p>
-<p>优点：</p>
-<ul>
-<li>传统、常用、浏览器兼容性好。</li>
-<li>解决了HTML事件处理程序的两个缺点。</li>
+<h3 id="Initial-State设置"><a href="#Initial-State设置" class="headerlink" title="Initial State设置"></a>Initial State设置</h3><ul>
+<li><code>createClass</code>方法接受一个<code>getInitialState</code>函数作为参数一部分，这个函数会在组件挂载时被调用一次。</li>
+<li><code>ES6</code>使用构造函数，在调用<code>super</code>之后，直接设置<code>state</code>即可。</li>
 </ul>
-<p>缺点：一个事件只能绑定唯一一个事件处理程序。</p>
-<h2 id="addEventListener和attachEvent"><a href="#addEventListener和attachEvent" class="headerlink" title="addEventListener和attachEvent"></a>addEventListener和attachEvent</h2><blockquote>
-<p>之前特性有过总结，就不再熬述！</p>
+<h3 id="defaultProps设置"><a href="#defaultProps设置" class="headerlink" title="defaultProps设置"></a>defaultProps设置</h3><ul>
+<li><code>createClass</code>方法接受一个<code>getDefaultProps</code>函数作为参数一部分，这个函数会在组件挂载时被调用一次。</li>
+<li><code>ES6</code>在构造函数上加<code>defaultProps</code>属性，还有另外一种写法如下。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> defaultProps = &#123;</div><div class="line">        <span class="attr">name</span>: <span class="string">''</span>,</div><div class="line">        <span class="attr">age</span>: <span class="number">-1</span></div><div class="line">    &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h3 id="propTypes设置"><a href="#propTypes设置" class="headerlink" title="propTypes设置"></a>propTypes设置</h3><ul>
+<li><code>createClass</code>方法接受一个<code>propTypes</code>作为参数一部分。</li>
+<li><code>ES6</code>在构造函数上加<code>propTypes</code>属性，还有另外一种写法如下。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> propTypes = &#123;</div><div class="line">        <span class="attr">name</span>: React.PropTypes.string,</div><div class="line">        <span class="attr">age</span>: React.PropTypes.string</div><div class="line">    &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<p>目前<code>PropTypes</code>已在<code>react</code>新版中剥离出来，在开发中引入<code>prop-types</code>模块代替！</p>
 </blockquote>
-<h2 id="jq中的bind"><a href="#jq中的bind" class="headerlink" title="jq中的bind"></a>jq中的bind</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(ele).bind(type,[data],hadler)</div></pre></td></tr></table></figure>
-<ul>
-<li>type: 含有一个或多个事件类型的字符串，由空格分隔多个事件。比如”click”或”submit”，还可以是自定义事件名。</li>
-<li>data:作为event.data属性值传递给事件对象的额外数据对象</li>
-<li>fn:绑定到每个匹配元素的事件上面的处理函数(也可以是布尔值，将第三个参数设置为false会使默认的动作失效。)</li>
-<li>取消绑定是unbind</li>
-</ul>
-<h2 id="jq中的on"><a href="#jq中的on" class="headerlink" title="jq中的on"></a>jq中的on</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(ele).on(type,selector,[data],handler)</div></pre></td></tr></table></figure>
-<ul>
-<li>该方法比bind方法多了一个参selector，该参数是用于对选定的元素进行过滤，元素队形中只有符合selector的才绑定该事件处理程序，其他参数同bind方法。该方法是目前应用最为广泛的。</li>
-<li>解绑off</li>
-</ul>
-<h2 id="jq中的live"><a href="#jq中的live" class="headerlink" title="jq中的live"></a>jq中的live</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">live(type,[data],fn)</div></pre></td></tr></table></figure>
-<p>该方法直接将事件的监听器绑定到document对象上了，并没有直接绑定到元素上，元素对象触发事件后事件进行冒泡到docuemnt时才会执行相应的事件处理程序，这样做的好处是新添加的符合条件的元素对象无需在对形同类型的事件处理程序进行绑定，但这样同时会增加根节点的负担，因为所有元素对象的处理程序只有当时间冒泡到根节点时才会被执行，而且当子孙元素过多时，根节点可能将无法判断是哪个元素的请求而导致请求错误。解绑是die</p>
-<h2 id="jq中的delegate"><a href="#jq中的delegate" class="headerlink" title="jq中的delegate"></a>jq中的delegate</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(ele).delegate(selector,type,[data],handler)</div></pre></td></tr></table></figure>
-<p>该方法通过代理的方式解决了上面live代理到document的问，selector用于指定触发事件的元素，而调用该方法的元素对象将会成为事件的代理，即事件的监听器将会绑定到该元素对象上，这样就可以指定代理元素对象，不用将所有的事件监听器都绑定到document上。解绑是undelegate</p>
-<h2 id="jq中的其他事件"><a href="#jq中的其他事件" class="headerlink" title="jq中的其他事件"></a>jq中的其他事件</h2><p>one() 用于个元素对象绑定一次性事件处理程序，也就是绑定成功后该事件将只会被触发一次；toogle()该方法用于绑定点击事件处理函数，当传入多个函数时，第一次单击时执行死一个方法，第二次第二个，以此类推并循环；hover（）用于同时给mouseenter、mouseleave事件绑定事件处理函数，当只传入一个方法时两者的处理函数相同，有两个时第一个是mouseenter的，另一个是mouseleave的和bind传对象时的一样功效。</p>
+</blockquote>
+<h3 id="第三选项"><a href="#第三选项" class="headerlink" title="第三选项"></a>第三选项</h3><p>除了<code>createClass</code>和<code>class</code>外，<code>React</code>还支持所谓的「无状态(stateless)函数组件」。本质上它就是一个函数，没有<code>state</code>，并且不能使用任何诸如<code>componentWillMount</code>或<code>shouldComponentUpdate</code>的生命周期方法。对于接受某些<code>props</code>并直接基于这些<code>props</code>渲染的简单组件来说，无状态函数组件非常合适。下面是一个例子：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">props</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> &#123;firstName,lastName&#125; = props;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;lastName&#125;, &#123;firstName&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div><div class="line">    );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="mixins"><a href="#mixins" class="headerlink" title="mixins"></a>mixins</h3><p>因为在<code>createClass</code>中，<code>mixins</code>有些特殊的规则，目前还没找到好的替代方法！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Facebook已经声明<code>createClass</code>最终会被<code>ES6 class</code>取代，不过他们也说「我们不会废弃<code>createClass</code>直到我们找到目前 <code>mixin</code>用例的替代方案，并且在语言中支持类属性初始化器」。只要有可能，尽量使用无状态函数组件。他们很简单，也会迫使你保持 <code>UI</code>组件简单。对于需要<code>state</code>、生命周期方法、或（通过<code>refs</code>）访问底层<code>DOM</code>节点的复杂组件，使用<code>class</code>。</p>
 
       
     </div>
@@ -410,7 +407,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js原生事件绑定/" rel="tag">#js原生事件绑定</a>
+            <a href="/tags/React/" rel="tag">#React</a>
           
         </div>
       
@@ -419,17 +416,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/09/DOCTYPE与浏览器模式分析/" rel="next" title="DOCTYPE与浏览器模式分析">
-                <i class="fa fa-chevron-left"></i> DOCTYPE与浏览器模式分析
+              <a href="/2017/05/04/XSS/" rel="next" title="了解XSS">
+                <i class="fa fa-chevron-left"></i> 了解XSS
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/13/鼠标事件/" rel="prev" title="鼠标事件">
-                鼠标事件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -444,10 +437,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/04/09/js原生事件绑定/"
-     data-title="js原生事件绑定"
+        <div class="ds-share flat" data-thread-key="2017/05/31/React组件写法/"
+     data-title="React组件写法"
      data-content=""
-     data-url="http://yoursite.com/2017/04/09/js原生事件绑定/">
+     data-url="http://yoursite.com/2017/05/31/React组件写法/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -474,8 +467,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/09/js原生事件绑定/"
-           data-title="js原生事件绑定" data-url="http://yoursite.com/2017/04/09/js原生事件绑定/">
+      <div class="ds-thread" data-thread-key="2017/05/31/React组件写法/"
+           data-title="React组件写法" data-url="http://yoursite.com/2017/05/31/React组件写法/">
       </div>
     
   </div>
@@ -577,7 +570,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在HTML元素中内嵌事件处理程序"><span class="nav-number">1.</span> <span class="nav-text">在HTML元素中内嵌事件处理程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件属性"><span class="nav-number">2.</span> <span class="nav-text">事件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#addEventListener和attachEvent"><span class="nav-number">3.</span> <span class="nav-text">addEventListener和attachEvent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jq中的bind"><span class="nav-number">4.</span> <span class="nav-text">jq中的bind</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jq中的on"><span class="nav-number">5.</span> <span class="nav-text">jq中的on</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jq中的live"><span class="nav-number">6.</span> <span class="nav-text">jq中的live</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jq中的delegate"><span class="nav-number">7.</span> <span class="nav-text">jq中的delegate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jq中的其他事件"><span class="nav-number">8.</span> <span class="nav-text">jq中的其他事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">2.</span> <span class="nav-text">区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数绑定"><span class="nav-number">2.1.</span> <span class="nav-text">函数绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-State设置"><span class="nav-number">2.2.</span> <span class="nav-text">Initial State设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defaultProps设置"><span class="nav-number">2.3.</span> <span class="nav-text">defaultProps设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#propTypes设置"><span class="nav-number">2.4.</span> <span class="nav-text">propTypes设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三选项"><span class="nav-number">2.5.</span> <span class="nav-text">第三选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mixins"><span class="nav-number">2.6.</span> <span class="nav-text">mixins</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>
