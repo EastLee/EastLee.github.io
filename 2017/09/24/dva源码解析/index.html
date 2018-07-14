@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="webpack," />
+  <meta name="keywords" content="dva," />
 
 
 
@@ -84,19 +84,18 @@
 
 
 
-<meta name="description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
-全局安装webpack$ npm install webpack -g">
+<meta name="description" content="前言学过React的童鞋都知道它的技术栈真的很多，所以每当你使用React的时候都需要引入很多的模块，那么dva就是把这些用到的模块集成在一起，形成一定的架构规范。本菜鸟一般都不怎么看的懂技术文档，所以没办法只能去稍微阅读一下源码。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack.learning">
-<meta property="og:url" content="http://yoursite.com/2016/10/17/webpack-learning/index.html">
+<meta property="og:title" content="dva源码解析">
+<meta property="og:url" content="http://yoursite.com/2017/09/24/dva源码解析/index.html">
 <meta property="og:site_name" content="EastLee">
-<meta property="og:description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
-全局安装webpack$ npm install webpack -g">
-<meta property="og:updated_time" content="2016-12-26T13:59:51.000Z">
+<meta property="og:description" content="前言学过React的童鞋都知道它的技术栈真的很多，所以每当你使用React的时候都需要引入很多的模块，那么dva就是把这些用到的模块集成在一起，形成一定的架构规范。本菜鸟一般都不怎么看的懂技术文档，所以没办法只能去稍微阅读一下源码。">
+<meta property="og:image" content="http://yoursite.com/2017/09/24/dva源码解析/dva.png">
+<meta property="og:updated_time" content="2017-09-25T05:21:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack.learning">
-<meta name="twitter:description" content="安装Node作为前端，没用过Node，只能说是个十足的菜鸟！
-全局安装webpack$ npm install webpack -g">
+<meta name="twitter:title" content="dva源码解析">
+<meta name="twitter:description" content="前言学过React的童鞋都知道它的技术栈真的很多，所以每当你使用React的时候都需要引入很多的模块，那么dva就是把这些用到的模块集成在一起，形成一定的架构规范。本菜鸟一般都不怎么看的懂技术文档，所以没办法只能去稍微阅读一下源码。">
+<meta name="twitter:image" content="http://yoursite.com/2017/09/24/dva源码解析/dva.png">
 
 
 
@@ -114,7 +113,7 @@
   };
 </script>
 
-  <title> webpack.learning | EastLee </title>
+  <title> dva源码解析 | EastLee </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +276,7 @@
             
             
               
-                webpack.learning
+                dva源码解析
               
             
           </h1>
@@ -289,8 +288,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-17T22:37:16+08:00" content="2016-10-17">
-              2016-10-17
+            <time itemprop="dateCreated" datetime="2017-09-24T21:47:08+08:00" content="2017-09-24">
+              2017-09-24
             </time>
           </span>
 
@@ -303,8 +302,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/构建工具/" itemprop="url" rel="index">
-                    <span itemprop="name">构建工具</span>
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
                   </a>
                 </span>
 
@@ -319,8 +318,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/17/webpack-learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/17/webpack-learning/" itemprop="commentsCount"></span>
+                <a href="/2017/09/24/dva源码解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/24/dva源码解析/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -330,7 +329,7 @@
              
           
           
-             <span id="/2016/10/17/webpack-learning/" class="leancloud_visitors" data-flag-title="webpack.learning">
+             <span id="/2017/09/24/dva源码解析/" class="leancloud_visitors" data-flag-title="dva源码解析">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,56 +351,43 @@
       
 
       
-        <h2 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h2><p>作为前端，没用过Node，只能说是个十足的菜鸟！</p>
-<h2 id="全局安装webpack"><a href="#全局安装webpack" class="headerlink" title="全局安装webpack"></a>全局安装webpack</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ npm install webpack -g</div></pre></td></tr></table></figure>
- <a id="more"></a>
-<h2 id="运行例子"><a href="#运行例子" class="headerlink" title="运行例子"></a>运行例子</h2><p>进入<a href="https://github.com/EastLee/webpack-gulp-react" target="_blank" rel="external">文件</a>，首先运行 npm install，安装所需要的依赖，然后可以打开<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example1.webpack" target="_blank" rel="external">example1.webpack</a>文件夹，运行下面的命令：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack src/index.js dist/index.js</div></pre></td></tr></table></figure></p>
-<p>之后打开index.html就可以看见运行效果！</p>
-<h2 id="生成配置文件webpack-config-js"><a href="#生成配置文件webpack-config-js" class="headerlink" title="生成配置文件webpack.config.js"></a>生成配置文件webpack.config.js</h2><p>查看第二个<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example2.webpack" target="_blank" rel="external">例子</a>,进入文件，只要运行如下命令即可，<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack</div></pre></td></tr></table></figure></p>
-<p>此时webpack就会自动运行这个配置文件,如果想配置多个config文件，用如下命令：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack --config webpack.config.prod.js</div></pre></td></tr></table></figure></p>
-<h2 id="编译React"><a href="#编译React" class="headerlink" title="编译React"></a>编译React</h2><p>安装一下插件<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ npm install babel-loader babel-core babel-preset-es2015 babel-preset-stage<span class="number">-0</span> babel-preset-react babel-polyfill --save-dev</div><div class="line"></div><div class="line">$ npm install react react-dom --save</div></pre></td></tr></table></figure></p>
-<p>babel-core是babel6的基础模块,babel-loader和babel-preset-es2015用于编译ES6语法的js，babel-preset-stage-0主要是应对ES7语法标准的插件，babel-preset-react用于编译react。先看一个<a href="https://github.com/EastLee/webpack-gulp-react/tree/master/example3.webpack" target="_blank" rel="external">栗子</a></p>
-<h2 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="babel-polyfill"></a>babel-polyfill</h2><p>Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。<br>举例来说，ES6在Array对象上新增了Array.from方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用babel-polyfill，为当前环境提供一个垫片。</p>
-<p>引入代码：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span>;</div><div class="line"><span class="comment">// 或者</span></div><div class="line"><span class="built_in">require</span>(<span class="string">'babel-polyfill'</span>);</div></pre></td></tr></table></figure></p>
-<h2 id="webpack打包css"><a href="#webpack打包css" class="headerlink" title="webpack打包css"></a>webpack打包css</h2><p>安装如下几个loader：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ npm install style-loader css-loader sass-loader --save-dev</div></pre></td></tr></table></figure></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>学过<code>React</code>的童鞋都知道它的技术栈真的很多，所以每当你使用<code>React</code>的时候都需要引入很多的模块，那么<a href="https://github.com/dvajs/dva/" target="_blank" rel="external">dva</a>就是把这些用到的模块集成在一起，形成一定的架构规范。本菜鸟一般都不怎么看的懂技术文档，所以没办法只能去稍微阅读一下源码。<br><a id="more"></a></p>
+<h2 id="dva依赖"><a href="#dva依赖" class="headerlink" title="dva依赖"></a>dva依赖</h2><img src="/2017/09/24/dva源码解析/dva.png" alt="dva.png" title="">
+<p>需要注意以下几点：</p>
 <ul>
-<li>style-loader 将css插入到页面的style标签</li>
-<li>css-loader 是处理css文件中的url()等</li>
-<li>sass-loader 是将sass文件编译成css</li>
+<li>路由使用的是<a href="https://reacttraining.com/react-router/web/guides/philosophy" target="_blank" rel="external">react-router-dom</a>，而不是<a href="http://react-guide.github.io/react-router-cn/docs/API.html" target="_blank" rel="external">react-router</a>，用法基本类似。</li>
+<li>处理异步的中间件使用的是<a href="http://leonshi.com/redux-saga-in-chinese/docs/api/index.html" target="_blank" rel="external">react-saga</a>，而不是<a href="https://www.npmjs.com/package/redux-thunk" target="_blank" rel="external">redux-thunk</a></li>
+<li>结合状态管理和路由使用的是<code>react-router-redux</code>，但是这个包常用的有两个版本，一个是<a href="https://github.com/reactjs/react-router-redux" target="_blank" rel="external">4.x</a>，另一个是<a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux/modules" target="_blank" rel="external">5.x</a>，dva用的是后者，只监听<code>history</code>变化，前者还监听<code>store</code>的变化。</li>
 </ul>
-<h2 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h2><p>安装：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ npm install webpack-dev-server -g</div></pre></td></tr></table></figure></p>
-<p>启动：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack-dev-server --content-base ./</div></pre></td></tr></table></figure></p>
-<p>–content-base ./ 参数表示将当前目录作为 server 根目录。 命令启动过后，会在 8080 端口启动一个 http 服务，通过访问 <a href="http://localhost:8080/index.html" target="_blank" rel="external">http://localhost:8080/index.html</a> 可以访问 index.html 内容。<br>此时修改内容，刷新页面，页面内容的改变并没有呈现出来，因为webpack-dev-server的打包结果是放在内存中的，此时可以在webpack.config.js的output中加上publicPath，现在再刷新页面就可以看见效果了！</p>
-<h2 id="实时刷新"><a href="#实时刷新" class="headerlink" title="实时刷新"></a>实时刷新</h2><p>1、Iframe 模式</p>
-<p>修改访问的路径： <a href="http://localhost:8080/index.html" target="_blank" rel="external">http://localhost:8080/index.html</a> -&gt; <a href="http://localhost:8080/webpack-dev-server/index.html" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/index.html</a> 。这个时候每次修改代码，打包完成过后都会自动刷新页面。</p>
+<h2 id="app-start-selector"><a href="#app-start-selector" class="headerlink" title="app.start(selector?)"></a>app.start(selector?)</h2><p>核心点就是开始渲染<code>React</code>组件，如下：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getProvider</span>(<span class="params">store, app, router</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="params">extraProps</span> =&gt;</span> (</div><div class="line">        &lt;Provider store = &#123; store &#125; &gt;</div><div class="line">            &#123; router(&#123; app, history: app._history, ...extraProps &#125;) &#125;</div><div class="line">        &lt;/Provider&gt;</div><div class="line">    );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">container, store, app, router</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> ReactDOM = <span class="built_in">require</span>(<span class="string">'react-dom'</span>); <span class="comment">// eslint-disable-line</span></div><div class="line">    ReactDOM.render(React.createElement(getProvider(store, app, router)), container);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="app-router"><a href="#app-router" class="headerlink" title="app.router"></a>app.router</h2><p>它的参数是一个函数，函数的参数包括<code>dva</code>对象、<code>history</code>以及其他的属性，返回一个<code>React</code>元素。用法如下：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> _routers = <span class="function">(<span class="params">&#123;app,history&#125;</span>)=&gt;</span>&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        &lt;ConnectedRouter&gt;</div><div class="line">            &lt;Switch&gt;</div><div class="line">                &lt;Route path=&#123;path&#125; component=&#123;component&#125;&gt;</div><div class="line">            &lt;/Switch&gt;</div><div class="line">        &lt;/ConnectedRouter&gt;</div><div class="line">    )</div><div class="line">&#125;</div><div class="line">app.router(_routers)</div></pre></td></tr></table></figure></p>
+<p><code>app.start</code>中用到的<code>router</code>就是此处传入的函数。</p>
+<h2 id="app-use"><a href="#app-use" class="headerlink" title="app.use"></a>app.use</h2><p>在<code>dva</code>内部实现了一个<code>Plugin</code>对象，拥有类似于<code>set</code>&amp;<code>get</code>的方法，用于存放一些配置，具体配置如下：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> hooks = [</div><div class="line">    <span class="string">'onError'</span>,</div><div class="line">    <span class="string">'onStateChange'</span>,</div><div class="line">    <span class="string">'onAction'</span>,</div><div class="line">    <span class="string">'onHmr'</span>,</div><div class="line">    <span class="string">'onReducer'</span>,</div><div class="line">    <span class="string">'onEffect'</span>,</div><div class="line">    <span class="string">'extraReducers'</span>,</div><div class="line">    <span class="string">'extraEnhancers'</span>,</div><div class="line">];</div><div class="line">app.use(&#123;</div><div class="line">    onError,</div><div class="line">    onStateChange,</div><div class="line">    onAction,</div><div class="line">    onHmr,</div><div class="line">    onReducer,</div><div class="line">    onEffect,</div><div class="line">    extraReducers,</div><div class="line">    extraEnhancers,</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>配置这些参数的另外一个地方就是初始化时传入，<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> app = dva(&#123;</div><div class="line">    onError,</div><div class="line">    onStateChange,</div><div class="line">    onAction,</div><div class="line">    onHmr,</div><div class="line">    onReducer,</div><div class="line">    onEffect,</div><div class="line">    extraReducers,</div><div class="line">    extraEnhancers,</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <ul>
-<li>不需要额外配置，只用修改路径</li>
-<li>应用被嵌入了一个 iframe 内部，页面顶部可以展示打包进度信息</li>
-<li>因为 iframe 的关系，如果应用有多个页面，无法看到当前应用的 url 信息</li>
+<li><code>onError</code>主要用于处理<code>saga</code>抛出的错误</li>
+<li><code>onStateChange</code>监听<code>store</code>变化的回调函数</li>
+<li><code>onAction</code>处理<code>action</code>的中间件，写法参考<a href="https://github.com/gaearon/redux-thunk/blob/master/src/index.js" target="_blank" rel="external">redux-thunk</a>，处理的时机是在<code>saga</code>之后。</li>
+<li><code>onHmr</code>应该和热更新有关系，本鸟不是很清楚</li>
+<li><code>onReducer</code>在把<code>reducer</code>交给<code>createStore</code>之前预留一个处理的机会</li>
+<li><p><code>extraReducers</code>存放<code>model</code>以外的<code>reducer</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//reducerEnhancer就是onReducer</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createReducer</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> reducerEnhancer(combineReducers(&#123;</div><div class="line">        ...reducers,</div><div class="line">        ...extraReducers,</div><div class="line">        ...(app._store ? app._store.asyncReducers : &#123;&#125;),</div><div class="line">    &#125;));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>onEffect</code>可以给<code>saga</code>的触发添加钩子函数，写法参考<a href="https://github.com/dvajs/dva/blob/master/packages/dva-loading/src/index.js" target="_blank" rel="external">dva-loading</a></p>
+</li>
+<li><code>extraEnhancers</code> <code>redux</code>中<code>createStore</code>的第三个参数<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> enhancers = [</div><div class="line">    applyMiddleware(...middlewares),</div><div class="line">    devtools(),</div><div class="line">    ...extraEnhancers,</div><div class="line">];</div><div class="line">createStore(reducers, initialState, compose(...enhancers));</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>2、inline 模式</p>
-<p>启动 webpack-dev-server 的时候添加 –inline 参数</p>
-<ul>
-<li>需要添加 –inline 配置参数</li>
-<li>没有顶部信息提示条，提示信息在控制台中展现</li>
-</ul>
-<h2 id="热加载"><a href="#热加载" class="headerlink" title="热加载"></a>热加载</h2><p>webpack-dev-server 还提供了模块热加载的方式，在不刷新浏览器的条件下，应用最新的代码更新，启动 webpack-dev-server 的时候添加 –inline –hot 参数就可以体验。<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$ webpack-dev-server --inline --hot</div></pre></td></tr></table></figure></p>
-<p>也可以在webpack.config.js中配置<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">plugins: [</div><div class="line">    <span class="comment">// 需要手动添加 HotModuleReplacementPlugin , 命令行的方式会自动添加</span></div><div class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</div><div class="line">],</div><div class="line"><span class="attr">devServer</span>: &#123;</div><div class="line">    <span class="attr">hot</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">inline</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>还可以利用<code>express</code>在本地起一个服务，利用<code>webpack-dev-middleware</code>和<code>webpack-hot-middleware</code>配合使用，请看配置<a href="https://www.npmjs.com/package/webpack-hot-middleware" target="_blank" rel="external">详情</a>和<a href="http://www.tuicool.com/articles/22aQ7vu" target="_blank" rel="external">分析</a></p>
-<h2 id="webpack-dev-server选项"><a href="#webpack-dev-server选项" class="headerlink" title="webpack-dev-server选项"></a>webpack-dev-server选项</h2><ul>
-<li>contentBase：默认webpack-dev-server会为根文件夹提供本地服务器，如果想为另外一个目录下的文件提供本地服务器，应该在这里设置其所在目录</li>
-<li>port：设置默认监听端口，如果省略，默认为”8080“</li>
-<li>inline：设置为true，当源文件改变时会自动刷新页面</li>
-<li>colors：设置为true，使终端输出的文件为彩色的</li>
-<li>historyApiFallback：在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html</li>
-<li>hot：热更新</li>
-</ul>
-<h2 id="devtool选项"><a href="#devtool选项" class="headerlink" title="devtool选项"></a>devtool选项</h2><ul>
-<li>source-map：在一个单独的文件中产生一个完整且功能完全的文件。这个文件具有最好的source map，但是它会减慢打包文件的构建速度；</li>
-<li>cheap-module-source-map：在一个单独的文件中生成一个不带列映射的map，不带列映射提高项目构建速度，但是也使得浏览器开发者工具只能对应到具体的行，不能对应到具体的列（符号），会对调试造成不便；</li>
-<li>eval-source-map：使用eval打包源文件模块，在同一个文件中生成干净的完整的source map。这个选项可以在不影响构建速度的前提下生成完整的sourcemap，但是对打包后输出的JS文件的执行具有性能和安全的隐患。不过在开发阶段这是一个非常好的选项，但是在生产阶段一定不要用这个选项；</li>
-<li>cheap-module-eval-source-map：这是在打包文件时最快的生成source map的方法，生成的Source Map 会和打包后的JavaScript文件同行显示，没有列映射，和eval-source-map选项具有相似的缺点；</li>
-</ul>
+<h2 id="model"><a href="#model" class="headerlink" title="model"></a>model</h2><p>model是dva的核心，包括的属性有<code>namespace</code>、<code>state</code>、<code>reducers</code>、<code>effects</code>和<code>subscriptions</code>。</p>
+<h4 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h4><p>对于每一个<code>model</code>，<code>namespace</code>是必须定义的，否则会报错。一般情况下每一个路由都有一个独立的<code>model</code>来管理自己状态，那么不同的<code>model</code>就是用<code>namespace</code>来区分的。如何区分呢？<code>dva</code>初始化的时候会把<code>namespace</code>拼接在<code>reducers</code>、<code>effects</code>各自的属性之前，所以在组件中发送<code>action</code>触发<code>reducers</code>和<code>effects</code>，需要自己手动把<code>namespace</code>拼接在<code>type</code>上。</p>
+<h4 id="state"><a href="#state" class="headerlink" title="state"></a>state</h4><p><code>state</code>是自己<code>model</code>的<code>reducer</code>的默认值，如果在<code>dva</code>初始化中定义了<code>initialState</code>，并且存在和<code>namespace</code>相同的属性，那么<code>model</code>自身的<code>state</code>就会被覆盖。</p>
+<h4 id="reducers"><a href="#reducers" class="headerlink" title="reducers"></a>reducers</h4><p>所有<code>reducers</code>的参数都是<code>state</code>和<code>action</code>。</p>
+<h4 id="effects"><a href="#effects" class="headerlink" title="effects"></a>effects</h4><p>定义<code>saga</code>异步处理函数，在<code>effects</code>中触发自身的<code>reducers</code>不需要拼接<code>namespace</code>，<code>dva</code>自动帮你拼接了。</p>
+<h4 id="subscriptions"><a href="#subscriptions" class="headerlink" title="subscriptions"></a>subscriptions</h4><p>定义<code>model</code>的初始化函数，自动执行，在<code>subscriptions</code>中触发自身的<code>reducers</code>不需要拼接<code>namespace</code>，<code>dva</code>也是自动帮你拼接了。</p>
+<h4 id="app-model"><a href="#app-model" class="headerlink" title="app.model"></a>app.model</h4><p>用于增加<code>model</code></p>
+<h2 id="dynamic"><a href="#dynamic" class="headerlink" title="dynamic"></a>dynamic</h2><p>在创建路由的时候，可以使用它，<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;Route path=&#123;path&#125; component=&#123;dynamic(&#123;</div><div class="line">    app,</div><div class="line">    model,</div><div class="line">    component</div><div class="line">&#125;)&#125;/&gt;</div></pre></td></tr></table></figure></p>
+<p>它依赖于<a href="https://github.com/ctrlplusb/react-async-component" target="_blank" rel="external">react-async-component</a>，具有分片的能力，此处的<code>model</code>就是这个路由下独有的状态管理容器，在<code>dva</code>底层会使用<code>app.model</code>将其加入。</p>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p>感谢宫老师的指导和<a href="https://github.com/sorrycc" target="_blank" rel="external">sorrycc</a>的开源</p>
 
       
     </div>
@@ -428,7 +414,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/webpack/" rel="tag">#webpack</a>
+            <a href="/tags/dva/" rel="tag">#dva</a>
           
         </div>
       
@@ -437,17 +423,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/12/form-submit/" rel="next" title="表单提交问题">
-                <i class="fa fa-chevron-left"></i> 表单提交问题
+              <a href="/2017/05/31/GET和POST区别/" rel="next" title="GET和POST区别">
+                <i class="fa fa-chevron-left"></i> GET和POST区别
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/18/webpack-plugin/" rel="prev" title="webpack.plugin">
-                webpack.plugin <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -462,10 +444,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/17/webpack-learning/"
-     data-title="webpack.learning"
+        <div class="ds-share flat" data-thread-key="2017/09/24/dva源码解析/"
+     data-title="dva源码解析"
      data-content=""
-     data-url="http://yoursite.com/2016/10/17/webpack-learning/">
+     data-url="http://yoursite.com/2017/09/24/dva源码解析/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -492,8 +474,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/17/webpack-learning/"
-           data-title="webpack.learning" data-url="http://yoursite.com/2016/10/17/webpack-learning/">
+      <div class="ds-thread" data-thread-key="2017/09/24/dva源码解析/"
+           data-title="dva源码解析" data-url="http://yoursite.com/2017/09/24/dva源码解析/">
       </div>
     
   </div>
@@ -595,7 +577,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Node"><span class="nav-number">1.</span> <span class="nav-text">安装Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装webpack"><span class="nav-number">2.</span> <span class="nav-text">全局安装webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行例子"><span class="nav-number">3.</span> <span class="nav-text">运行例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成配置文件webpack-config-js"><span class="nav-number">4.</span> <span class="nav-text">生成配置文件webpack.config.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译React"><span class="nav-number">5.</span> <span class="nav-text">编译React</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#babel-polyfill"><span class="nav-number">6.</span> <span class="nav-text">babel-polyfill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack打包css"><span class="nav-number">7.</span> <span class="nav-text">webpack打包css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">8.</span> <span class="nav-text">webpack-dev-server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实时刷新"><span class="nav-number">9.</span> <span class="nav-text">实时刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#热加载"><span class="nav-number">10.</span> <span class="nav-text">热加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server选项"><span class="nav-number">11.</span> <span class="nav-text">webpack-dev-server选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#devtool选项"><span class="nav-number">12.</span> <span class="nav-text">devtool选项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dva依赖"><span class="nav-number">2.</span> <span class="nav-text">dva依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app-start-selector"><span class="nav-number">3.</span> <span class="nav-text">app.start(selector?)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app-router"><span class="nav-number">4.</span> <span class="nav-text">app.router</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app-use"><span class="nav-number">5.</span> <span class="nav-text">app.use</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model"><span class="nav-number">6.</span> <span class="nav-text">model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#namespace"><span class="nav-number">6.0.1.</span> <span class="nav-text">namespace</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#state"><span class="nav-number">6.0.2.</span> <span class="nav-text">state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reducers"><span class="nav-number">6.0.3.</span> <span class="nav-text">reducers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#effects"><span class="nav-number">6.0.4.</span> <span class="nav-text">effects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#subscriptions"><span class="nav-number">6.0.5.</span> <span class="nav-text">subscriptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#app-model"><span class="nav-number">6.0.6.</span> <span class="nav-text">app.model</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dynamic"><span class="nav-number">7.</span> <span class="nav-text">dynamic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thanks"><span class="nav-number">8.</span> <span class="nav-text">Thanks</span></a></li></ol></div>
             
           </div>
         </section>
